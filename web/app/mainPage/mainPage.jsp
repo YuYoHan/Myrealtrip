@@ -11,11 +11,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이리얼트립 :: 나다운 진짜 여행</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../app/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../css/global/common.css">
-    <link rel="stylesheet" href="../../css/pointContainer.css">
+    <link rel="stylesheet" href="../../css/event.css">
     <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/ticket.css">
+    <link rel="stylesheet" href="../../css/aboutTravel.css">
     <link rel="stylesheet" href="../../css/mainInfo.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -33,19 +33,19 @@
 <!-- main 시작 -->
 <main>
     <section class="mainHeader">
-        <%@ include file="../card/mainHeader.jsp" %>
+        <%@ include file="../mainPage/mainHeader.jsp" %>
     </section>
     <section class="mainBanner">
-        <%@ include file="../card/mainBanner.jsp" %>
+        <%@ include file="../mainPage/mainBanner.jsp" %>
     </section>
     <div class="content">
         <%@ include file="aboutTravel.jsp" %>
     </div>
     <div class="pointContainer">
-        <%@ include file="../card/pointContainer.jsp" %>
+        <%@ include file="../mainPage/event.jsp" %>
     </div>
     <section class="mainInfo">
-        <%@ include file="../card/mainInfo.jsp" %>
+        <%@ include file="../mainPage/mainInfo.jsp" %>
     </section>
 </main>
 

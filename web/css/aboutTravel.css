@@ -1,0 +1,202 @@
+@charset "UTF-8";
+@import url('global/share.css');
+/* best */
+.swiper-slide.best-container {
+    top: 5px;
+    height: 311px;
+    left: 10px;
+    margin-right: 20px;
+    transition: all 0.15s ease-out !important;
+}
+
+.swiper-slide.best-container:hover {
+    box-shadow: 0 2px 8px rgba(102, 109, 117, 0.32);
+    transform: translateY(-2px);
+}
+
+.best-container::after {
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(102, 109, 117, 0.32);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.best-swiper {
+    padding-bottom: 8px;
+    padding-top: 2px;
+}
+
+.best-swiper > .swiper-wrapper > .fixedWidth {
+    width: 250px !important;
+}
+
+.thumnail {
+    position: relative;
+}
+
+.cardThumnail {
+    width: 100%;
+    height: 166px;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.imgLoad {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.thumnailImg {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    transition: opacity .5s;
+}
+
+.cardThumnail .event {
+    border-radius: 4px;
+    bottom: 5px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 3px 5px 1px;
+    position: absolute;
+    right: 5px;
+}
+
+.lowestPrice {
+    background-color: var(--yellow-80);
+    color: var(--yellow-700);
+}
+
+.freeRefund {
+    background-color: var(--blue-80);
+    color: var(--blue-600);
+}
+
+.offerVerticalCard {
+    height: 145px;
+    background-color: var(--white);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 10px 16px 16px;
+    position: relative;
+}
+
+.cardCategory {
+    color: var(--gray-500);
+    font-size: 12px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.cardCategory_label {
+    line-height: normal;
+}
+
+.cardTitle {
+    font-size: 15px;
+    line-height: 1.47;
+    color: var(--gray-800);
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+}
+
+.cardTit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: inherit;
+}
+
+.offerInfo {
+    bottom: 16px;
+    left: 16px;
+    line-height: 1;
+    position: absolute;
+}
+
+.offerReview {
+    margin-bottom: 8px;
+}
+
+.review_container {
+    display: inline-block;
+    position: relative;
+}
+
+.starRating {
+    border: none;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: -5px;
+    vertical-align: middle;
+}
+
+.starRating_img {
+    height: 12px;
+    margin-right: 4px;
+    width: 12px;
+}
+
+.starRating_text {
+    color: var(--blue-500);
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.cardRating_review {
+    color: var(--gray-500);
+    font-size: 12px;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.offerPrice {
+    position: relative;
+}
+
+.offerPrice_original {
+    color: var(--gray-500);
+    font-size: 12px;
+    margin-right: 4px;
+    text-decoration: line-through;
+}
+
+.offerPrice_main {
+    color: var(--gray-600);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.offerPrice_won {
+    margin-left: -2px;
+    font-size: 13px;
+}
+
+.offer_standard {
+    color: var(--gray-500);
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.wishlist {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 1;
+}

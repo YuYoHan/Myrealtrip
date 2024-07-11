@@ -1,0 +1,104 @@
+@import url('global/share.css');
+
+.pointContainer {
+    position: relative;
+    width: 100%;
+}
+
+.pointContainer_img {
+    align-items: center;
+    background-color: var(--blue-50);
+    border: 1px solid var(--blue-80);
+    border-radius: 4px;
+    display: flex;
+    height: 120px;
+    margin-bottom: 56px;
+    padding: 0 32px;
+    width: 100%;
+}
+
+.pointContainer_wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 1060px;
+}
+
+.mainbanner-pointContainer_icon {
+    height: 48px;
+    margin-right: 20px;
+    width: 62px;
+}
+
+img {
+    border-width: 0;
+    vertical-align: middle;
+    border: 0;
+}
+
+.mainbanner-pointContainer_body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.mainbanner-pointContainer_title {
+    color: var(--gray-900);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    word-break: keep-all;
+}
+
+.mainbanner-pointContainer_title > strong {
+    color: var(--blue-500);
+}
+
+.mainbanner-pointContainer_description {
+    color: var(--gray-700);
+    display: flex;
+    font-size: 15px;
+}
+
+.mainbanner-pointContainer_button {
+    background-color: var(--blue-400);
+    border: 1px solid var(--blue-400);
+    color: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: center;
+    transition: box-shadow .1s ease-out, background-color .1s ease-out, color .1s ease-out, border-bottom .1s ease-out;
+}
+
+.mainbanner-pointContainer_button:hover {
+    border: 1px solid var(--blue-500);
+    background-color: var(--blue-500);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 767px) {
+    .pointContainer_wrapper {
+        padding: 0 16px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .mainbanner-pointContainer {
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        margin-bottom: 24px;
+        padding: 24px;
+        text-align: center;
+    }
+}
+
+
+
+
