@@ -45,10 +45,10 @@
 
                 <!-- 버튼을 만들려면 아래와 같이 클래스 명을 입력 -->
                 <button class="main-button-prev mainHeaderBtn">
-                    <img src="../../app/img/arrow_prev.svg" alt="arrow">
+                    <img src="../../img/mainPage/arrow_prev.svg" alt="arrow">
                 </button>
                 <button class="main-button-next mainHeaderBtn">
-                    <img src="../../app/img/arrow_next.svg" alt="arrow">
+                    <img src="../../img/mainPage/arrow_next.svg" alt="arrow">
                 </button>
 
             </div>
