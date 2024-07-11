@@ -1,0 +1,454 @@
+@charset "UTF-8";
+@import url('share.css');
+
+input:not([type="checkbox"]):not([type="radio"]), button, textarea, select {
+    appearance: none;
+}
+
+.footer_wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 1060px;
+}
+
+.footer-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--white);
+    border-top: 1px solid var(--gray-100);
+    padding-bottom: calc(env(safe-area-inset-bottom));
+}
+
+.footer-container, .footer_customerClass {
+    box-sizing: border-box;
+}
+
+.footer-container .footer {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 0 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-container .footer .footer_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.customerCenter_container {
+    color: var(--gray-600);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 32px;
+    position: relative;
+    text-align: left;
+    width: 50%;
+}
+
+.customerCenter_container .customerCenter_subject {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.33;
+    margin: 0;
+}
+
+.customerCenter_container .customerCenter_question {
+    color: var(--gray-500);
+    font-size: 14px;
+    letter-spacing: -.2px;
+    line-height: 1.5;
+    margin: 10px 0 0;
+    word-break: break-all;
+}
+
+.customerCenter_container .customerCenter_question .customerCenter_questionWord {
+    color: var(--gray-700);
+}
+
+.customerCenter_container .customerCenter_chat {
+    background-color: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    color: var(--gray-700);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 16px 0 0;
+    padding: 9px 8px;
+    transition: box-shadow .2s ease;
+    width: 110px;
+    cursor: pointer;
+}
+
+.customerCenter_chat:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.site_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.site_container .site_group {
+    text-align: left;
+    width: 33.3333%;
+}
+
+.site_container .site_group .site_group_title {
+    color: var(--gray-600);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.site_container .site_group .site_itemContainer {
+    margin: 10px 0 0;
+}
+
+.siteMenu_itemBox .siteMenu_web {
+    font-size: 14px;
+    line-height: 2.29;
+}
+
+.siteMenu_itemBox .siteMenu_web .siteMenuItem_itemLink {
+    left: -6px;
+    transition: color .2s ease;
+}
+
+.siteMenu_itemBox .siteMenuItem_itemLink {
+    color: var(--gray-600);
+    font-weight: 400;
+}
+
+.siteMenuItem_itemLink:hover {
+    color: var(--blue-500);
+    background-color: var(--blue-50);
+}
+
+.button_link .button_medium {
+    font-size: 14px;
+    padding: 6px;
+}
+
+.Link_medium {
+    padding-top: 12px;
+}
+
+.link {
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 1;
+}
+
+.button_link {
+    color: var(--blue-500);
+    line-height: 1;
+}
+
+.button_medium {
+    font-size: 14px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.button {
+    border: 0;
+    text-align: center;
+}
+
+.siteMenu_itemBox.siteMenu_web:last-child {
+    margin-bottom: 0;
+}
+
+.siteBelowTablet_container {
+    display: none;
+    width: 100%;
+}
+
+.siteBelowTablet_container .siteBelowTable_group {
+    border-top: 1px solid var(--blue-80);
+}
+
+.siteMenu_itemBox a, a:link {
+    text-decoration: none;
+}
+
+.siteMenuItem_itemLink {
+    position: relative;
+    border-radius: 4px;
+}
+
+.siteMenu_itemBox a {
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    background-color: transparent;
+}
+
+.site_itemContainer {
+    margin-top: 10px;
+}
+
+.site_group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+.siteMapMenuItem_itemBox {
+    display: flex;
+    height: 32px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.site_itemContainer, .site_group {
+    margin: 0;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td {
+    padding: 0;
+}
+
+.footerBottom {
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    border-top: 1px solid rgb(233, 236, 239);
+}
+
+.footerBottomBox_top {
+    display: flex;
+}
+
+.footer_policy {
+    display: flex;
+    width: 50%;
+}
+
+.footer_policy_item {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 44px;
+}
+
+.footer_policy_rule, .footer_policy_refund, .footer_policy_information {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(102, 109, 117);
+    border-radius: 4px;
+    transition: all 0.2s ease 0s;
+}
+
+.footer_policy_information {
+    font-weight: 700;
+}
+
+.footer_outLink {
+    display: flex;
+    width: 50%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+.snsList {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.snsList_item {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 44px;
+    margin: 0 10px;
+}
+
+.snsList_link, .appStoreList_link {
+    color: #999999;
+    text-decoration: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.snslist_linkIcon, .appstorelist_img {
+    display: inline-block;
+    border: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.outlink_line {
+    width: 1px;
+    height: 20px;
+    background-color: rgb(206, 212, 218);
+    margin: 0 10px;
+}
+
+.appStoreList {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.appStoreList_linkItem {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 44px;
+    margin: 0 10px;
+}
+
+.footer_language {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: 28px;
+}
+
+.language_container {
+    position: relative;
+}
+
+.language_btn {
+    margin: 0;
+    appearance: none;
+    outline: none;
+    background: none rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 118px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid rgb(206, 212, 218);
+    border-radius: 4px;
+}
+
+.language_img {
+    display: inline-block;
+    border: 0px;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+.select_label {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(132, 140, 148);
+}
+
+.footerBottomBox_bottom {
+    display: flex;
+}
+
+.copyRight {
+    margin-top: 16px;
+}
+
+.copyRight_text {
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    color: rgb(132, 140, 148);
+    line-height: 18px;
+}
+
+.copyRight_text a {
+    font-weight: 500;
+    color: rgb(102, 109, 117);
+    text-decoration: none;
+}
+
+.ISMS_container {
+    display: flex;
+    align-items: flex-end;
+    width: auto;
+    margin-left: auto;
+}
+
+.ISMS_button {
+    margin: 0px;
+    padding: 0px;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.ISMS_img {
+    border: 0 none;
+    vertical-align: middle;
+    width: 56px;
+}
+
+@media (max-width: 767px) {
+    .footer-container .footer_Footer {
+        padding: 32px 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-container .footer_Footer .footer_container1 {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 991px) {
+    .CustomerCenter_container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .CustomerCenter_container .CustomerCenter_hide {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .CustomerCenter_container .CustomerCenter_question .CustomerCenter_questionLine:after {
+        content: ", ";
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 991px) {
+    .siteMapAboveTablet_container {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .siteMapBelowTablet_container {
+        display: block;
+    }
+}
+
+
+
+
