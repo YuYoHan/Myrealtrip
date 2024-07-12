@@ -13,10 +13,10 @@
     <title>마이리얼트립 :: 나다운 진짜 여행 조영흔 조영흔 조영흔 </title>
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../css/global/common.css">
-    <link rel="stylesheet" href="../../css/event.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/aboutTravel.css">
-    <link rel="stylesheet" href="../../css/mainInfo.css">
+    <link rel="stylesheet" href="../../css/mainPage/event.css">
+    <link rel="stylesheet" href="../../css/mainPage/index.css">
+    <link rel="stylesheet" href="../../css/mainPage/aboutTravel.css">
+    <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>

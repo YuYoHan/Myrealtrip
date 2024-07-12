@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url('global/share.css');
+@import url('../global/share.css');
 
 .mainInfo {
     margin-bottom: 120px;
