@@ -21,5 +21,5 @@ const unReadyInput = () => {
     searchInput.classList.remove('focusInput');
     searchContainer.classList.remove('focusContainer');
     searchInput.classList.add('searchInput');
-    searchInput.setAttribute("placeholder", "도시나 상품을 검색해보세요");
+    searchInput.setAttribute("placeholder", "상품을 검색해보세요");
 }

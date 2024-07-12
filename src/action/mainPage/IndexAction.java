@@ -17,7 +17,9 @@ public class IndexAction implements Action {
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
         List<TravelCardDTO> cardList = MainDAO.cardList();
+        System.out.println(cardList);
         List<MainBannerDTO> bannerList = MainDAO.bannerList();
+        System.out.println(bannerList);
 
         req.setAttribute("cardList", cardList);
         req.setAttribute("bannerList", bannerList);
@@ -26,7 +28,7 @@ public class IndexAction implements Action {
         // 클라이언트로부터 받은 HttpServletRequest 객체 req를 사용하여 세션을 생성
         HttpSession session = req.getSession();
 
-        if(req.getParameter("loginUser") != null) {
+        if (req.getParameter("loginUser") != null) {
             loginUser.put("userEmail", req.getParameter("loginUser"));
             loginUser.put("userName", req.getParameter("userName"));
             // loginUser HashMap을 세션의 "loginUser" 속성에 저장합니다.
@@ -35,8 +37,12 @@ public class IndexAction implements Action {
         }
 
         ActionTo acto = new ActionTo();
+
         acto.setRedirect(false);
-        acto.setPath("../web/app/card/mainPage.jsp");
+
+        acto.setPath("/app/mainPage/mainPage.jsp");
+
+        System.out.println("execute 메서드에서 반환하기 전에 acto path" + acto.getPath());
         return acto;
     }
 }

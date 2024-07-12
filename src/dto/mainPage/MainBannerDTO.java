@@ -23,4 +23,13 @@ public class MainBannerDTO {
     public void setBannerImage(String bannerImage) {
         this.bannerImage = bannerImage;
     }
+
+    @Override
+    public String toString() {
+        return "MainBannerDTO{" +
+                "bannerId=" + bannerId +
+                ", bannerURL='" + bannerURL + '\'' +
+                ", bannerImage='" + bannerImage + '\'' +
+                '}';
+    }
 }

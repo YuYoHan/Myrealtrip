@@ -41,15 +41,13 @@ values ('뉴욕', '뉴욕', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/47
 insert into travelCard (title, contents, travel_image)
 values ('피렌체', '피렌체', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/476_large_square_1448513381.jpg?1448513381');
 insert into travelCard (title, contents, travel_image)
-values ('라스베가스', '라스베가스',
-        'https://d2ur7st6jjikze.cloudfront.net/landscapes/4654_large_square_1535621335.jpg?1535621335');
+values ('라스베가스', '라스베가스','https://d2ur7st6jjikze.cloudfront.net/landscapes/4654_large_square_1535621335.jpg?1535621335');
 insert into travelCard (title, contents, travel_image)
 values ('파리', '파리', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/4747_large_square_1536047752.jpg?1536047752');
 insert into travelCard (title, contents, travel_image)
 values ('런던', '런던', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/4750_large_square_1536049651.jpg?1536049651');
 insert into travelCard (title, contents, travel_image)
-values ('바르셀로나', '바르셀로나',
-        'https://d2ur7st6jjikze.cloudfront.net/landscapes/4672_large_square_1535678422.jpg?1535678422');
+values ('바르셀로나', '바르셀로나','https://d2ur7st6jjikze.cloudfront.net/landscapes/4672_large_square_1535678422.jpg?1535678422');
 insert into travelCard (title, contents, travel_image)
 values ('로마', '로마', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/4751_large_square_1536050273.jpg?1536050273');
 insert into travelCard (title, contents, travel_image)
@@ -60,6 +58,9 @@ insert into travelCard (title, contents, travel_image)
 values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/210_large_square_1405351805.jpg?1405351805');
 insert into travelCard (title, contents, travel_image)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918');
+select * from travelCard;
+
+
 
 # mainBanner
 # 수정하셔도 괜찮습니다.
@@ -79,6 +80,7 @@ insert into mainBanner (bannerURL, bannerImage) values('https://www.myrealtrip.c
 insert into mainBanner (bannerURL, bannerImage) values('https://www.myrealtrip.com/promotions/overseastravel','https://d2ur7st6jjikze.cloudfront.net/cms/1684_original_1652022421.png?1652022421');
 insert into mainBanner (bannerURL, bannerImage) values('https://www.myrealtrip.com/promotions/myrealhocance_ep130','https://d2ur7st6jjikze.cloudfront.net/cms/1424_original_1653962625.png?1653962625');
 insert into mainBanner (bannerURL, bannerImage) values('https://www.myrealtrip.com/promotions/myrealhocance_zip','https://d2ur7st6jjikze.cloudfront.net/cms/1117_original_1653354747.png?1653354747');
+select * from mainBanner;
 
 
 # 문의하기

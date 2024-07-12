@@ -21,24 +21,32 @@ public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String requestURI = req.getRequestURI();    // /myrealtrip/index.jsp
+        System.out.println("requestURI 체크 : " + requestURI);
         String contextPath = req.getContextPath(); // /myrealtrip
-        String command = requestURI.substring(contextPath.length());
-        ActionTo acto = null;
+        System.out.println("path 체크 : " + contextPath);
+        String command = requestURI.substring(contextPath.length()).trim();
+        System.out.println("command 체크 : " + command);
+        ActionTo acto = new ActionTo();
 
-        if (command.equals("/index.jsp")) {
+
+      //  if (command.equals("/")) {
             try {
                 acto = new IndexAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("첫 페이지  : " + e);
             }
-        }
+        //}
+        System.out.println("유요한");
+        System.out.println("acto : " + acto);
 
-        if (acto != null) {
-            if (acto.isRedirect()) {
-                resp.sendRedirect(acto.getPath());
-            } else {
+        if (acto.getPath() != null) {
+            if (!(acto.isRedirect())) {
                 RequestDispatcher disp = req.getRequestDispatcher(acto.getPath());
+                System.out.println(disp.toString());
                 disp.forward(req, resp);
+            } else {
+                // isRedirect = true면 호출
+                resp.sendRedirect(acto.getPath());
             }
         }
     }

@@ -1,17 +1,17 @@
 package dto.mainPage;
 
 public class TravelCardDTO {
+    private int id;
     private String title;
     private String contents;
     private String travelImage;
 
-    public TravelCardDTO() {
+    public int getId() {
+        return id;
     }
 
-    public TravelCardDTO(String title, String contents, String travelImage) {
-        this.title = title;
-        this.contents = contents;
-        this.travelImage = travelImage;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -41,7 +41,8 @@ public class TravelCardDTO {
     @Override
     public String toString() {
         return "TravelCardDTO{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", travelImage='" + travelImage + '\'' +
                 '}';

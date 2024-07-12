@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <div class="pointContainer_wrapper">
     <a href="#" class="pointContainer_img">
-        <img class="mainbanner-pointContainer_icon" src="../../img/mainPage/addFriend.svg">
+        <img class="mainbanner-pointContainer_icon" src="<c:url value="/img/mainPage/addFriend.svg"/>">
         <div class="mainbanner-pointContainer_body">
             <p class="mainbanner-pointContainer_title">
                 <span>카카오 친구를 하시면 </span>

@@ -7,14 +7,14 @@
     <div class="headerGnb">
         <nav class="globalNavBar">
             <div class="logo">
-                <a href="<c:url value="../../index.jsp"/>"><img src="../../img/global/logo.png" alt="logo"></a>
+                <a href="<c:url value="../../index.jsp"/>"><img src="<c:url value="/img/global/logo.png"/>" alt="logo"></a>
             </div>
             <div class="searchBar">
                 <div id="searchContainer" class="searchContainer">
                     <div class="searchImg">
-                        <img src="../../img/global/search.svg" alt="search">
+                        <img src="<c:url value="/img/global/search.svg"/>" alt="search">
                     </div>
-                    <input id="searchInput" class="searchInput" type="text" placeholder="도시나 상품을 검색해보세요">
+                    <input id="searchInput" class="searchInput" type="text" placeholder="상품을 검색해보세요">
                 </div>
             </div>
             <!-- 로그인 정보 있을 경우  -->
