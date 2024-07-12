@@ -1,0 +1,167 @@
+@charset "UTF-8";
+@media (max-width: 767px) {
+    .EmailSignIn_container {
+        border: 0;
+        margin: 0;
+        padding: 28px 16px;
+        width: 100%;
+    }
+}
+
+.EmailSignIn_container {
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    margin: 64px auto;
+    padding: 48px;
+    width: 430px;
+}
+
+.SignInForm_container {
+    margin-bottom: 8px;
+}
+
+.SignInForm_row {
+    margin-bottom: 16px;
+}
+
+.EmailText_label {
+    width: 100%;
+}
+
+.EmailText_input.EmailText_medium {
+    font-size: 14px;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.EmailText_input.disabled {
+    box-shadow: inset 0 0 0 2px #ff8000;
+}
+
+.EmailText_input.disabled:focus {
+    box-shadow: inset 0 0 0 2px #ff8000;
+}
+
+.EmailTextField_success > .EmailText_input.gr {
+    box-shadow: inset 0 0 0 2px #33b893;
+}
+
+.EmailText_input:focus {
+    box-shadow: inset 0 0 0 2px #2b96ed;
+}
+
+.emailCheck, .pwCheck {
+    color: #ff8000;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.emailCheck.hidden {
+    display: none;
+}
+
+.pwCheck.hidden {
+    display: none;
+}
+
+.EmailText_input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #ced4da;
+    color: #343a40;
+    font-weight: 500;
+    transition: box-shadow .2s ease;
+    width: 100%;
+}
+
+.UserKeepSession_container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Checkbox_medium.Checkbox_label {
+    font-size: 14px;
+}
+
+.Checkbox-module_input--YII_S, .Checkbox_label {
+    vertical-align: bottom;
+}
+
+.Checkbox_label {
+    color: #343a40;
+    font-weight: 400;
+}
+
+.Button_primary[disabled] {
+    background-color: #cbe7fd;
+    border: 1px solid #cbe7fd;
+}
+
+.Button_button[disabled] {
+    cursor: not-allowed;
+}
+
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+
+.Button_block {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    width: 100%;
+}
+
+.Button_primary {
+    background-color: #51abf3;
+    border: 1px solid #51abf3;
+    color: #fff;
+}
+
+.Button_large {
+    font-size: 16px;
+    height: 48px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.Button_button {
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    transition: box-shadow .1s ease-out, background-color .1s ease-out, color .1s ease-out, border-bottom .1s ease-out;
+}
+
+.SignInJoinLink_container {
+    text-align: center;
+    width: 100%;
+}
+
+.SignJoinLink_description {
+    color: #666d75;
+    font-size: 12px;
+}
+
+.SignInJoinLink_container > .SignInJoinLink_link {
+    color: #666d75;
+    font-size: 12px;
+    margin-left: 4px;
+    text-decoration: underline;
+}
+
+
+
+
+

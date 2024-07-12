@@ -1,18 +1,24 @@
 // 요소에 마우스를 올리면 첫번째 이미지는 hidden이 되고, 마우스가 벗어나면 두번째 이미지가 hidden이 되어야 한다.
 const iconImgWrap = document.getElementsByClassName("icon-wrapper");
 
+// 아이콘 래퍼 순회
 for (const icon of iconImgWrap) {
+    // 클릭시 logged 함수 출력
     icon.onclick = function (e) {
-        //console.log(e.currentTarget.children[2].value);
+        // e.currentTarget은 이벤트가 발생한 요소(icon)를 가리킵니다.
+        // children[2]는 icon 요소의 세 번째 자식 요소를 가리키며, 그 요소의 value 속성 값을 가져옵니다.
         logged(e.currentTarget.children[2].value);
     };
+    // 첫 번째 자식 요소(기본 아이콘 이미지)를, icon.children[1]는 두 번째 자식 요소(호버 시 표시될 아이콘 이미지)를 참조
     const iconImg = icon.children[0];
     const iconImgHover = icon.children[1];
     iconImgHover.classList.add("hidden");
+    // mouseenter 이벤트가 발생하면(마우스가 icon 요소 위로 올라가면), 기본 아이콘 이미지를 숨기고 호버 이미지를 표시
     icon.addEventListener("mouseenter", () => {
         iconImg.classList.add("hidden");
         iconImgHover.classList.remove("hidden");
     });
+    // mouseleave 이벤트가 발생하면(마우스가 icon 요소에서 벗어나면), 호버 이미지를 숨기고 기본 아이콘 이미지를 다시 표시
     icon.addEventListener("mouseleave", () => {
         iconImgHover.classList.add("hidden");
         iconImg.classList.remove("hidden");
@@ -80,7 +86,6 @@ function kakaoLogin() {
     })
 }
 
-//console.log(sessionStorage.getItem("loginUser"));
 //카카오 로그아웃
 function kakaoLogout() {
     if (Kakao.Auth.getAccessToken()) {
@@ -143,43 +148,3 @@ function fcebookLogin() {
         }
     }, {scope: 'public_profile, email'});
 }
-
-
-// window.Kakao.init('edfb9bf86c6edc300b3431b379972fda'); // javascript 앱키 적는 곳
-//
-// function kakaoLogin() {
-//     window.Kakao.Auth.login({
-//         scope: 'profile_nickname, profile_image, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-//         success: function(response) {
-//             console.log(response) // 로그인 성공하면 받아오는 데이터
-//             window.Kakao.API.request({ // 사용자 정보 가져오기
-//                 url: '/v2/user/me',
-//                 success: (res) => {
-//                     const kakao_account = res.kakao_account;
-//                     console.log(kakao_account)
-//                 }
-//             });
-//             // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
-//         },
-//         fail: function(error) {
-//             console.log(error);
-//         }
-//     });
-// }
-//
-// //console.log(sessionStorage.getItem("loginUser"));
-// //카카오 로그아웃
-// function kakaoLogout() {
-//     if (Kakao.Auth.getAccessToken()) {
-//         Kakao.API.request({
-//             url: '/v1/user/unlink',
-//             success: function (response) {
-//                 console.log(response)
-//             },
-//             fail: function (error) {
-//                 console.log(error)
-//             },
-//         })
-//         Kakao.Auth.setAccessToken(undefined)
-//     }
-// }
