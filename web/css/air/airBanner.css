@@ -1,0 +1,388 @@
+@charset "UTF-8";
+.recent_slide.promo {
+    margin-bottom: 56px;
+    top: 230px;
+}
+
+.recent_slide {
+    position: relative;
+    width: 1200px;
+    margin: 48px auto;
+}
+
+.swiper-container {
+    top: 5px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    height: 128px;
+}
+
+.swiper-wrapper {
+    width: 1060px;
+    margin: -20px -20px 0 0;
+}
+
+.sub_image_container {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.subbannerImage {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.swiper-wrapper {
+    width: 500px;
+    height: 200px;
+}
+
+.swiper-container .swiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000;
+}
+
+.recent_slide a {
+    width: 100%;
+    display: block;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    text-align: left;
+    border-radius: 2px;
+}
+
+.recent_slide.promo a {
+    height: 128px;
+    padding: 0;
+    borer: none;
+}
+
+.mainBannerItem {
+    background-size: cover;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
+    height: 128px;
+}
+
+.recent_slide .swiper-slide {
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+.swiper-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.swiper-slide {
+    float: left;
+}
+
+.mainbanner-button-prev {
+    position: relative;
+    right: -38px;
+    top: -5em;
+    width: 20px;
+    height: 43px;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_swip_prev.png) no-repeat left;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+.mainbanner-button-next {
+    margin-top: -21.5px;
+    right: -38px;
+    top: 50%;
+    width: 20px;
+    height: 43px;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_swip_next.png) no-repeat left;
+    background-size: 20px;
+}
+
+.moainbanner-pagination {
+    position: absolute;
+    margin: 0 auto;
+    line-height: 8px;
+    left: 50%;
+    right: auto;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    bottom: -18px;
+    width: auto;
+    padding: 7px 12px;
+    background-color: #fff;
+    border-radius: 10.5px;
+    text-align: center;
+    z-index: 10;
+    transform: translate(-50%, 0);
+}
+
+.swiper-bullet:first-child {
+    margin-left: 0;
+}
+
+.swiper-bullet {
+    margin-left: 6px;
+    background-color: #666d75;
+}
+
+.recent_slide.promo .subbannerImage {
+    background-size: cover;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
+    height: 128px;
+}
+
+.subbannerImg {
+    width: 520px;
+    height: 128px;
+}
+
+.subBannerItem img {
+    width: 520px;
+    height: 128px;
+}
+
+.swiper-pagination-bullet {
+    margin-left: 6px;
+    background-color: #666d75;
+}
+
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000;
+    opacity: .2;
+}
+
+.mainBanner_row {
+    margin: 0 auto;
+    position: relative;
+    width: 1060px;
+    height: 148px;
+}
+
+.swiper-container, .swiper, .best-swiper {
+    width: 100%;
+    height: 148px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    opacity: .99;
+    padding-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 3240px;
+    transform: translate3d(0px, 0px, 0px);
+    transition-duration: 0ms;
+}
+
+.swiper-slide {
+    height: 100%;
+    width: auto;
+    transform: scale(1);
+    transition-duration: 2.5s;
+    transition-timing-function: ease-out;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.1);
+}
+
+.swiper .mainBannerBtn {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mainbanner-button-prev {
+    left: -38px;
+    top: 50%;
+    margin-top: -4px;
+    width: 20px;
+    height: 43px;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_swip_prev.png) no-repeat left;
+
+}
+
+.main-button-next {
+    right: 1px;
+}
+
+
+.swiper-wrapper {
+    width: 520px;
+    height: 128px;
+}
+
+.image_container {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.bannerImage {
+    width: 100%;
+    height: 128px;
+    border-radius: 4px;
+}
+
+.mianBanner_wrapper {
+    overflow: visible;
+}
+
+.mainbanner-pagination span {
+    background-color: var(--gray-600);
+    border-radius: 100%;
+    display: inline-block;
+    height: 8px;
+    margin: 0px 3px !important;
+    opacity: .1;
+    width: 8px;
+}
+
+.mainbanner-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.mainBanner_container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    width: 1060px;
+    height: 128px;
+}
+
+.recent_slide.promo .mainbanner-pagination {
+    position: absolute;
+    margin: 0 auto;
+    line-height: 8px;
+    left: 50%;
+    right: auto;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    bottom: 32px;
+    width: auto;
+    padding: 7px 12px;
+    background-color: #fff;
+    border-radius: 10.5px;
+    text-align: center;
+    z-index: 10;
+    transform: translate(-50%, 0);
+}
+
+
+/* index.css 에서 가져온거 위에도 더 있긴함.. */
+.main-button-prev,
+.main-button-next {
+    background-color: var(--white);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 5%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 4px 12px 0 rgb(0 0 0 / 5%);
+    height: 40px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .2s;
+    width: 40px;
+    z-index: 10;
+}
+
+.mainbanner-button-prev.mainBannerBtn,
+.mainbanner-button-next.mainBannerBtn {
+    height: 43px;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .2s ease;
+    width: 28px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.mainbanner-button-prev.mainBannerBtn {
+    left: 16px;
+}
+
+.mainbanner-button-next.mainBannerBtn {
+    right: 32px;
+}
+
+.main-button-prev {
+    left: 1px;
+}
+
+.main-button-next {
+    right: 1px;
+}
+
+.main-button-prev:hover, .main-button-next:hover {
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 8px 12px 0 rgb(0 0 0 / 20%);
+}
+
+
+
+
+
+

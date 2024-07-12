@@ -1,0 +1,829 @@
+@charset "UTF-8";
+@import url("../global/share.css");
+
+body {
+    width: 100%;
+}
+
+#k1_content {
+    height: 160vh;
+    background: #f5f6f7;
+}
+
+.con_section {
+    width: 1064px;
+    margin: 0 auto;
+    padding: 24px 0 48px 0;
+}
+
+.search_result_container {
+    float: right;
+    width: 840px;
+}
+
+.srch_result_bar {
+    height: 56px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 15%);
+}
+
+.label_blue {
+    float: left;
+    border: 1px solid #2b96ed;
+    color: #2b96ed;
+    display: inline-block;
+    min-width: 44px;
+    height: 24px;
+    padding: 0 5px;
+    line-height: 24px;
+    font-size: 12px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mrt_select_way {
+    float: left;
+    overflow: hidden;
+    margin: 0 16px 0 10px;
+}
+
+.city_to {
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.ico_itinerary {
+    float: left;
+    margin: 4px 8px 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_fromto_line.png") no-repeat right center;
+    font-size: 0;
+    text-indent: -9999px;
+    background-size: 76px;
+}
+
+.mrt_date {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    font-weight: normal;
+    min-width: 97px;
+    font-size: 14px;
+    color: #343a40;
+}
+
+.flight_list {
+    list-style: none;
+    padding: 0;
+}
+
+.flight_items {
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 15%);
+    display: block;
+    padding: 20px 24px;
+    -webkit-transition: box-shadow ease-in-out 0.25s;
+    transition: box-shadow ease-in-out 0.25s;
+    color: #343a40;
+}
+
+.flight_items:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.flight_items:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    color: var(--gray-700);
+}
+
+.airline_ico {
+    float: left;
+    font-size: 13px;
+    margin-right: 12px;
+}
+
+.airline_ico img {
+    width: 32px;
+    height: 32px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.airline_name {
+    float: left;
+    display: inline-block;
+    height: 40px;
+    margin: 0 16px 0 0;
+    min-width: 94px;
+    text-align: left;
+    line-height: 16px;
+}
+
+.airline_name em {
+    font-style: normal;
+    min-width: 89px;
+    display: block;
+    margin-top: 1px;
+    font-size: 13px;
+}
+
+.airline_num {
+    margin-top: 6px;
+    line-height: 15px;
+}
+
+.airline_time {
+    float: left;
+    padding: 3px;
+    margin-right: 40px;
+    font-size: 13px;
+    color: #343a40;
+}
+
+.airline_time .time {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 16px;
+    line-height: 18px;
+}
+
+.dep_time {
+    text-align: right;
+}
+
+.dep_time, .arr_time {
+    width: 47px;
+}
+
+.airline_time .time em {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #666d75;
+    font-weight: normal;
+    text-align: right;
+    line-height: 16px;
+    letter-spacing: 0;
+}
+
+.from_to {
+    display: block;
+    background: none;
+    text-indent: 0px;
+    width: auto;
+    height: 18px;
+    margin: 0;
+    line-height: 18px;
+    margin-right: 16px;
+}
+
+.fromTo_ico {
+    float: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #343a40;
+    display: inline-block;
+    width: 76px;
+    height: 8px;
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_fromto_line.png") no-repeat center;
+    font-size: 0px;
+    background-size: 76px;
+}
+
+.from_to_time.time {
+    display: block;
+    margin-top: 2px;
+    margin-right: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #848c94;
+    font-weight: normal;
+    line-height: 16px;
+    font-style: normal;
+}
+
+.airline_time span {
+    float: left;
+}
+
+.mrt_tootip_wrap {
+    display: none !important;
+    position: static;
+}
+
+.mrt_tootip_wrap .txt_wrap {
+    top: 28px;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    bottom: auto;
+}
+
+.arr_time {
+    margin-right: 0;
+}
+
+.airline_time:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.airline_time .time em {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #666d75;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    line-height: 16px;
+    letter-spacing: 0;
+}
+
+.seat_class {
+    float: left;
+    display: inline-block;
+    min-width: 87px;
+    text-align: left;
+    margin-right: 16px;
+    line-height: 40px;
+    font-size: 13px;
+    color: #343a40;
+}
+
+.seat_num {
+    float: left;
+    margin-right: 24px;
+    line-height: 40px;
+    font-size: 13px;
+    color: #343a40;
+}
+
+.airline_price {
+    float: left;
+    line-height: 40px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 110px;
+    margin-right: 16px;
+    font-size: 20px !important;
+    text-align: right;
+}
+
+.airline_btn {
+    float: right;
+    border: 0;
+    background-color: #51abf3;
+    color: #fff !important;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    min-width: 64px !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    transition: all .08s ease-out;
+    cursor: pointer;
+}
+
+.mrt_slide_wrap {
+    position: relative;
+    padding-right: 24px;
+}
+
+.mrt_slide_wrap .bar {
+    display: block;
+    height: 4px;
+    background-color: #ced4da;
+    border-radius: 2px !important;
+    border: none;
+}
+
+.mrt_slide_wrap .bar_active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0%;
+    display: block;
+    height: 4px;
+    background-color: #51abf3;
+    border-radius: 2px;
+}
+
+.mrt_slide_wrap .dot {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    z-index: 99 !important;
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 100%;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+/* 검색창  */
+.k1_left_type2 {
+    background-color: #51abf3;
+    height: 90px;
+    z-index: 70;
+}
+
+.k1_left_type2 .list_search_wrap {
+    position: relative;
+    width: 1064px;
+    margin: 0 auto;
+}
+
+.k1_left_type2 .k1_h_tit2 {
+    width: 1064px;
+    padding-top: 2px;
+    margin: 0 auto;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 13px;
+}
+
+.city_selector, .date_selector, .seat_wrap {
+    border: none !important;
+}
+
+.city_selector {
+    float: left;
+    width: 422px;
+    height: 40px;
+    line-height: 48px;
+    background-color: #f1f3f5;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.search_area .search_are input[type=text].input_text {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 48px;
+    transition: none;
+}
+
+.city_selector input[type="text"] {
+    float: left;
+    padding: 0;
+    padding-left: 14px;
+    width: 195px;
+    line-height: 48px;
+    box-sizing: border-box;
+    border: none;
+    color: #343a40;
+}
+
+.section_multi input[type="text"] {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input[type=text].input_text {
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 2px;
+    color: #343a40;
+    transition: all .08s ease-out;
+}
+
+.city_selector .btn_swapper {
+    float: left;
+    border: 0;
+    margin-top: 5px;
+}
+
+.btn_swapper {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_swapper_lg.png) no-repeat center #f1f3f5;
+    background-size: 24px !important;
+    border-radius: 2px;
+    font-size: 0;
+}
+
+.date_selector {
+    float: left;
+    width: 290px !important;
+    height: 40px;
+    margin-right: 4px;
+    margin-left: 4px !important;
+    padding-left: 44px !important;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_datepicker.png) no-repeat 12px center #fff;
+    background-size: 24px;
+    border: none !important;
+}
+
+.input_text {
+    height: 14px;
+    padding: 2px 2px 1px;
+    border: 1px solid #cfcfcf;
+    color: #777;
+    font-size: 11px;
+    line-height: 14px;
+}
+
+.date_selector input[type="text"] {
+    float: left;
+    width: 250px;
+    height: 40px;
+    line-height: 48px;
+    padding: 0;
+    border: none;
+}
+
+.date_selector .hyphen {
+    float: left;
+    display: inline-block;
+    margin: 0 6px;
+    text-align: center;
+    line-height: 48px;
+}
+
+.seat_wrap {
+    float: left;
+    margin-left: 4px;
+    width: 270px;
+    height: 48px;
+    transition: all .2s ease;
+}
+
+.seat_wrap a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_arrow_lg.png) no-repeat right 10px center #fff;
+    background-size: 24px;
+    font-weight: bold;
+}
+
+.seat_wrap a .txt {
+    display: inline-block;
+    padding-left: 44px;
+    font-size: 16px;
+    color: #343a40;
+    background: url(https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_person.png) no-repeat 12px center;
+    background-size: 24px;
+}
+
+.itinerary select {
+    width: 150px;
+}
+
+.select_border {
+    height: 19px;
+    border: 1px solid #cfcfcf;
+    color: #777;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+#div_search1_trip1 {
+    border: 0;
+    width: 1200px;
+}
+
+.btn_price_search {
+    position: relative;
+    top: 10px;
+    left: 5px;
+    height: 29px;
+    font-size: 16px;
+    padding: 10px 30px;
+    line-height: 23px;
+    color: #2b96ed !important;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #cbe7fd;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
+}
+
+.Nop_wrap {
+    position: absolute;
+    top: 78px;
+    left: 796px;
+    width: 296px;
+    height: 230px;
+    padding: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: none;
+    z-index: 99;
+}
+
+.Nop_wrap.hidden {
+    display: none;
+}
+
+.Nop_header {
+    height: auto;
+    line-height: normal;
+    border-bottom: none;
+    padding: 0;
+}
+
+.Nop_container {
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.Nop_header > h1, .Nop_items {
+    line-height: 20px;
+    color: #343a40;
+    padding: 20px 24px 24px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.Nop_item {
+    width: 250px;
+    height: 34px;
+}
+
+.Nop_item > dt {
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.Nop_item > dt > span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #adb5bd;
+    font-weight: normal;
+    line-height: 14px;
+}
+
+.count-box {
+    float: right;
+}
+
+.Nop_btn_minus, .Nop_btn_plus {
+    float: left;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    transition: none !important;
+    cursor: pointer;
+}
+
+.Nop_btn_minus {
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_delete_blue.png") no-repeat center;
+    background-size: 16px;
+}
+
+.Nop_btn_plus {
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_add_on.png") no-repeat center;
+    background-size: 16px;
+}
+
+.Nop_item .num {
+    float: left;
+    width: 36px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* 항공권 선택 시  */
+.dep {
+    display: block;
+    padding: 16px 100px;
+    width: 100%;
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.dep_item {
+    padding: 15px 50px;
+    height: 70px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 15%);
+    border-radius: 2px;
+    text-align: center;
+}
+
+
+/* 사이드바 css */
+.mrt_con_left {
+    float: left;
+    width: 180px;
+    margin-right: 40px;
+}
+
+.mrt_condi_box {
+
+}
+
+.filter-group {
+    border: 0 none;
+    vertical-align: middle;
+}
+
+.aircdCheckboxes {
+
+}
+
+.mrt_list_wrap {
+    padding: 8px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+.k1_h_tit2 {
+    margin-bottom: 0;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    border-radius: 2px;
+    -webkit-transition: background-color ease-in-out 0.1s;
+    transition: background-color ease-in-out 0.1s;
+    background: none;
+    font-size: 14px;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.k1_h_tit2 a {
+    display: block;
+    color: #343a40 !important;
+}
+
+.mrt_condi_box .k1_h_tit2 a.active:before {
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_arrow_lg.png") no-repeat right center;
+    transform: rotate(180deg);
+    float: right;
+    display: inline-block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-right: -3px;
+    background-size: 20px
+}
+
+.mrt_list {
+    margin-top: 12px !important;
+}
+
+.mrt_select_all {
+    font-size: 13px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.mrt_select_all li {
+    font-size: 13px;
+    margin-top: 0 !important;
+    float: left;
+}
+
+.mrt_select_all li:first-child:after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    margin: 0 8px;
+    vertical-align: middle;
+    background-color: #adb5bd;
+    visibility: inherit;
+}
+
+.mrt_select_all li button {
+    border: none;
+    background-color: transparent;
+    color: #ced4da;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.mrt_select_all li button.active {
+    color: #2b96ed;
+    cursor: pointer !important;
+}
+
+.mrt_condi_box ul:last-child {
+    margin-bottom: 16px;
+}
+
+.mrt_condi_box ul li:first-child {
+    margin-top: 0;
+}
+
+.mrt_condi_box ul li {
+    margin-top: 14px;
+    font-size: 13px;
+}
+
+.mrt_check_wrap input {
+    display: none;
+}
+
+.mrt_check_wrap label {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.mrt_check_wrap input {
+    display: none;
+}
+
+.mrt_check_wrap input {
+    display: none;
+}
+
+label, input[type="checkbox"], input[type="radio"], button, select {
+    cursor: pointer;
+}
+
+.k1_check, .k1_radio, .k1_input_check {
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+
+.mrt_check_wrap label span.ico_checkbox {
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: all .08s ease-out;
+}
+
+.mrt_check_wrap input:checked + label span.ico_checkbox {
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/btn/main/ico_checkbox.png") no-repeat 0 0px;
+    border: none;
+    background-size: 20px;
+}
+
+
+
+
+
+
+
+
+
