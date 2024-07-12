@@ -1,0 +1,172 @@
+@charset "UTF-8";
+@import url('../global/share.css');
+
+.signup_container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 64px auto 240px;
+}
+
+.signup_wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 1060px;
+}
+
+.signup_contnent {
+    border: 1px solid var(--gray-100);
+    border-radius: 2px;
+    margin: 0 auto;
+    padding: 0 48px;
+    text-align: center;
+    width: 430px;
+}
+
+.welcomeHands {
+    animation: shake 1s ease-out 2s 2;
+    height: 56px;
+    margin-top: 48px;
+    object-fit: contain;
+    width: 56px;
+}
+
+.welcomeTitle {
+    color: #343a40;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.47px;
+    line-height: 1.29;
+    margin-top: 26px;
+}
+
+.welcomeSubTitle {
+    color: #666d75;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -.27px;
+    line-height: normal;
+    margin-top: 8px;
+}
+
+.kakaoOauthBtn_wrapper {
+    margin-bottom: 32px;
+    margin-top: 24px;
+}
+
+.kakao_button {
+    background-color: #f7e317;
+    border: 1px solid #f7e317;
+    color: #381e1f;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    width: 100%;
+    height: 47px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.kakao_button:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+.button_container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kakao_img {
+    height: 21px;
+    margin-right: 8px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 18px;
+}
+
+.oauthList_container {
+    margin-bottom: 40px;
+}
+
+.oauth_container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon-wrapper {
+    align-items: center;
+    color: #666d75;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    font-weight: 600;
+    justify-content: space-between;
+    letter-spacing: -.25px;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.iconImg {
+    height: 16px;
+    margin-right: 6px;
+    width: 16px;
+}
+
+.iconImgHover {
+    height: 16px;
+    margin-right: 6px;
+    width: 16px;
+}
+
+.iconImg.hidden, .iconImgHover.hidden {
+    display: none;
+}
+
+.oauthList_line {
+    border-color: #d8d8d8;
+    border-style: solid;
+    border-width: 0 0.5px;
+    height: 16px;
+    margin-left: 18px;
+    margin-right: 16px;
+}
+
+.sign_in_move_container {
+    align-items: center;
+    color: #848c94;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: -.23px;
+    margin-bottom: 48px;
+}
+
+.sign_in_move_container > a, .sign_in_move {
+    color: #666d75;
+    margin-left: 6px;
+    text-decoration: underline;
+}
+
+.sign_in_move_container > a:hover {
+    color: #212529;
+}
+
+/* 손 흔들기 애니매이션 */
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

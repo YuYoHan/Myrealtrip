@@ -14,7 +14,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/mainPage/event.css">
-    <link rel="stylesheet" href="../../css/mainPage/index.css">
+    <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/mainPage/aboutTravel.css">
     <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
     <link rel="stylesheet" href="../../css/global/footer.css">

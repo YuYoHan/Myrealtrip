@@ -1,4 +1,4 @@
-@import url('../global/share.css');
+@import url('global/share.css');
 
 .mainHeader {
     /*  share.css에서 가져온 변수명으로 색깔을 넣는다. */

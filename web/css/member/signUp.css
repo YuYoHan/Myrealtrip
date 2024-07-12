@@ -1,0 +1,195 @@
+@charset "UTF-8";
+@media (max-width: 767px) {
+    .EmailSignUp_container {
+        border: 0;
+        margin: 0;
+        padding: 28px 16px;
+        width: 100%;
+    }
+}
+
+.EmailSignUp_container {
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    margin: 64px auto;
+    padding: 48px;
+    width: 430px;
+}
+
+.EmailSignUpInfo_container {
+    margin-bottom: 24px;
+}
+
+.EmailSignUpInfo_row {
+    margin-bottom: 16px;
+}
+
+.EmailTextField_label {
+    width: 100%;
+}
+
+.EmailTextField_label > p {
+    color: #495056;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 8px;
+}
+
+.EmailTextField_input.EmailTextfiled_medium {
+    font-size: 14px;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.EmailTextField_input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #ced4da;
+    color: #343a40;
+    font-weight: 500;
+    transition: box-shadow .2s ease;
+    width: 100%;
+}
+
+.EmailTextField_sucess > .EmailTextField_input.gr {
+    box-shadow: inset 0 0 0 2px #33b893;
+}
+
+.EmailTextField_input:focus {
+    box-shadow: inset 0 0 0 2px #2b96ed;
+}
+
+.EmailTextField_input.disabled {
+    box-shadow: inset 0 0 0 2px #ff8000;
+}
+
+.EmailSignUpAgree_container {
+    margin-bottom: 16px;
+}
+
+.emailCheck, .pwChecked, .pwCheck, .nameCheck {
+    color: #ff8000;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.emailCheck.hidden {
+    display: none;
+}
+
+.Checkbox_medium.Checkbox_label {
+    font-size: 14px;
+}
+
+.Checkbox_input, .Checkbox_label {
+    vertical-align: bottom;
+}
+
+.Checkbox_label {
+    color: #343a40;
+    font-weight: 400;
+}
+
+.SignUpAgree_agrees {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 16px;
+    padding: 16px 8px 16px 16px;
+}
+
+.SignUpAgree_row {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.SignUpAgree_item {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.Checkbox_medium.Checkbox_input {
+    height: 20px;
+    width: 20px;
+}
+
+.SignUpAgree_label {
+    flex: 1;
+}
+
+.TermPopup_wrapper {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 16px;
+    width: 100%;
+}
+
+.SignUpAgree_subcription {
+    color: #848c94;
+    font-size: 12px;
+    margin-left: 28px;
+    margin-top: 4px;
+}
+
+.SignUpAgree_subscriptions {
+    visibility: hidden;
+}
+
+.SignUpAgree_subscriptions > input[type=checkbox] {
+    height: 0;
+    width: 0;
+}
+
+.SignUpAgree_notices {
+    width: 100%;
+}
+
+.SignUpAgree_notice {
+    color: #848c94;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.Button_primary[disabled] {
+    background-color: #cbe7fd;
+    border: 1px solid #cbe7fd;
+}
+
+.Button_button[disabled] {
+    cursor: not-allowed;
+}
+
+.Button_primary[disabled], html input[disabled] {
+    cursor: default;
+}
+
+.Button_block {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    width: 100%;
+}
+
+.Button_primary {
+    background-color: #51abf3;
+    border: 1px solid #51abf3;
+    color: #fff;
+}
+
+.Button_large {
+    font-size: 16px;
+    height: 48px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
