@@ -1,28 +1,58 @@
 // 이메일 유효성 검사
 const userEmail = document.getElementById("userEmail");
-const emailReg =  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailCheck = document.getElementsByClassName("emailCheck");
+let typingTimer; // 타이핑 지연을 위한 타이머 변수
+const doneTypingInterval = 1000; // 1초 후 입력 완료로 간주
+
+// 입력 순간에 계속 json을 보내는 것이 아니라 1초후에 보냄
 userEmail.oninput = () => {
-    //email 유효성 검사는 여기서
-    if (emailReg.test(userEmail.value)) {
-        // 이메일 주소가 맞다는 표시를 숨김
-        emailCheck[0].classList.add("hidden");
-        // 입력 필드를 활성화 상태로 변경
-        userEmail.classList.remove("disabled");
-        // 부모 요소의 스타일을 변경하여 입력이 성공적임을 시각적으로 표시
-        $("#userEmail").parent('div').addClass("EmailTextField_success");
-        //console.log("성공");
-    } else {
-        emailCheck[0].classList.remove("hidden");
-        emailCheck[0].textContent = "이메일 주소가 맞나요?";
-        userEmail.classList.add("disabled");
-        $("#userEmail").parent('div').removeClass("EmailTextField_success");
-        if (userEmail.value == "") {
-            emailCheck[0].textContent = "꼭 필요해요";
+    clearTimeout(typingTimer); // 타이머 초기화
+
+    typingTimer = setTimeout(() => {
+        if (emailReg.test(userEmail.value)) {
+            // 이메일 유효성 검사 통과
+            fetch('/member/checkEmail.us', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email: userEmail.value})
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.exists) {
+                        emailCheck[0].classList.add("hidden");
+                        userEmail.classList.remove("disabled");
+                        $("#userEmail").parent('div').addClass("EmailTextField_success");
+                        console.log("성공");
+                    } else {
+                        emailCheck[0].classList.remove("hidden");
+                        emailCheck[0].textContent = "이미 사용중인 이메일입니다.";
+                        userEmail.classList.add("disabled");
+                        $("#userEmail").parent('div').removeClass("EmailTextField_success");
+                        console.log('실패');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during fetch operation:', error);
+                    emailCheck[0].classList.remove("hidden");
+                    emailCheck[0].textContent = "이메일 확인 중 오류 발생.";
+                    userEmail.classList.add("disabled");
+                    $("#userEmail").parent('div').removeClass("EmailTextField_success");
+                });
+        } else {
+            emailCheck[0].classList.remove("hidden");
+            emailCheck[0].textContent = userEmail.value === "" ? "꼭 필요해요" : "이메일 주소가 맞나요?";
             userEmail.classList.add("disabled");
             $("#userEmail").parent('div').removeClass("EmailTextField_success");
         }
-    }
+    }, doneTypingInterval);
 };
 
 

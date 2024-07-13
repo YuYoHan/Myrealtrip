@@ -97,8 +97,8 @@ public class MemberController extends HttpServlet {
 
             // JSON 응답 생성
             JsonObject jsonResponse = new JsonObject();
-            // 조회데이터가 null이 아니면 true, null이면 false가 날라감
-            jsonResponse.addProperty("exists", response != null);
+            // 조회데이터가 null이면 true, null이 아니면 false가 날라감
+            jsonResponse.addProperty("exists", response == null);
             System.out.println(jsonResponse);
 
             // 응답 전송
