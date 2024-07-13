@@ -29,14 +29,13 @@ public class IndexController extends HttpServlet {
         ActionTo acto = new ActionTo();
 
 
-      //  if (command.equals("/")) {
+        if (command.equals("/")) {
             try {
                 acto = new IndexAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("첫 페이지  : " + e);
             }
-        //}
-        System.out.println("유요한");
+        }
         System.out.println("acto : " + acto);
 
         if (acto.getPath() != null) {

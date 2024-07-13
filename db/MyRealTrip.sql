@@ -206,12 +206,14 @@ create table airplane_reservations
     user_id                      bigint references users (user_id)
 );
 
-# 공지사항
+# 항공권 공지사항
 create table notices
 (
     notice_id      bigint primary key auto_increment,
     notice_title   varchar(300)  not null,
     notice_details varchar(3000) not null,
+    notice_regTime    dateTime default now(),
+    notice_updateTime dateTime default now(),
     admin_id       bigint references admin (admin_id)
 );
 
