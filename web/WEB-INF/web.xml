@@ -30,4 +30,16 @@
         <servlet-name>IndexController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MemberController</servlet-name>
+        <servlet-class>controller.member.MemberController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MemberController</servlet-name>
+        <url-pattern>*.us</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberController</servlet-name>
+        <url-pattern>/checkEmail.us</url-pattern>
+    </servlet-mapping>
 </web-app>
