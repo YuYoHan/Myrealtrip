@@ -1,50 +1,19 @@
 package dto.mainPage;
 
+import lombok.*;
+
+// 여기서는 일부로 Setter 방식으로 사용해봄
+// 이유 : 기존의 수업이 Setter 방식으로 진행했기 때문에
+// 하지만 Setter 방법은 원래 사용하면 안좋음
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class TravelCardDTO {
     private int id;
     private String title;
     private String contents;
     private String travelImage;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContents() {
-        return contents;
-    }
-
-    public void setContents(String contents) {
-        this.contents = contents;
-    }
-
-    public String getTravelImage() {
-        return travelImage;
-    }
-
-    public void setTravelImage(String travelImage) {
-        this.travelImage = travelImage;
-    }
-
-    @Override
-    public String toString() {
-        return "TravelCardDTO{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", contents='" + contents + '\'' +
-                ", travelImage='" + travelImage + '\'' +
-                '}';
-    }
 }
