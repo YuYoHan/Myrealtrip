@@ -23,13 +23,13 @@
 <div class="signup_container">
     <div class="signup_wrapper">
         <div class="signup_contnent">
-            <img class="welcomeHands" src="../img/hands.png" alt="welcome hand">
+            <img class="welcomeHands" src="/img/signUp/hands.png" alt="welcome hand">
             <p class="welcomeTitle">반갑습니다!</p>
             <p class="welcomeSubTitle">여행의 모든 것, 마이리얼트립</p>
             <div class="kakaoOauthBtn_wrapper">
                 <button type="button" class="kakao_button">
                     <div class="button_container" onclick="kakaoLogin()">
-                        <img class="kakao_img" src="<c:url value="/img/kakao_log.svg"/>" alt="kakao">
+                        <img class="kakao_img" src="/img/signUp/kakao_log.svg" alt="kakao">
                         <span>카카오로 바로 시작</span>
                     </div>
                 </button>
@@ -37,22 +37,22 @@
             <div class="oauthList_container">
                 <div class="oauth_container">
                     <div class="icon-wrapper">
-                        <img class="iconImg" src="<c:url value="/img/facebook_log.svg"/>" alt="페이스북">
-                        <img class="iconImgHover" src="<c:url value="/img/facebook_log_on.svg"/>" alt="페이스북">
+                        <img class="iconImg" src="<c:url value="/img/signUp/facebook_log.svg"/>" alt="페이스북">
+                        <img class="iconImgHover" src="<c:url value="/img/signUp/facebook_log_on.svg"/>" alt="페이스북">
                         <input type="hidden" value="페이스북">
                         <span>페이스북</span>
                     </div>
                     <span class="oauthList_line"></span>
                     <div class="icon-wrapper" >
-                        <img class="iconImg" src="<c:url value="/img/naver_log.svg"/>" alt="네이버">
-                        <img class="iconImgHover" src="<c:url value="/img/naver_log_on.svg"/>" alt="네이버">
+                        <img class="iconImg" src="<c:url value="/img/signUp/naver_log.svg"/>" alt="네이버">
+                        <img class="iconImgHover" src="<c:url value="/img/signUp/naver_log_on.svg"/>" alt="네이버">
                         <input type="hidden" value="네이버">
                         <span>네이버</span>
                     </div>
                     <span class="oauthList_line"></span>
                     <div class="icon-wrapper" >
-                        <img class="iconImg" src="<c:url value="/img/email_log.svg"/>" alt="이메일">
-                        <img class="iconImgHover" src="<c:url value="/img/email_log_on.svg"/>" alt="이메일">
+                        <img class="iconImg" src="<c:url value="/img/signUp/email_log.svg"/>" alt="이메일">
+                        <img class="iconImgHover" src="<c:url value="/img/signUp/email_log_on.svg"/>" alt="이메일">
                         <input type="hidden" value="이메일 회원가입">
                         <span>이메일</span>
                     </div>

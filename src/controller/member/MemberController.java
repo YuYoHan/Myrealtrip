@@ -1,9 +1,6 @@
 package controller.member;
 
 import action.member.SignUpAction;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import config.action.ActionTo;
 import dao.member.MemberDAO;
 import dto.member.ResponseMemberDTO;
@@ -19,6 +16,7 @@ import java.io.IOException;
 public class MemberController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("-----------------------");
         String requestURI = req.getRequestURI();
         System.out.println(requestURI);
         String contextPath = req.getContextPath();
@@ -27,8 +25,10 @@ public class MemberController extends HttpServlet {
         System.out.println("경로 확인 : " + command);
         ActionTo acto = null;
 
+        System.out.println(command.equals("/member/signUp.us"));
+
         // 회원가입하는 페이지로 이동
-        if(command.equals("/signUp.us")) {
+        if (command.equals("/member/signUp.us")) {
             try {
                 acto = new SignUpAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
@@ -37,16 +37,13 @@ public class MemberController extends HttpServlet {
             }
         }
 
-
-
         if (acto.getPath() != null) {
-            if (!(acto.isRedirect())) {
+            if (acto.isRedirect()) {
+                resp.sendRedirect(acto.getPath());
+            } else {
                 RequestDispatcher disp = req.getRequestDispatcher(acto.getPath());
                 System.out.println(disp.toString());
                 disp.forward(req, resp);
-            } else {
-                // isRedirect = true면 호출
-                resp.sendRedirect(acto.getPath());
             }
         }
 
@@ -62,7 +59,7 @@ public class MemberController extends HttpServlet {
         String contextPath = req.getContextPath();
         String command = requestURI.substring(contextPath.length());
         // 이메일 중복 검사 체크
-        if(command.equals("/checkEmail.us")) {
+        if (command.equals("/checkEmail.us")) {
             req.setCharacterEncoding("UTF-8");
             resp.setContentType("application/json;charset=UTF-8");
 
