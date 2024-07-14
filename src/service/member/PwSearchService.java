@@ -24,6 +24,7 @@ public class PwSearchService implements Action {
         ActionTo acto = new ActionTo();
         PrintWriter out = resp.getWriter();
         if(response.getUserEmail() != null) {
+            System.out.println("이메일 조회 성공");
             acto.setRedirect(false);
             acto.setPath("/app/member/changePw.jsp?userEmail="+userEmail);
         } else {

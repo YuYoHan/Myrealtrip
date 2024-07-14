@@ -8,6 +8,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import exception.member.MemberException;
+import service.member.ChangePwService;
+import service.member.PwSearchService;
+import service.member.SignInService;
+import service.member.SignUpService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,19 +45,18 @@ public class MemberController extends HttpServlet {
             }
         }
 
-
-        if (acto.getPath() != null) {
-            if (acto.isRedirect()) {
-                resp.sendRedirect(acto.getPath());
-            } else {
-                RequestDispatcher disp = req.getRequestDispatcher(acto.getPath());
-                System.out.println(disp.toString());
-                disp.forward(req, resp);
+        // 회원가입 기능 처리
+        if(command.equals("/member/signUpSuccess.us")) {
+            try {
+                acto = new SignUpService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
             }
         }
 
         // 로그인 페이지 이동
-        if(command.equals("/signIn.us")) {
+        if(command.equals("/member/signIn.us")) {
             try {
                 acto = new SignInAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
@@ -62,8 +65,18 @@ public class MemberController extends HttpServlet {
             }
         }
 
+        // 로그인 기능 처리
+        if(command.equals("/member/signInOk.us")) {
+            try {
+                acto = new SignInService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
         // 로그아웃하면 인덱스로 이동
-        if(command.equals("/logOut.us")) {
+        if(command.equals("/member/logOut.us")) {
             try {
                 acto = new SignOutAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
@@ -72,8 +85,28 @@ public class MemberController extends HttpServlet {
             }
         }
 
+        // 비밀번호 검색
+        if(command.equals("/member/pwSearch.us")) {
+            try {
+                acto = new PwSearchAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 조회 기능
+        if(command.equals("/member/pwSearchOk.us")) {
+            try {
+                acto = new PwSearchService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
         // 비밀번호 변경 페이지 이동
-        if(command.equals("/changePw.us")) {
+        if(command.equals("/member/changePw.us")) {
             try {
                 acto = new ChangePwAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
@@ -82,13 +115,26 @@ public class MemberController extends HttpServlet {
             }
         }
 
-        // 비밀번호 검색
-        if(command.equals("/pwSearch.us")) {
+        // 비밀번호 변경 기능
+        if(command.equals("/member/changePwOk.us")) {
             try {
-                acto = new PwSearchAction().execute(req, resp);
+                new ChangePwService();
                 System.out.println("경로 확인 : " + acto);
             } catch (Exception e) {
                 throw new MemberException(e.getMessage());
+            }
+        }
+
+
+        // 경로가 있으면 true
+        // 리다이렉트면 리다이렉트로 보내주고 아니면 forward로 보내줌
+        if (acto.getPath() != null) {
+            if (acto.isRedirect()) {
+                resp.sendRedirect(acto.getPath());
+            } else {
+                RequestDispatcher disp = req.getRequestDispatcher(acto.getPath());
+                System.out.println(disp.toString());
+                disp.forward(req, resp);
             }
         }
 
