@@ -27,7 +27,7 @@
                 <div class="member-title verify">
                     마이리얼트립 가입 시 사용한 이메일 주소를 입력해주시면 비밀번호를 재설정 할 수 있는 페이지로 이동시켜드립니다.
                 </div>
-                <form role="form" action="${cp}/pwSearchOk.us" class="fv-form fv-form-bootstrap">
+                <form role="form" action="${cp}/member/pwSearchOk.us" class="fv-form fv-form-bootstrap">
                     <button type="submit" class="fv-hidden-submit"
                             style="display: none; width: 0; height: 0;"></button>
                     <div class="form-wrapper">

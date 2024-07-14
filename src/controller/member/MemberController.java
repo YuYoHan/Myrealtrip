@@ -1,12 +1,17 @@
 package controller.member;
 
-import action.member.SignUpAction;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import action.member.*;
 import config.action.ActionTo;
 import dao.member.MemberDAO;
 import dto.member.ResponseMemberDTO;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import exception.member.MemberException;
+import service.member.ChangePwService;
+import service.member.PwSearchService;
+import service.member.SignInService;
+import service.member.SignUpService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +24,7 @@ import java.io.IOException;
 public class MemberController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("-----------------------");
         String requestURI = req.getRequestURI();
         System.out.println(requestURI);
         String contextPath = req.getContextPath();
@@ -27,29 +33,110 @@ public class MemberController extends HttpServlet {
         System.out.println("경로 확인 : " + command);
         ActionTo acto = null;
 
+        System.out.println(command.equals("/member/signUp.us"));
+
         // 회원가입하는 페이지로 이동
-        if(command.equals("/signUp.us")) {
+        if (command.equals("/member/signUp.us")) {
             try {
                 acto = new SignUpAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
             } catch (Exception e) {
-//                throw new MemberException(e.getMessage());
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 회원가입 기능 처리
+        if(command.equals("/member/signUpSuccess.us")) {
+            try {
+                acto = new SignUpService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 로그인 페이지 이동
+        if(command.equals("/member/signIn.us")) {
+            try {
+                acto = new SignInAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 로그인 기능 처리
+        if(command.equals("/member/signInOk.us")) {
+            try {
+                acto = new SignInService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 로그아웃하면 인덱스로 이동
+        if(command.equals("/member/logOut.us")) {
+            try {
+                acto = new SignOutAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 검색
+        if(command.equals("/member/pwSearch.us")) {
+            try {
+                acto = new PwSearchAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 조회 기능
+        if(command.equals("/member/pwSearchOk.us")) {
+            try {
+                acto = new PwSearchService().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 변경 페이지 이동
+        if(command.equals("/member/changePw.us")) {
+            try {
+                acto = new ChangePwAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 변경 기능
+        if(command.equals("/member/changePwOk.us")) {
+            try {
+                new ChangePwService();
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
             }
         }
 
 
-
+        // 경로가 있으면 true
+        // 리다이렉트면 리다이렉트로 보내주고 아니면 forward로 보내줌
         if (acto.getPath() != null) {
-            if (!(acto.isRedirect())) {
+            if (acto.isRedirect()) {
+                resp.sendRedirect(acto.getPath());
+            } else {
                 RequestDispatcher disp = req.getRequestDispatcher(acto.getPath());
                 System.out.println(disp.toString());
                 disp.forward(req, resp);
-            } else {
-                // isRedirect = true면 호출
-                resp.sendRedirect(acto.getPath());
             }
         }
-
 
     }
 
@@ -62,7 +149,7 @@ public class MemberController extends HttpServlet {
         String contextPath = req.getContextPath();
         String command = requestURI.substring(contextPath.length());
         // 이메일 중복 검사 체크
-        if(command.equals("/checkEmail.us")) {
+        if (command.equals("/checkEmail.us")) {
             req.setCharacterEncoding("UTF-8");
             resp.setContentType("application/json;charset=UTF-8");
 

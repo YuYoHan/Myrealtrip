@@ -23,6 +23,13 @@ public class MemberDAO {
                 role, member.getUserPw());
     }
 
+    // 비밀번호 수정
+    public static int changePw(String pw, String email) {
+        String sql = "update users set user_pw = ? where user_email = ?";
+        return ConnectDB.connect(sql, pw, email);
+    }
+
+
     // 이메일로 조회
     public static ResponseMemberDTO selectByEmail(String email) {
         String sql = "SELECT * FROM users WHERE user_email = ?";
