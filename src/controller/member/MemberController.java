@@ -1,9 +1,13 @@
 package controller.member;
 
-import action.member.SignUpAction;
+import action.member.*;
 import config.action.ActionTo;
 import dao.member.MemberDAO;
 import dto.member.ResponseMemberDTO;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import exception.member.MemberException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,9 +37,10 @@ public class MemberController extends HttpServlet {
                 acto = new SignUpAction().execute(req, resp);
                 System.out.println("경로 확인 : " + acto);
             } catch (Exception e) {
-//                throw new MemberException(e.getMessage());
+                throw new MemberException(e.getMessage());
             }
         }
+
 
         if (acto.getPath() != null) {
             if (acto.isRedirect()) {
@@ -47,6 +52,45 @@ public class MemberController extends HttpServlet {
             }
         }
 
+        // 로그인 페이지 이동
+        if(command.equals("/signIn.us")) {
+            try {
+                acto = new SignInAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 로그아웃하면 인덱스로 이동
+        if(command.equals("/logOut.us")) {
+            try {
+                acto = new SignOutAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 변경 페이지 이동
+        if(command.equals("/changePw.us")) {
+            try {
+                acto = new ChangePwAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
+
+        // 비밀번호 검색
+        if(command.equals("/pwSearch.us")) {
+            try {
+                acto = new PwSearchAction().execute(req, resp);
+                System.out.println("경로 확인 : " + acto);
+            } catch (Exception e) {
+                throw new MemberException(e.getMessage());
+            }
+        }
 
     }
 
