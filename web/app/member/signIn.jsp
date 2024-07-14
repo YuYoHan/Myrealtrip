@@ -27,7 +27,7 @@
             <div class="kakaoOauthBtn_wrapper">
                 <button type="button" class="kakao_button">
                     <div class="button_container" onclick="kakaoLogin();">
-                        <img class="kakao_img" src="<c:url value="/img/kakao_log.svg"/>" alt="kakao">
+                        <img class="kakao_img" src="<c:url value="/img/member/kakao_log.svg"/>" alt="kakao">
                         <span>카카오로 계속하기</span>
                     </div>
                 </button>
@@ -35,22 +35,22 @@
             <div class="oauthList_container">
                 <div class="oauth_container">
                     <div class="icon-wrapper">
-                        <img class="iconImg" src="<c:url value="/img/facebook_log.svg"/>" alt="페이스북">
-                        <img class="iconImgHover" src="<c:url value="/img/facebook_log_on.svg"/>" alt="페이스북">
+                        <img class="iconImg" src="<c:url value="/img/member/facebook_log.svg"/>" alt="페이스북">
+                        <img class="iconImgHover" src="<c:url value="/img/member/facebook_log_on.svg"/>" alt="페이스북">
                         <input type="hidden" value="페이스북">
                         <span>페이스북</span>
                     </div>
                     <span class="oauthList_line"></span>
                     <div class="icon-wrapper">
-                        <img class="iconImg" src="<c:url value="/img/naver_log.svg"/>" alt="네이버">
-                        <img class="iconImgHover" src="<c:url value="/img/naver_log_on.svg"/>" alt="네이버">
+                        <img class="iconImg" src="<c:url value="/img/member/naver_log.svg"/>" alt="네이버">
+                        <img class="iconImgHover" src="<c:url value="/img/member/naver_log_on.svg"/>" alt="네이버">
                         <input type="hidden" value="네이버">
                         <span>네이버</span>
                     </div>
                     <span class="oauthList_line"></span>
                     <div class="icon-wrapper">
-                        <img class="iconImg" src="<c:url value="/img/email_log.svg"/>" alt="이메일">
-                        <img class="iconImgHover" src="<c:url value="/img/email_log_on.svg"/>" alt="이메일">
+                        <img class="iconImg" src="<c:url value="/img/member/email_log.svg"/>" alt="이메일">
+                        <img class="iconImgHover" src="<c:url value="/img/member/email_log_on.svg"/>" alt="이메일">
                         <input type="hidden" value="이메일 로그인">
                         <span>이메일</span>
                     </div>
@@ -83,47 +83,4 @@
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>
 <script src="../../js/myInfo.js"></script>
-<script>
-    // Kakao.init('edfb9bf86c6edc300b3431b379972fda'); //발급받은 키 중 javascript키를 사용해준다.
-    // function kakaoLogin() {
-    //     Kakao.Auth.login({
-    //         success: function (response) {
-    //             Kakao.API.request({
-    //                 url: '/v2/user/me',
-    //                 success: function (response) {
-    //                     location.href = "http://localhost:8080/myrealtrip/index.jsp?loginUser=" + response.kakao_account.email + "&username=" + response.properties.nickname;
-    //                 },
-    //                 fail: function (error) {
-    //                     console.log(error)
-    //                 },
-    //             })
-    //         },
-    //         fail: function (error) {
-    //             console.log(error)
-    //         },
-    //     })
-    // }
-
-    // <!-- 네이버 로그인-->
-    // let naverLogin = new naver.LoginWithNaverId({
-    //     clientId: "N3BcmuWcCOcY7s8q0KUa",
-    //     callbackUrl: "http://localhost:8080/myrealtrip/index.jsp",
-    //     isPopup: false, // 팝업 형태로 띄울 것인지 설정
-    //     loginButton: {color: "green", type: 3, height: 60} // 로그인 버튼의 스타일 설정
-    // });
-    // naverLogin.init();
-    //
-    // function naverLogin() {
-    //     naverLogin.getLoginStatus(function (status) {
-    //         if (status) {
-    //             let email = naverLogin.user.getEmail();
-    //             let name = naverLogin.user.getName();
-    //             // 로그인 성공 시 필요한 동작 수행
-    //             location.href = "http://localhost:8080/myrealtrip/index.jsp?loginUser=" + email + "&username=" + name;
-    //         } else {
-    //             console.log("로그인 실패");
-    //         }
-    //     });
-    // }
-</script>
 </html>

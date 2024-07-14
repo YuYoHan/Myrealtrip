@@ -32,18 +32,18 @@ const logged = (loginMethod) => {
     switch (loginMethod) {
         case "이메일 회원가입":
             //이메일 회원가입을 요청하는 url
-            url = location.href //http://localhost:8080/myrealtrip/user/signUp.us
+            url = location.href
             //원본은 그대로, 새로운 문자열을 반환.
-            newUrl = url.replace("/signUp.us", "/app/member/signUp_form.jsp");
+            newUrl = url.replace("/member/signUp.us", "/app/member/signUp_form.jsp");
             //console.log(newUrl);
             location.href = newUrl;
             console.log("이메일로 회원가입 합니다.");
             break;
         case "이메일 로그인":
             //이메일 로그인을 요청하는 url
-            url = location.href //http://localhost:8080/myrealtrip/user/signIn.us
+            url = location.href
             //원본은 그대로, 새로운 문자열을 반환.
-            newUrl = url.replace("/signIn.us", "/app/member/signIn_form.jsp");
+            newUrl = url.replace("/member/signIn.us", "/app/member/signIn_form.jsp");
             //console.log(newUrl);
             location.href = newUrl;
             break;
@@ -73,7 +73,7 @@ function kakaoLogin() {
                     console.log(response);
 
                     //sessionStorage.setItem("loginUser", response.kakao_account.email);
-                    location.href = "http://localhost:8080/myrealtrip/index.jsp?loginUser=" + response.kakao_account.email + "&username=" + response.properties.nickname;
+                    location.href = "http://localhost:8080/app/mainPage/mainPage.jsp?loginUser=" + response.kakao_account.email + "&userName=" + response.properties.nickname;
                 },
                 fail: function (error) {
                     console.log(error)
@@ -105,7 +105,7 @@ function kakaoLogout() {
 <!-- 네이버 로그인-->
 let naverLogin = new naver.LoginWithNaverId({
     clientId: "N3BcmuWcCOcY7s8q0KUa",
-    callbackUrl: "http://localhost:8080/myrealtrip/index.jsp",
+    callbackUrl: "http://localhost:8080/app/mainPage/mainPage.jsp",
     isPopup: false, // 팝업 형태로 띄울 것인지 설정
     loginButton: {color: "green", type: 3, height: 60} // 로그인 버튼의 스타일 설정
 });
@@ -117,7 +117,7 @@ function naverLogin() {
             let email = naverLogin.user.getEmail();
             let name = naverLogin.user.getName();
             // 로그인 성공 시 필요한 동작 수행
-            location.href = "http://localhost:8080/myrealtrip/index.jsp?loginUser=" + email + "&username=" + name;
+            location.href = "http://localhost:8080/app/mainPage/mainPage.jsp?loginUser=" + email + "&userName=" + name;
         } else {
             console.log("로그인 실패");
         }
@@ -141,10 +141,14 @@ function fcebookLogin() {
                 let email = response.email;
                 let name = response.name;
                 // 로그인 성공 시 필요한 동작 수행
-                location.href = "http://localhost:8080/myrealtrip/index.jsp?loginUser=" + email + "&username=" + name;
+                location.href = "http://localhost:8080/app/mainPage/mainPage.jsp?loginUser=" + email + "&userName=" + name;
             });
         } else {
             console.log("로그인 실패");
         }
     }, {scope: 'public_profile, email'});
+}
+
+function sendSocialInfo(email, name) {
+
 }

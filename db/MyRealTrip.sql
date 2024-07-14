@@ -13,8 +13,9 @@ create table users
     address       varchar(1000) not null,
     detailAddress varchar(1000) not null,
     user_role     varchar(300)  not null,
-    user_pw       varchar(300)
+    user_pw       varchar(300)  not null
 );
+drop table users;
 
 # 관리자
 # 관리자는 회원가입이 아니라 직접 insert로 넣어야 함
