@@ -37,10 +37,10 @@ public class SignUpService implements Action {
         ActionTo acto = new ActionTo();
         if(insert > 0) {
             acto.setRedirect(true);
-            acto.setPath(req.getContextPath());
+            acto.setPath("/app/mainPage/mainPage.jsp");
         } else {
             acto.setRedirect(true);
-            acto.setPath(req.getContextPath());
+            acto.setPath("/app/member/signUp_form.jsp");
         }
         return acto;
     }
