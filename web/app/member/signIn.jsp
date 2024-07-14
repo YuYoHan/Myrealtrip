@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/pointContainer.css">
     <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/user/sign.css">
+    <link rel="stylesheet" href="../../css/member/sign.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
 </head>
 <body>

@@ -112,8 +112,16 @@ values ('https://www.myrealtrip.com/promotions/myrealhocance_zip',
 select *
 from mainBanner;
 drop table mainBanner;
-# 여행지 소개
 
+# 여행지 소개
+# 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
+create table recommendedPlace(
+    place_id bigint primary key auto_increment,
+    place_title varchar(300) not null ,
+    place_contents varchar(4000) not null ,
+    place_images varchar(4000),
+    admin_id bigint references admin(admin_id)
+);
 
 # 문의하기
 create table questions
@@ -196,6 +204,7 @@ create table room_reservations
     room_id                             bigint references rooms (room_id) on delete cascade,
     user_id                             bigint references users (user_id)
 );
+
 
 
 # 공항 테이블
