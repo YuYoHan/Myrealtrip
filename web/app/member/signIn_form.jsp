@@ -9,7 +9,7 @@
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/global/common.css">
-    <link rel="stylesheet" href="../../css/pointContainer.css">
+    <link rel="stylesheet" href="../../css/mainPage/event.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/member/signIn.css">

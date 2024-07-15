@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>마이리얼트립 :: 로그인</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../app/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/pointContainer.css">
     <link rel="stylesheet" href="../../css/index.css">
@@ -21,7 +21,7 @@
 <div class="signup_container">
     <div class="signup_wrapper">
         <div class="signup_contnent">
-            <img class="welcomeHands" src="${cp}/img/hands.png" alt="welcome hand">
+            <img class="welcomeHands" src="${cp}/img/member/hands.png" alt="welcome hand">
             <p class="welcomeTitle">반갑습니다!</p>
             <p class="welcomeSubTitle">여행의 모든 것, 마이리얼트립</p>
             <div class="kakaoOauthBtn_wrapper">
