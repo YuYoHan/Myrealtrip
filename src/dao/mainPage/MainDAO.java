@@ -33,14 +33,9 @@ public class MainDAO {
                 travelCardDTO.setTravelImage(rs.getString("travel_image"));
                 list.add(travelCardDTO);
             }
+            JDBCConfig.close(rs, preparedStatement, connection);
         }catch (Exception e) {
             System.out.println("에러 발생 : " + e.getMessage());
-        } finally {
-            try {
-                JDBCConfig.close(rs, preparedStatement, connection);
-            } catch (Exception e) {
-                System.out.println("에러 발생 : " + e.getMessage());
-            }
         }
         return list;
     }
