@@ -55,7 +55,7 @@
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="../air/airMain.jsp">
+                    <a href="${cp}/air/airMain.ar">
                         <span>항공권</span>
                     </a>
                 </div>

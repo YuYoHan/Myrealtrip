@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/air/airticket.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <title>마이리얼트립 :: 항공권</title>
 </head>
 <body>

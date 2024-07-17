@@ -15,9 +15,9 @@
                 <div class="swiper-wrapper mianBanner_wrapper">
                     <!-- 슬라이드 내용 -->
                     <c:forEach items="${bannerList}" var="ben">
-                        <a class="swiper-slide mainBannerItem" href="${ben.bannerURL}">
+                        <a class="swiper-slide mainBannerItem" href="${ben.placeId}">
                             <div class="image_container">
-                                <img class="bannerImage" src="${ben.bannerImage}">
+                                <img class="bannerImage" src="${ben.imageUrl}">
                             </div>
                         </a>
                     </c:forEach>

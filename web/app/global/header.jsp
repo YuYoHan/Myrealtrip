@@ -88,7 +88,7 @@
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="../air/airMain.jsp">
+                    <a href="${cp}/air/airMain.ar">
                         <img src="../../img/global/plane.png" alt="plane">
                         <span>항공권</span>
                     </a>

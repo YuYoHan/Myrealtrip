@@ -115,13 +115,23 @@ drop table mainBanner;
 
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
-create table recommendedPlace(
-    place_id bigint primary key auto_increment,
-    place_title varchar(300) not null ,
-    place_contents varchar(4000) not null ,
-    place_images varchar(4000),
-    admin_id bigint references admin(admin_id)
+create table recommendedPlace
+(
+    place_id       bigint primary key auto_increment,
+    place_title    varchar(300)  not null,
+    place_contents varchar(4000) not null,
+    place_image    varchar(4000),
+    admin_id       bigint references admin (admin_id)
 );
+
+# 여행지 소개 이미지
+create table placeImg
+(
+    place_img_id bigint primary key auto_increment,
+    place_images varchar(4000),
+    place_id     bigint references recommendedPlace (place_id) on delete cascade
+);
+drop table placeImg;
 
 # 문의하기
 create table questions
@@ -176,8 +186,8 @@ create table hotelImg
 # 방
 create table rooms
 (
-    room_id       bigint primary key auto_increment,   # 룸번호
-    room_status   varchar(300)  not null,              # 1: 예약가능 2: 예약불가능
+    room_id       bigint primary key auto_increment,                   # 룸번호
+    room_status   varchar(300)  not null,                              # 1: 예약가능 2: 예약불가능
     room_count    int           not null,
     room_price    varchar(3000) not null,
     option_others varchar(3000),
@@ -206,7 +216,6 @@ create table room_reservations
 );
 
 
-
 # 공항 테이블
 create table airports
 (
@@ -219,13 +228,12 @@ create table airports
 # 비행기 테이블
 create table airplanes
 (
-    airplane_id       bigint primary key auto_increment,
-    airplane_model    varchar(300) not null,
-    airplane_company  varchar(300) not null, # 비행기 회사 ex) 아시아나 항공
-    airplane_capacity int          not null, # 탐승객 수
-    airport_id        bigint references airports (airport_id)
+    airplane_id      bigint primary key auto_increment,
+    airplane_model   varchar(300) not null,
+    airplane_company varchar(300) not null, # 비행기 회사 ex) 아시아나 항공
+    airport_id       bigint references airports (airport_id)
 );
-
+drop table operations;
 # 운행 테이블
 create table operations
 (
@@ -234,8 +242,9 @@ create table operations
     operation_price          varchar(3000) not null,
     operation_departureTime  DATETIME,
     operation_arriveTime     DATETIME,
-    operation_departure_area varchar(500), # SEL
-    operation_arrive_area    varchar(500), # OKA
+    operation_departure_area varchar(500),           # SEL
+    operation_arrive_area    varchar(500),           # OKA
+    airplane_capacity        int           not null, # 좌석수
     airplane_id              bigint references airplanes (airplane_id)
 );
 

@@ -307,7 +307,7 @@
                     <span class="ico_itinerary">여정</span>
                     <strong class="city_to">인천공항</strong>
                 </p>
-                <span class="mrt_date">${boardingMonth}월 ${boardingDay}일</span>
+                <span class="mrt_date">${departureMonth}월 ${departureDay}일</span>
             </div>
             <div class="scdul_srch">
                 <ul class="flight_list">
@@ -362,9 +362,9 @@
                                     </c:if>
 									<c:if test="${Integer.parseInt(airlist.bEtd) + 15 >= 60}">
                                         <c:if test="${Integer.parseInt(airlist.fEtd) < 12}">
-                                            ${0}${Integer.parseInt(airlist.fEtd) + 2}<c:if
-                                                test="${Integer.parseInt(airlist.bEtd) + 15 - 60 >= 10}">:${Integer.parseInt(airlist.bEtd) + 15 - 60}
-                                        </c:if><c:if
+                                            ${0}${Integer.parseInt(airlist.fEtd) + 2}
+                                            <c:if test="${Integer.parseInt(airlist.bEtd) + 15 - 60 >= 10}">:${Integer.parseInt(airlist.bEtd) + 15 - 60}
+                                            </c:if><c:if
                                                 test="${Integer.parseInt(airlist.bEtd) + 15 - 60 < 10}">:${0}${Integer.parseInt(airlist.bEtd) + 15 - 60}
                                         </c:if>
                                         </c:if>
@@ -376,7 +376,6 @@
 									<em>${airlist.arrivedEng}</em>
 								</span>
 							</span>
-                            <span class="seat_class">할인석</span>
                             <span class="seat_num">${remainSeat[status.index]}석</span>
                             <strong class="airline_price">${price[status.index]}원</strong>
                             <button class="airline_btn">선택</button>
@@ -474,10 +473,9 @@
     function click(e) {
         console.log(e.path[1].innerText.split('\n'));
         const data = e.path[1].innerText.split('\n');
-        location.href = originUrl + "/myrealtrip/loading/airReserve.rs" + dateData
+        location.href = originUrl + "/reserve/airReserve.rs" + dateData
             + "&airline=" + data[0] + "&airnum=" + data[1] + "&dep=" + data[2]
             + "&arr=" + data[4] + "&price=" + data[7];
     }
-
 </script>
 </html>
