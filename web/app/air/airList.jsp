@@ -25,7 +25,7 @@
     <div class="list_search_wrap">
         <h2 class="k1_h_tit2">왕복</h2>
         <div id="basetrip">
-            <form id="frm" method="get" action="/myrealtrip/air/airSearch.ar">
+            <form id="frm" method="get" action="/air/airSearch.ar">
                 <fieldset id="div_search1_trip1">
                     <legend></legend>
                     <ul class="itinerary">

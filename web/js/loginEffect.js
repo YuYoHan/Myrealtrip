@@ -33,18 +33,20 @@ const logged = (loginMethod) => {
         case "이메일 회원가입":
             //이메일 회원가입을 요청하는 url
             url = location.href
+            console.log("url 체크 : " + url)
             //원본은 그대로, 새로운 문자열을 반환.
             newUrl = url.replace("/member/signUp.us", "/app/member/signUp_form.jsp");
-            //console.log(newUrl);
+            console.log("새로운 url 체크 : " +newUrl);
             location.href = newUrl;
             console.log("이메일로 회원가입 합니다.");
             break;
         case "이메일 로그인":
             //이메일 로그인을 요청하는 url
             url = location.href
+            console.log("url 체크 : " + url)
             //원본은 그대로, 새로운 문자열을 반환.
             newUrl = url.replace("/member/signIn.us", "/app/member/signIn_form.jsp");
-            //console.log(newUrl);
+            console.log("새로운 url 체크 : " +newUrl);
             location.href = newUrl;
             break;
         case "페이스북":
@@ -55,7 +57,7 @@ const logged = (loginMethod) => {
         case "네이버":
             //네이버 회원가입을 요청하는 url
             console.log("네이버로 로그인/회원가입 합니다.");
-            naverLogin();
+            handleNaverLogin();
             break;
     }
 };
@@ -111,15 +113,20 @@ let naverLogin = new naver.LoginWithNaverId({
 });
 naverLogin.init();
 
-function naverLogin() {
+function handleNaverLogin() {
     naverLogin.getLoginStatus(function (status) {
         if (status) {
+            console.log("status : " + status)
             let email = naverLogin.user.getEmail();
+            console.log("이메일 : " + email)
             let name = naverLogin.user.getName();
+            console.log("이름 : " + name)
             // 로그인 성공 시 필요한 동작 수행
             location.href = "http://localhost:8080/app/mainPage/mainPage.jsp?loginUser=" + email + "&userName=" + name;
         } else {
             console.log("로그인 실패");
+            // 로그인 상태가 아니면 로그인 창을 열어 사용자에게 로그인을 요청한다.
+            naverLogin.authorize();
         }
     });
 }
@@ -147,8 +154,4 @@ function fcebookLogin() {
             console.log("로그인 실패");
         }
     }, {scope: 'public_profile, email'});
-}
-
-function sendSocialInfo(email, name) {
-
 }

@@ -8,7 +8,7 @@
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/global/common.css">
-    <link rel="stylesheet" href="../../css/pointContainer.css">
+    <link rel="stylesheet" href="../../css/mainPage/event.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/member/sign.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="EmailSignUpInfo_row">
                     <label class="EmailTextField_label" for="postCode">
-                        <p>주소 *</p>
+                        <p>우편번호 *</p>
                     </label>
                     <div>
                         <input type="text" id="postCode" placeholder="우편번호"
@@ -226,6 +226,7 @@
 <!-- footer 끝 -->
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="../../js/sign_up_form.js"></script>
 <script src="../../js/user.js"></script>
 <script src="../../js/myInfo.js"></script>
