@@ -14,6 +14,7 @@ public class TravelCardDTO {
     private int id;
     private String title;
     private String contents;
+    // 대표 이미지
     private String travelImage;
 
 }

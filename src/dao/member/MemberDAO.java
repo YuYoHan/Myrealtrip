@@ -50,17 +50,11 @@ public class MemberDAO {
                         .userRole(MemberRole.valueOf(rs.getString("user_role")))
                         .userPw(rs.getString("user_pw"))
                         .build();
-
                 System.out.println(userDTO);
             }
+            JDBCConfig.close(rs, preparedStatement, connection);
         } catch (Exception e) {
             System.out.println("에러 발생 : " + e.getMessage());
-        } finally {
-            try {
-                JDBCConfig.close(rs, preparedStatement, connection);
-            } catch (Exception e) {
-                System.out.println("에러 발생 : " + e.getMessage());
-            }
         }
         return userDTO;
     }

@@ -7,7 +7,7 @@
     <div class="headerGnb">
         <nav class="globalNavBar">
             <div class="logo">
-                <a href="<c:url value="../../index.jsp"/>"><img src="<c:url value="/img/global/logo.png"/>" alt="logo"></a>
+                <a href="<c:url value="../mainPage/mainPage.jsp"/>"><img src="<c:url value="/img/global/logo.png"/>" alt="logo"></a>
             </div>
             <div class="searchBar">
                 <div id="searchContainer" class="searchContainer">
@@ -88,7 +88,7 @@
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="${cp}/air/airReserve.ar">
+                    <a href="../air/airMain.jsp">
                         <img src="../../img/global/plane.png" alt="plane">
                         <span>항공권</span>
                     </a>
