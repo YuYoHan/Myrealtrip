@@ -1,0 +1,140 @@
+@charset "UTF-8";
+@import url("../global/share.css");
+
+#ReservationHistoryList{
+}
+.mytrip-container{
+    position: relative;
+    width: 100%;
+}
+.mytrip-row{
+	margin: 0 auto;
+    position: relative;
+    width: 1060px;
+}
+.main-container{
+	position: relative;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+.main-title{
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--gray-800);
+    letter-spacing: -0.4px;
+}
+.main-wrapper{
+    display: grid;
+    grid-template-columns: 250px 790px;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+.mytrip-sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    border-radius: 4px;
+    border: solid 1px var(--gray-100);
+    overflow: hidden;
+    cursor: pointer;
+}
+.mytrip-sidebarItem.active{
+	height: 64px;
+    display: flex;
+    padding: 24px 0px 24px 24px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: var(--gray-60);
+    box-shadow: 4px 0 0 0 var(--blue-500) inset;
+}
+.mytrip-sidebarItem{
+    height: 64px;
+    display: flex;
+    padding: 24px 0px 24px 24px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.mytrip-sidebarItem.active .sidebarTxt{
+    font-weight: bold;
+}
+.sidebarTxt{
+    font-size: 16px;
+    letter-spacing: -0.27px;
+}
+
+.mytrip-contents{
+}
+.emptyWrapper{
+    text-align: center;
+    padding-top: 0px;
+}
+.empty-style{
+    width: 58px;
+    height: 58px;
+    margin: 32px auto;
+}
+.empty-msg-wrapper{
+    margin-bottom: 24px;
+}
+.empty-msg-title{
+    margin: 0px auto 8px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.33;
+    letter-spacing: -0.4px;
+    text-align: center;
+    color: var(--gray-800);
+}
+.empty-msg-desc{
+    margin: 8px auto 0px;
+    font-size: 14px;
+    line-height: 1.57;
+    letter-spacing: -0.4px;
+    text-align: center;
+    color: var(--gray-500);
+}
+.flight_list{
+    margin: 0 auto;
+    width: 580px;
+}
+.flight_items{
+    padding: 10px 10px;
+    border: 1px solid var(--gray-100);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.airline_ico img{
+    width: 45px;
+    height: 46px;
+}
+.airline_name em{
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.rlistTime{
+	width:200px;
+	padding: 12px 20px;
+}
+.rlistPrice{
+	float: right;
+    margin: 0;
+    padding: 10px 22px;
+}
+.arrow{
+	width: 20px;
+	height: 20px;
+}
+
+.arrowImg{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: -62px;
+    left: 545px;
+}
