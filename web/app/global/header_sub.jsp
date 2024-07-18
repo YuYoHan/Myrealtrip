@@ -7,7 +7,7 @@
     <nav class="GNB-Container">
         <div class="GNB-Logo">
             <button type="button" class="GNB-Button">
-                <a href="../mainPage/mainPage.jsp">
+                <a href="/">
                     <img class="GNB-Logoimg" src="https://dffoxz5he03rp.cloudfront.net/icons/logo_mrt_web.svg">
                 </a>
             </button>

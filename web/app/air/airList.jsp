@@ -9,9 +9,6 @@
     <meta charset="UTF-8">
     <title>마이리얼트립 :: 항공권</title>
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 </head>
 <link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
@@ -388,6 +385,9 @@
 </div>
 
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script>
     $(function () {
