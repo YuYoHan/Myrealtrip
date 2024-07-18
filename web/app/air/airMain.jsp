@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="../../css/air/air.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/air/airticket.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <title>마이리얼트립 :: 항공권</title>
 </head>
 <body>
@@ -68,6 +69,7 @@
     </footer>
 </div>
 </body>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="../../js/swiper_ReserveContainer.js"></script>
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/air.js"></script>

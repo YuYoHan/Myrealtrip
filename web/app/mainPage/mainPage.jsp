@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이리얼트립 :: 나다운 진짜 여행 조영흔 조영흔 조영흔 </title>
+    <title>마이리얼트립 :: 나다운 진짜 여행 </title>
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/mainPage/event.css">

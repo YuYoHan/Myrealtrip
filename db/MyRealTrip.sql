@@ -117,8 +117,26 @@ values ('https://www.myrealtrip.com/promotions/myrealhocance_zip',
 select *
 from mainBanner;
 drop table mainBanner;
-# 여행지 소개
 
+# 여행지 소개
+# 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
+create table recommendedPlace
+(
+    place_id       bigint primary key auto_increment,
+    place_title    varchar(300)  not null,
+    place_contents varchar(4000) not null,
+    place_image    varchar(4000),
+    admin_id       bigint references admin (admin_id)
+);
+
+# 여행지 소개 이미지
+create table placeImg
+(
+    place_img_id bigint primary key auto_increment,
+    place_images varchar(4000),
+    place_id     bigint references recommendedPlace (place_id) on delete cascade
+);
+drop table recommendedPlace;
 
 # 문의하기
 create table questions
@@ -173,8 +191,8 @@ create table hotelImg
 # 방
 create table rooms
 (
-    room_id       bigint primary key auto_increment,   # 룸번호
-    room_status   varchar(300)  not null,              # 1: 예약가능 2: 예약불가능
+    room_id       bigint primary key auto_increment,                   # 룸번호
+    room_status   varchar(300)  not null,                              # 1: 예약가능 2: 예약불가능
     room_count    int           not null,
     room_price    varchar(3000) not null,
     option_others varchar(3000),
@@ -215,13 +233,12 @@ create table airports
 # 비행기 테이블
 create table airplanes
 (
-    airplane_id       bigint primary key auto_increment,
-    airplane_model    varchar(300) not null,
-    airplane_company  varchar(300) not null, # 비행기 회사 ex) 아시아나 항공
-    airplane_capacity int          not null, # 탐승객 수
-    airport_id        bigint references airports (airport_id)
+    airplane_id      bigint primary key auto_increment,
+    airplane_model   varchar(300) not null,
+    airplane_company varchar(300) not null, # 비행기 회사 ex) 아시아나 항공
+    airport_id       bigint references airports (airport_id)
 );
-
+drop table operations;
 # 운행 테이블
 create table operations
 (
@@ -230,8 +247,9 @@ create table operations
     operation_price          varchar(3000) not null,
     operation_departureTime  DATETIME,
     operation_arriveTime     DATETIME,
-    operation_departure_area varchar(500), # SEL
-    operation_arrive_area    varchar(500), # OKA
+    operation_departure_area varchar(500),           # SEL
+    operation_arrive_area    varchar(500),           # OKA
+    airplane_capacity        int           not null, # 좌석수
     airplane_id              bigint references airplanes (airplane_id)
 );
 
@@ -277,15 +295,41 @@ create table myInfo
     user_id                 bigint references users (user_id)
 );
 
-# 결제
-create table pay
+
+
+create table airPay
 (
-    pay_id                  bigint primary key auto_increment,
-    final_pay               varchar(3000) not null,
-    pay_bank                varchar(1000) not null,
-    pay_date                datetime default now(),
-    pay_status              varchar(500)  not null,
-    room_reservations_id    bigint references room_reservations (room_reservations_id),
+    air_pay_id              bigint primary key auto_increment,
+    dateFilter              varchar(300)  not null,
+    airLine                 varchar(300)  not null,
+    airNum                  varchar(1000) not null,
+    departure               varchar(300)  not null,
+    arrive                  varchar(300)  not null,
+    user_id                 bigint references users (user_id),
     airplane_reservation_id bigint references airplane_reservations (airplane_reservation_id)
 );
 
+create table hotelPay
+(
+    hotel_pay_id         bigint primary key auto_increment,
+    dateFilter           varchar(300)  not null,
+    hotelName            varchar(300)  not null,
+    hotelImg             varchar(1000) not null,
+    user_id              bigint references users (user_id),
+    room_reservations_id bigint references room_reservations (room_reservations_id)
+);
+
+# 결제
+create table pay
+(
+    pay_id    bigint primary key auto_increment,
+    final_pay varchar(3000) not null,
+    pay_bank  varchar(1000) not null,
+    pay_date  datetime default now(),
+    air_pay_id bigint references airPay(air_pay_id),
+    hotel_pay_id bigint references hotelPay(hotel_pay_id)
+);
+
+drop table pay;
+drop table airPay;
+drop table hotelPay;

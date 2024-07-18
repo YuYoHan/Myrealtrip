@@ -9,9 +9,6 @@
     <meta charset="UTF-8">
     <title>마이리얼트립 :: 항공권</title>
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 </head>
 <link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
@@ -25,7 +22,7 @@
     <div class="list_search_wrap">
         <h2 class="k1_h_tit2">왕복</h2>
         <div id="basetrip">
-            <form id="frm" method="get" action="/myrealtrip/air/airSearch.ar">
+            <form id="frm" method="get" action="/air/airSearch.ar">
                 <fieldset id="div_search1_trip1">
                     <legend></legend>
                     <ul class="itinerary">
@@ -42,7 +39,7 @@
                                 <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택"
                                        placeholder="가는날 선택" readonly="readonly" value="">
                                 <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택"
-                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="datefilter"
+                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="dateFilter"
                                        role="combobox" style="cursor: pointer;" value="">
                             </div>
 
@@ -307,7 +304,7 @@
                     <span class="ico_itinerary">여정</span>
                     <strong class="city_to">인천공항</strong>
                 </p>
-                <span class="mrt_date">${boardingMonth}월 ${boardingDay}일</span>
+                <span class="mrt_date">${departureMonth}월 ${departureDay}일</span>
             </div>
             <div class="scdul_srch">
                 <ul class="flight_list">
@@ -362,9 +359,9 @@
                                     </c:if>
 									<c:if test="${Integer.parseInt(airlist.bEtd) + 15 >= 60}">
                                         <c:if test="${Integer.parseInt(airlist.fEtd) < 12}">
-                                            ${0}${Integer.parseInt(airlist.fEtd) + 2}<c:if
-                                                test="${Integer.parseInt(airlist.bEtd) + 15 - 60 >= 10}">:${Integer.parseInt(airlist.bEtd) + 15 - 60}
-                                        </c:if><c:if
+                                            ${0}${Integer.parseInt(airlist.fEtd) + 2}
+                                            <c:if test="${Integer.parseInt(airlist.bEtd) + 15 - 60 >= 10}">:${Integer.parseInt(airlist.bEtd) + 15 - 60}
+                                            </c:if><c:if
                                                 test="${Integer.parseInt(airlist.bEtd) + 15 - 60 < 10}">:${0}${Integer.parseInt(airlist.bEtd) + 15 - 60}
                                         </c:if>
                                         </c:if>
@@ -376,7 +373,6 @@
 									<em>${airlist.arrivedEng}</em>
 								</span>
 							</span>
-                            <span class="seat_class">할인석</span>
                             <span class="seat_num">${remainSeat[status.index]}석</span>
                             <strong class="airline_price">${price[status.index]}원</strong>
                             <button class="airline_btn">선택</button>
@@ -389,22 +385,25 @@
 </div>
 
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script>
     $(function () {
 
-        $('input[name="datefilter"]').daterangepicker({
+        $('input[name="dateFilter"]').daterangepicker({
             autoUpdateInput: false,
             locale: {
                 cancelLabel: 'Clear'
             }
         });
 
-        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('apply.daterangepicker', function (ev, picker) {
             $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
         });
 
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('cancel.daterangepicker', function (ev, picker) {
             $(this).val('');
         });
 
@@ -438,8 +437,8 @@
         });
 
         function totalFn() {
-            var $total = $(".count-box")
-            var total = 0;
+            let $total = $(".count-box")
+            let total = 0;
             $total.find(".num").each(function () {
                 total += Number($(this).text());
             });
@@ -474,10 +473,9 @@
     function click(e) {
         console.log(e.path[1].innerText.split('\n'));
         const data = e.path[1].innerText.split('\n');
-        location.href = originUrl + "/myrealtrip/loading/airReserve.rs" + dateData
-            + "&airline=" + data[0] + "&airnum=" + data[1] + "&dep=" + data[2]
+        location.href = originUrl + "/reserve/airReserve.rs" + dateData
+            + "&airLine=" + data[0] + "&airNum=" + data[1] + "&dep=" + data[2]
             + "&arr=" + data[4] + "&price=" + data[7];
     }
-
 </script>
 </html>
