@@ -64,7 +64,7 @@
                                        placeholder="가는날 선택" readonly="readonly" value="">
 
                                 <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택"
-                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="datefilter"
+                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="dateFilter"
                                        role="combobox" style="cursor: pointer;" value="">
                             </div>
                             <div class="seat_wrap border_all">
@@ -124,18 +124,18 @@
         // 날짜 범위 선택기를 활성화
         // daterangepicker() 함수는 날짜 범위 선택을 가능하게 하는 라이브러리를 초기화
         // 사용자가 날짜를 선택하면 선택한 날짜 범위가 해당 입력 상자에 표시됩니다.
-        $('input[name="datefilter"]').daterangepicker({
+        $('input[name="dateFilter"]').daterangepicker({
             autoUpdateInput: false,
             locale: {
                 cancelLabel: 'Clear'
             }
         });
         // 날짜를 선택하고 적용할 때 발생하며, 선택한 날짜 범위를 입력 상자에 설정
-        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('apply.daterangepicker', function (ev, picker) {
             $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
         });
         // cancel.daterangepicker 이벤트는 사용자가 선택을 취소하면 해당 입력 상자의 값을 지웁니다.
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('cancel.daterangepicker', function (ev, picker) {
             $(this).val('');
         });
     });

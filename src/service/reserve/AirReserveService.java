@@ -12,7 +12,7 @@ public class AirReserveService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
-        String date = req.getParameter("datefilter");
+        String date = req.getParameter("dateFilter");
         String startYear = date.substring(6, 10);
         String startMonth = date.substring(0, 2);
         String startDay = date.substring(3, 5);
@@ -39,8 +39,8 @@ public class AirReserveService implements Action {
         //요일 뽑아쓰기
         String startweekhangle = weekStirng[startDayOfWeekNumber];
         String endweekhangle = weekStirng[endDayOfWeekNumber];
-        String airline = req.getParameter("airline");
-        String airnum = req.getParameter("airnum");
+        String airLine = req.getParameter("airLine");
+        String airNum = req.getParameter("airNum");
         String dep = req.getParameter("dep");
         String arr = req.getParameter("arr");
         String price = req.getParameter("price");
@@ -55,8 +55,8 @@ public class AirReserveService implements Action {
         req.setAttribute("startweekhangle", startweekhangle);
         req.setAttribute("endweekhangle", endweekhangle);
 
-        req.setAttribute("airline", airline);
-        req.setAttribute("airnum", airnum);
+        req.setAttribute("airLine", airLine);
+        req.setAttribute("airNum", airNum);
         req.setAttribute("dep", dep);
         req.setAttribute("arr", arr);
         req.setAttribute("price", price);
@@ -64,7 +64,6 @@ public class AirReserveService implements Action {
         System.out.println("AirReserveAction");
         ActionTo acto = new ActionTo();
         acto.setRedirect(false);
-
         acto.setPath("/app/reserve/airReserves.jsp");
         return acto;
     }

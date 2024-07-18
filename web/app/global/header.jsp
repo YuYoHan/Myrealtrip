@@ -7,7 +7,7 @@
     <div class="headerGnb">
         <nav class="globalNavBar">
             <div class="logo">
-                <a href="<c:url value="../mainPage/mainPage.jsp"/>"><img src="<c:url value="/img/global/logo.png"/>" alt="logo"></a>
+                <a href="<c:url value="/"/>"><img src="<c:url value="/img/global/logo.png"/>" alt="logo"></a>
             </div>
             <div class="searchBar">
                 <div id="searchContainer" class="searchContainer">
