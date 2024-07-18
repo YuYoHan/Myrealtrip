@@ -77,7 +77,7 @@
     <div class="PurchaseButton-buttonWrapper">
 		<span role="button" class="css-w0pi5v">
 			<a style="width: 100%;"
-               href="${cp}/pay/airPayment.pm?datefilter=${param.datefilter}&airline=${param.airline}&airnum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&useremail=${loginUser.useremail}">
+               href="${cp}/pay/airPayment.pm?dateFilter=${param.datefilter}&airLine=${param.airline}&airNum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&userEmail=${loginUser.useremail}">
 				<button type="button" class="PurchaseButton-button css-jgs6n">
 					<span class="css-1s4v6ia">${price} 결제하기</span>
 				</button>

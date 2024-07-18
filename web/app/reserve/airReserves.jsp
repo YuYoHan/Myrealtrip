@@ -44,38 +44,38 @@
                                     <div class="ProductInfoSummary-style-imageWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 이미지를 가져와야함.  -->
 
-                                        <c:if test="${airline eq '에어서울'}">
+                                        <c:if test="${airLine eq '에어서울'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/RS.png">
                                         </c:if>
-                                        <c:if test="${airline eq '아시아나항공'}">
+                                        <c:if test="${airLine eq '아시아나항공'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png">
                                         </c:if>
-                                        <c:if test="${airline eq '제주항공'}">
+                                        <c:if test="${airLine eq '제주항공'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png">
                                         </c:if>
-                                        <c:if test="${airline eq '진에어'}">
+                                        <c:if test="${airLine eq '진에어'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png">
                                         </c:if>
-                                        <c:if test="${airline eq '대한항공'}">
+                                        <c:if test="${airLine eq '대한항공'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/KE.png">
                                         </c:if>
-                                        <c:if test="${airline eq '티웨이항공'}">
+                                        <c:if test="${airLine eq '티웨이항공'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png">
                                         </c:if>
-                                        <c:if test="${airline eq '에어부산'}">
+                                        <c:if test="${airLine eq '에어부산'}">
                                             <img class="ProductInfoSummary-style-image"
                                                  src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png">
                                         </c:if>
                                     </div>
                                     <div class="ProductInfoSummary-style-textWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 정보가 아래에 들어가야함 -->
-                                        <h3 class="ProductInfoSummary-style-title">서울 - 제주[${airline} / ${airnum}]</h3>
+                                        <h3 class="ProductInfoSummary-style-title">서울 - 제주[${airLine} / ${airNum}]</h3>
                                         <div class="ProductInfoSummary-style-schedule">
                                             <time class="ProductInfoSummary-style-startDateTime">${startYear}년 ${startMonth}월 ${startDay}일
                                                 (${startweekhangle}) ~
@@ -154,11 +154,11 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content">${loginUser.username}</div>
+                                            <div class="InfoField-style-content">${loginUser.userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
-                                            <div class="InfoField-style-content">${loginUser.useremail}</div>
+                                            <div class="InfoField-style-content">${loginUser.userEmail}</div>
                                         </div>
                                     </div>
                                     <div class="ReservationPersonInfo-style-option">
@@ -243,14 +243,14 @@
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">한글 이름</label>
                                             <input class="css-1e7i9br" type="text" placeholder="홍길동"
-                                                   value="${loginUser.username}">
+                                                   value="${loginUser.userName}">
                                         </div>
                                     </div>
                                     <div class="Email-style-container">
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">이메일 주소</label>
                                             <input class="css-1e7i9br" type="email" placeholder="example@example.com"
-                                                   value="${loginUser.useremail}">
+                                                   value="${loginUser.userEmail}">
                                         </div>
                                     </div>
                                 </div>

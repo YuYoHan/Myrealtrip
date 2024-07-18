@@ -131,7 +131,7 @@ create table placeImg
     place_images varchar(4000),
     place_id     bigint references recommendedPlace (place_id) on delete cascade
 );
-drop table placeImg;
+drop table recommendedPlace;
 
 # 문의하기
 create table questions
@@ -290,15 +290,41 @@ create table myInfo
     user_id                 bigint references users (user_id)
 );
 
-# 결제
-create table pay
+
+
+create table airPay
 (
-    pay_id                  bigint primary key auto_increment,
-    final_pay               varchar(3000) not null,
-    pay_bank                varchar(1000) not null,
-    pay_date                datetime default now(),
-    pay_status              varchar(500)  not null,
-    room_reservations_id    bigint references room_reservations (room_reservations_id),
+    air_pay_id              bigint primary key auto_increment,
+    dateFilter              varchar(300)  not null,
+    airLine                 varchar(300)  not null,
+    airNum                  varchar(1000) not null,
+    departure               varchar(300)  not null,
+    arrive                  varchar(300)  not null,
+    user_id                 bigint references users (user_id),
     airplane_reservation_id bigint references airplane_reservations (airplane_reservation_id)
 );
 
+create table hotelPay
+(
+    hotel_pay_id         bigint primary key auto_increment,
+    dateFilter           varchar(300)  not null,
+    hotelName            varchar(300)  not null,
+    hotelImg             varchar(1000) not null,
+    user_id              bigint references users (user_id),
+    room_reservations_id bigint references room_reservations (room_reservations_id)
+);
+
+# 결제
+create table pay
+(
+    pay_id    bigint primary key auto_increment,
+    final_pay varchar(3000) not null,
+    pay_bank  varchar(1000) not null,
+    pay_date  datetime default now(),
+    air_pay_id bigint references airPay(air_pay_id),
+    hotel_pay_id bigint references hotelPay(hotel_pay_id)
+);
+
+drop table pay;
+drop table airPay;
+drop table hotelPay;

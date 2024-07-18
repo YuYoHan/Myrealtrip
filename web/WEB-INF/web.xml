@@ -53,6 +53,14 @@
         <servlet-name>AirController</servlet-name>
         <url-pattern>*.ar</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PayController</servlet-name>
+        <servlet-class>controller.pay.PayController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PayController</servlet-name>
+        <url-pattern>*.pm</url-pattern>
+    </servlet-mapping>
     <!--    <servlet>-->
     <!--        <servlet-name>HotelFrontController</servlet-name>-->
     <!--        <servlet-class>app.hotels.HotelFrontController</servlet-class>-->
@@ -69,14 +77,7 @@
     <!--        <servlet-name>ReserveFrontController</servlet-name>-->
     <!--        <url-pattern>*.rs</url-pattern>-->
     <!--    </servlet-mapping>-->
-    <!--    <servlet>-->
-    <!--        <servlet-name>payFrontController</servlet-name>-->
-    <!--        <servlet-class>app.pay.payFrontController</servlet-class>-->
-    <!--    </servlet>-->
-    <!--    <servlet-mapping>-->
-    <!--        <servlet-name>payFrontController</servlet-name>-->
-    <!--        <url-pattern>*.pm</url-pattern>-->
-    <!--    </servlet-mapping>-->
+
     <!--    <servlet>-->
     <!--        <servlet-name>MytripFrontController</servlet-name>-->
     <!--        <servlet-class>app.mytrip.MytripFrontController</servlet-class>-->

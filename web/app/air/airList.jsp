@@ -42,7 +42,7 @@
                                 <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택"
                                        placeholder="가는날 선택" readonly="readonly" value="">
                                 <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택"
-                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="datefilter"
+                                       placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="dateFilter"
                                        role="combobox" style="cursor: pointer;" value="">
                             </div>
 
@@ -392,18 +392,18 @@
 <script>
     $(function () {
 
-        $('input[name="datefilter"]').daterangepicker({
+        $('input[name="dateFilter"]').daterangepicker({
             autoUpdateInput: false,
             locale: {
                 cancelLabel: 'Clear'
             }
         });
 
-        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('apply.daterangepicker', function (ev, picker) {
             $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
         });
 
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $('input[name="dateFilter"]').on('cancel.daterangepicker', function (ev, picker) {
             $(this).val('');
         });
 
@@ -437,8 +437,8 @@
         });
 
         function totalFn() {
-            var $total = $(".count-box")
-            var total = 0;
+            let $total = $(".count-box")
+            let total = 0;
             $total.find(".num").each(function () {
                 total += Number($(this).text());
             });
@@ -474,7 +474,7 @@
         console.log(e.path[1].innerText.split('\n'));
         const data = e.path[1].innerText.split('\n');
         location.href = originUrl + "/reserve/airReserve.rs" + dateData
-            + "&airline=" + data[0] + "&airnum=" + data[1] + "&dep=" + data[2]
+            + "&airLine=" + data[0] + "&airNum=" + data[1] + "&dep=" + data[2]
             + "&arr=" + data[4] + "&price=" + data[7];
     }
 </script>
