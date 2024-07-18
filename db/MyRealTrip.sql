@@ -28,6 +28,10 @@ create table admin
 );
 insert into admin(admin_email, admin_name, admin_role)
 values ('zxzz45@naver.com', '유요한', 'ADMIN');
+
+insert into admin(admin_email, admin_name, admin_role)
+values ('700eeu@gmail.com', '김예은', 'ADMIN');
+
 select *
 from admin;
 
@@ -68,6 +72,7 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
         1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+
 select *
 from travelCard;
 drop table travelCard;
