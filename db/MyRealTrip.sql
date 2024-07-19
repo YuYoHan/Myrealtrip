@@ -279,6 +279,54 @@ create table air_notices
 );
 
 
+insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
+values('Myrealtrip 클론프로젝트 공지사항입니다.','Myrealtrip 클론프로젝트 공지사항입니다. 화이팅',now(),now(),3);
+
+insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
+values('여행지는 12개의 도시에 여행이 가능합니다.','Myrealtrip 여행 도시 안내를 위한 공지사항입니다. ',now(),now(),3);
+
+insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
+values('궁금한 내용은 우측 하단에 메세지를 통해서 실시간 문의가 가능합니다.','Myrealtrip 공지사항 안내를 위한 공지사항입니다. ',now(),now(),3);
+
+insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
+values('개발 내용에 대한 코드는 YUYOHAN님에게 물어보면 됩니다.','Myrealtrip 코드 안내를 위한 공지사항입니다. ',now(),now(),3);
+
+insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
+values('비가 많이 오는 날은 비행기 운행이 지연될 수 있어요','Myrealtrip 운행 지연 안내를 위한 공지사항입니다. ',now(),now(),3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('유류할증료 인상 예정 안내', '2023년 8월 1일부터 유류할증료가 인상될 예정입니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('신규 노선 안내', 'Myrealtrip에서 새로운 국제 노선을 추가합니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('항공권 할인 이벤트', '다가오는 여름을 맞이하여 항공권 할인 이벤트를 진행합니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('탑승 수속 절차 변경 안내', '탑승 수속 절차가 변경되었습니다. 자세한 내용은 공지사항을 확인하세요.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('COVID-19 방역 지침 안내', 'COVID-19 관련 방역 지침을 준수해주시기 바랍니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('기내 서비스 변경 안내', '기내에서 제공되는 서비스가 일부 변경되었습니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('수하물 규정 변경 안내', '수하물 규정이 변경되었습니다. 새로운 규정을 확인해 주세요.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('기상 악화로 인한 항공편 지연 안내', '기상 악화로 인해 항공편이 지연될 수 있습니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('마일리지 적립 프로모션', '마일리지 적립 프로모션을 진행 중입니다. 많은 참여 부탁드립니다.', now(), now(), 3);
+
+insert into air_notices (notice_title, notice_details, notice_regTime, notice_updateTime, admin_id)
+values('여권 유효기간 확인 안내', '탑승 전에 여권 유효기간을 확인해 주세요.', now(), now(), 3);
+
+
+
+
 # 찜하기
 create table pickList
 (
