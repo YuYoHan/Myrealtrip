@@ -15,36 +15,45 @@
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-    <title>마이리얼트립 :: 항공권</title>
+    <title>마이리얼트립 :: 항공권 공지사항</title>
 </head>
 <body>
 <%@ include file="../global/header.jsp" %>
-<%@ include file="air.jsp" %>
 <main style="height: 110vh;">
     <section class="airMain">
         <div class="main-notice">
             <h2>항공권 공지사항</h2>
-            <div class="notice-more">
-                <!-- 영흔님 이부분 구현 해주세요
-                     공지상황 게시글 보는 페이지-->
-                <a class="notice-more-btn" href="${cp}/air/airNoticeList.ar">더보기</a>
-            </div>
+<%--            <div class="notice-more">--%>
+<%--                <a class="notice-more-btn" href="#">더보기</a>--%>
+<%--            </div>--%>
             <table class="air-board">
+                <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>등록일</th>
+<%--                    <th>액션</th>--%>
+                </tr>
+                </thead>
                 <tbody class="rowlength">
                 <c:choose>
                     <c:when test="${not empty AirNoticesList}">
-                        <c:forEach var="notice" items="${AirNoticesList}" begin="0" end="6">
+                        <c:forEach var="notice" items="${AirNoticesList}">
                             <tr>
                                 <td class="air-tal">
                                     <span class="air-board-contents"><a style="color: #495056;"   href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a></span>
                                 </td>
-                                <td class="time">>${notice.airNoticeRegTime}</td>
+                                <td class="time">${notice.airNoticeRegTime}</td>
+<%--                                <td>--%>
+<%--                                    <a href="viewNotice.jsp?noticeId=${notice.airNoticeId}">상세보기</a> |--%>
+<%--                                    <a href="editNotice.jsp?noticeId=${notice.airNoticeId}">수정하기</a> |--%>
+<%--                                    <a href="deleteNotice.jsp?noticeId=${notice.airNoticeId}">삭제하기</a>--%>
+<%--                                </td>--%>
                             </tr>
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
                         <tr>
-                            <td colspan="2" class="air-tal">
+                            <td colspan="3" class="air-tal">
                                 <span class="air-board-contents">현재 공지사항이 없습니다.</span>
                             </td>
                         </tr>
@@ -52,11 +61,10 @@
                 </c:choose>
                 </tbody>
             </table>
-
         </div>
-    </section>
-    <section class="airBanner">
-        <%@ include file="../air/airBanner.jsp" %>
+        <div class="actions">
+            <a style="color: #495056;"  href="${cp}/air/airMain.ar">목록으로</a>
+        </div>
     </section>
 </main>
 <div class="default-components" id="footer-components">

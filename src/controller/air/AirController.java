@@ -1,6 +1,8 @@
 package controller.air;
 
 import action.air.AirMainAction;
+import action.air.AirNoticeDetailAction;
+import action.air.AirNoticeListAction;
 import config.action.ActionTo;
 import service.air.AirSearchService;
 
@@ -29,6 +31,24 @@ public class AirController extends HttpServlet {
         if (command.equals("/air/airMain.ar")) {
             try {
                 acto = new AirMainAction().execute(req, resp);
+            } catch (Exception e) {
+                System.out.println("항공권 이동 에러 : " + e.getMessage());
+            }
+        }
+
+        // 항공권 공지사항 리스트 이동
+        if (command.equals("/air/airNoticeList.ar")) {
+            try {
+                acto = new AirNoticeListAction().execute(req, resp);
+            } catch (Exception e) {
+                System.out.println("항공권 이동 에러 : " + e.getMessage());
+            }
+        }
+
+        // 항공권 공지사항 디테일 이동
+        if (command.equals("/air/airNoticeDetail.ar")) {
+            try {
+                acto = new AirNoticeDetailAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("항공권 이동 에러 : " + e.getMessage());
             }
