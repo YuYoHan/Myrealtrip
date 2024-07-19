@@ -32,6 +32,10 @@ values ('zxzz45@naver.com', '유요한', 'ADMIN');
 insert into admin(admin_email, admin_name, admin_role)
 values ('700eeu@gmail.com', '김예은', 'ADMIN');
 
+
+insert into admin(admin_email, admin_name, admin_role)
+values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
+
 select *
 from admin;
 
@@ -264,7 +268,7 @@ create table airplane_reservations
 );
 
 # 항공권 공지사항
-create table notices
+create table air_notices
 (
     notice_id         bigint primary key auto_increment,
     notice_title      varchar(300)  not null,
