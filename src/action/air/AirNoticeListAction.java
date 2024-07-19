@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-// 항공권 이동
-public class AirMainAction implements Action {
+// 항공 공지사항 리스트
+public class AirNoticeListAction implements Action {
 
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -29,7 +29,7 @@ public class AirMainAction implements Action {
 
         ActionTo acto = new ActionTo();
         acto.setRedirect(false);
-        acto.setPath("/app/air/airMain.jsp");
+        acto.setPath("/app/air/airNoticeList.jsp");
         return acto;
     }
 }
