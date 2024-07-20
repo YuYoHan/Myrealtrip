@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <div class="pointContainer_wrapper">
-    <a href="#" class="pointContainer_img">
+    <a href="http://pf.kakao.com/_kwxcxbT" class="pointContainer_img">
         <img class="mainbanner-pointContainer_icon" src="<c:url value="/img/mainPage/addFriend.svg"/>">
         <div class="mainbanner-pointContainer_body">
             <p class="mainbanner-pointContainer_title">
@@ -17,6 +17,6 @@
                 <span>지금이 기회입니다!</span>
             </p>
         </div>
-        <button type="button" class="mainbanner-pointContainer_button">친구 추가하로 가기</button>
+        <button type="button" class="mainbanner-pointContainer_button">친구 추가 하러 가기</button>
     </a>
 </div>
