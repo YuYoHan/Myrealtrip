@@ -56,7 +56,7 @@
                             <input class="css-3wnbe5" placeholder="제주 감성 충만 호텔" readonly="readonly">
                         </div>
                     </div>
-                    <div class="date_selector clearfix border_all ml8" id="div_day_selector" role="calendarPopTxt"
+                    <div class="date_selector clearfix border_all ml8" id="div_day_selector" role="combobox"
                          style="cursor: pointer;">
                         <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택" placeholder="가는날 선택"
                                readonly="readonly" value="">
