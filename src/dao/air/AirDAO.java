@@ -2,7 +2,6 @@ package dao.air;
 
 import config.jdbc.JDBCConfig;
 import dto.air.AirBannerDTO;
-import dto.air.PlaceImgDTO;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -15,6 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ public class AirDAO {
             // buffer타입의 객체를 생성하고
             // 가져오고자 하는 요청 주소를 추가
             StringBuilder urlBuilder = new StringBuilder("http://openapi.airport.co.kr/service/rest/AirportCodeList/getAirportCodeList"); /*URL*/
-            urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=IfJN7A3cBBPttYf%2FFcFWC8pNDT3mi3SRSsDJmyAXQAUOlqvkQhP4ggZkHzhacIhEEJzcswWo8fraVeUBAOxQng%3D%3D&"); /*Service Key*/
+            urlBuilder.append("?" + URLEncoder.encode("serviceKey", StandardCharsets.UTF_8) + "=xVjkj6OejHpsNyP2LyreYZ%2FlRcLySeNLy6UGXbjGw2MhON7pLpzkGUHS2OLC6fQxP4XK5jlAz%2FlzIog0l2TNZw%3D%3D"); /*Service Key*/
             //URL 객체로 해당 stringbuffer를 넘겨주고
             URL url = new URL(urlBuilder.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -43,7 +43,7 @@ public class AirDAO {
             conn.setRequestProperty("Accept", "application/json");
             System.out.println("Response code: " + conn.getResponseCode());
             BufferedReader rd;
-            if (conn.getResponseCode() > 200 && conn.getResponseCode() <= 300) {
+            if (conn.getResponseCode() >= 200 && conn.getResponseCode() < 300) {
                 rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             } else {
                 rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));

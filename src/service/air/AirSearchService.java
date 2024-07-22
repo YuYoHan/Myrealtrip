@@ -83,6 +83,7 @@ public class AirSearchService implements Action {
                     map.put(item.getNodeName(), item.getTextContent());
                 }
             }
+            System.out.println("map 확인 : " + map.toString());
             // 여기까지 실행되면 map에 키-값 구조로 담긴 데이터가 hashMap으로 존재한다.
             // 리스트로 만들어서 map을 저장할 수 있다.
             list.add(i, map);

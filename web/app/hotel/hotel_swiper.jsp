@@ -29,7 +29,7 @@
                     <c:forEach items="${hotelsugsoList}" var="ven">
                         <div class="swiper-slide swiper-slide-active">
                             <a class="ProductCard-Container"
-                               href="${cp}/reserve/reserve.rs?datefilter=${param.datefilter}&hotelnum=${ven.up_sugso_num}&hotelname=${ven.sugso_name}&hotelImg=${ven.img_url}&hotelPrice=${ven.price}">
+                               href="${cp}/reserve/reserve.rs?dateFilter=${param.datefilter}&hotelNum=${ven.up_sugso_num}&hotelName=${ven.sugso_name}&hotelImg=${ven.img_url}&hotelPrice=${ven.price}">
                                 <div class="ProductCard-image">
                                     <img class="css-y5m0bt" src="${ven.img_url}">
                                 </div>
