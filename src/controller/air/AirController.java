@@ -54,15 +54,6 @@ public class AirController extends HttpServlet {
             }
         }
 
-        // 예약 이동
-        if (command.equals("/air/airReserve.ar")) {
-            try {
-
-            } catch (Exception e) {
-                System.out.println("항공권 예약 이동 에러 : " + e.getMessage());
-            }
-        }
-
         if (command.equals("/air/airSearch.ar")) {
             try {
                 acto = new AirSearchService().execute(req, resp);

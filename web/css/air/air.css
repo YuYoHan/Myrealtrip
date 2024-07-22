@@ -1,4 +1,27 @@
 @charset "UTF-8";
+
+/* 기본 Flatpickr 스타일을 사용자화 */
+.flatpickr-calendar {
+    background: #ffffff; /* 배경색 */
+    border: 1px solid #ddd; /* 테두리 색상 */
+    border-radius: 4px; /* 둥근 모서리 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.flatpickr-day.selected {
+    background: #ff5722; /* 선택된 날짜 배경색 */
+    color: #ffffff; /* 선택된 날짜 텍스트 색상 */
+}
+
+.flatpickr-day.inRange {
+    background: #ffe0b2; /* 범위 내 날짜 배경색 */
+    color: #333; /* 범위 내 날짜 텍스트 색상 */
+}
+
+.flatpickr-calendar .flatpickr-day.today {
+    border: 1px solid #ff5722; /* 오늘 날짜 테두리 색상 */
+}
+
 .interval_select {
     display: inline-block;
     margin-right: 10px;

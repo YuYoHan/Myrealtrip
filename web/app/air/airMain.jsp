@@ -8,14 +8,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
-    <link rel="stylesheet" href="../../css/air/airReserve.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/global/header_sub.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
     <link rel="stylesheet" href="../../css/air/air.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/air/airticket.css">
-    <link rel="stylesheet" href="../../css/index.css">
+    <!-- jQuery 라이브러리 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 외부 캘린더 사용-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
     <title>마이리얼트립 :: 항공권</title>
 </head>
 <body>
@@ -37,8 +46,10 @@
                         <c:forEach var="notice" items="${AirNoticesList}" begin="0" end="6">
                             <tr>
                                 <td class="air-tal">
-                                    <span class="air-board-contents"><a style="color: #495056;"
-                                                                        href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a></span>
+                                    <span class="air-board-contents">
+                                        <a style="color: #495056;"
+                                           href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a>
+                                    </span>
                                 </td>
                                 <td class="time">>${notice.airNoticeRegTime}</td>
                             </tr>
@@ -57,9 +68,9 @@
 
         </div>
     </section>
-    <section class="airBanner">
-        <%@ include file="../air/airBanner.jsp" %>
-    </section>
+<%--    <section class="airBanner">--%>
+<%--        <%@ include file="../air/airBanner.jsp" %>--%>
+<%--    </section>--%>
 </main>
 <div class="default-components" id="footer-components">
     <footer id="footer" class="footer-container">
