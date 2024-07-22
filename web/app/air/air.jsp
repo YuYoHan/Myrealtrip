@@ -24,7 +24,7 @@
         Daterangepicker를 사용할 때 필요한 기본 스타일을 제공하여 일관된 UI를 유지할 수 있도록 합니다.-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 </head>
-<link rel="stylesheet" type="text/css" href="../../css/calendar.css" />
+<link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
 <body>
 <div class="search_are">
     <div id="div_notice" class="statue_box6" style="display:none;"></div>

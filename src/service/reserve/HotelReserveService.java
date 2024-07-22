@@ -12,7 +12,7 @@ public class HotelReserveService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
-        String date = req.getParameter("datefilter");
+        String date = req.getParameter("dateFilter");
         String startYear = date.substring(6, 10);
         String startMonth = date.substring(0, 2);
         String startDay = date.substring(3, 5);
@@ -34,8 +34,8 @@ public class HotelReserveService implements Action {
         //요일 뽑아쓰기
         String startweekhangle = weekStirng[startDayOfWeekNumber];
         String endweekhangle = weekStirng[endDayOfWeekNumber];
-        String hotelnum = req.getParameter("hotelnum");
-        String hotelname = req.getParameter("hotelname");
+        String hotelNum = req.getParameter("hotelNum");
+        String hotelName = req.getParameter("hotelName");
         String hotelImg = req.getParameter("hotelImg");
         String hotelPrice = req.getParameter("hotelPrice");
 
@@ -49,15 +49,15 @@ public class HotelReserveService implements Action {
         req.setAttribute("startweekhangle", startweekhangle);
         req.setAttribute("endweekhangle", endweekhangle);
 
-        req.setAttribute("hotelnum", hotelnum);
-        req.setAttribute("hotelname", hotelname);
+        req.setAttribute("hotelNum", hotelNum);
+        req.setAttribute("hotelName", hotelName);
         req.setAttribute("hotelImg", hotelImg);
         req.setAttribute("hotelPrice", hotelPrice);
 
         System.out.println("ReserveAction");
         ActionTo acto = new ActionTo();
         acto.setRedirect(false);
-        acto.setPath("/app/loading/reserves.jsp");
+        acto.setPath("/app/reserve/hotelReserves.jsp");
         return acto;
     }
 }

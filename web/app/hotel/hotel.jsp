@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>마이리얼트립 :: 국내숙소</title>
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
-    <link rel="shortcut icon" type="image/x-icon" href="${cp}/app/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 </head>
@@ -56,12 +56,12 @@
                             <input class="css-3wnbe5" placeholder="제주 감성 충만 호텔" readonly="readonly">
                         </div>
                     </div>
-                    <div class="date_selector clearfix border_all ml8" id="div_day_selector" role="calendarPopTxt"
+                    <div class="date_selector clearfix border_all ml8" id="div_day_selector" role="combobox"
                          style="cursor: pointer;">
                         <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택" placeholder="가는날 선택"
                                readonly="readonly" value="">
                         <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택"
-                               placeholder="입실 날짜 선택  - 퇴실 날짜 선택" readonly="readonly" name="datefilter"
+                               placeholder="입실 날짜 선택  - 퇴실 날짜 선택" readonly="readonly" name=" dateFilter"
                                role="combobox" style="cursor: pointer;" value="">
                         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxNlYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik02IDRMMTAgOC4wMDIgNi4wMDUgMTIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDggOCkiLz4KICAgIDwvZz4KPC9zdmc+Cg==">
                     </div>
@@ -135,18 +135,18 @@
 <script>
     $(function () {
 
-        $('input[name="datefilter"]').daterangepicker({
+        $('input[name=" dateFilter"]').daterangepicker({
             autoUpdateInput: false,
             locale: {
                 cancelLabel: 'Clear'
             }
         });
 
-        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $('input[name=" dateFilter"]').on('apply.daterangepicker', function (ev, picker) {
             $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
         });
 
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $('input[name=" dateFilter"]').on('cancel.daterangepicker', function (ev, picker) {
             $(this).val('');
         });
 
