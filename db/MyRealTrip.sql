@@ -357,8 +357,7 @@ create table airPay
     airNum                  varchar(1000) not null,
     departure               varchar(300)  not null,
     arrive                  varchar(300)  not null,
-    user_id                 bigint references users (user_id),
-    airplane_reservation_id bigint references airplane_reservations (airplane_reservation_id)
+    user_id                 bigint references users (user_id)
 );
 
 create table hotelPay
@@ -367,8 +366,7 @@ create table hotelPay
     dateFilter           varchar(300)  not null,
     hotelName            varchar(300)  not null,
     hotelImg             varchar(1000) not null,
-    user_id              bigint references users (user_id),
-    room_reservations_id bigint references room_reservations (room_reservations_id)
+    user_id              bigint references users (user_id)
 );
 
 # 결제
