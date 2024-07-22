@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <title>마이리얼트립 :: 항공권</title>
 </head>
 <body>
@@ -36,7 +37,8 @@
                         <c:forEach var="notice" items="${AirNoticesList}" begin="0" end="6">
                             <tr>
                                 <td class="air-tal">
-                                    <span class="air-board-contents"><a style="color: #495056;"   href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a></span>
+                                    <span class="air-board-contents"><a style="color: #495056;"
+                                                                        href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a></span>
                                 </td>
                                 <td class="time">>${notice.airNoticeRegTime}</td>
                             </tr>
@@ -65,7 +67,6 @@
     </footer>
 </div>
 </body>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="../../js/swiper_ReserveContainer.js"></script>
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/air.js"></script>

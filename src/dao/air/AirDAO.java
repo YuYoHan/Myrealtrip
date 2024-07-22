@@ -28,10 +28,15 @@ public class AirDAO {
 
     public static NodeList getAirApi() {
         try {
+            // doument instance를 생성
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            // 인스턴스의 메소드를 실행, 이 빌더를 통해 xml로 가져온 데이터를 document타입으로 가공한다.
             DocumentBuilder builder = factory.newDocumentBuilder();
+            // buffer타입의 객체를 생성하고
+            // 가져오고자 하는 요청 주소를 추가
             StringBuilder urlBuilder = new StringBuilder("http://openapi.airport.co.kr/service/rest/AirportCodeList/getAirportCodeList"); /*URL*/
             urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=IfJN7A3cBBPttYf%2FFcFWC8pNDT3mi3SRSsDJmyAXQAUOlqvkQhP4ggZkHzhacIhEEJzcswWo8fraVeUBAOxQng%3D%3D&"); /*Service Key*/
+            //URL 객체로 해당 stringbuffer를 넘겨주고
             URL url = new URL(urlBuilder.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -52,10 +57,15 @@ public class AirDAO {
             conn.disconnect();
             System.out.println(sb.toString());
 
+            // bufferinputStream객체로 생성하면 가져오기 완료
             BufferedInputStream xmlData = new BufferedInputStream(url.openStream());
+            // 가져온 데이터는 builder를 통해 parse메소드로 넘겨주면 document타입이 된다.
             Document document = builder.parse(xmlData);
+            // xml의 요소를 가져오려면 getDocumentElement메소드를 사용한다.
             Element root = document.getDocumentElement();
-            NodeList nodes = root.getElementsByTagName("items");
+            // xml의 요소는 node요소이다. 우리가 원하는 데이터들은 xml의 item에 들어있으니
+            // NodeList 객체 타입으로 list변수에 넣어주자.
+            NodeList nodes = root.getElementsByTagName("item");
             return nodes;
 
         } catch (Exception e) {
