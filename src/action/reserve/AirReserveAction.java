@@ -1,4 +1,4 @@
-package service.reserve;
+package action.reserve;
 
 import config.action.Action;
 import config.action.ActionTo;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-public class AirReserveService implements Action {
+public class AirReserveAction implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
