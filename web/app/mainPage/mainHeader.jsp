@@ -14,7 +14,6 @@
         </button>
     </div>
 </div>
-#에러 픽스 예정
 <div class="mainHeader_container">
     <div class="mainHeader_row">
         <div class="card_container">

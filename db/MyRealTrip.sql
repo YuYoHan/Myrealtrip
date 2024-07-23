@@ -56,7 +56,7 @@ drop table travelCard;
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('뉴욕', '뉴욕', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/4721_large_square_1535704006.jpg?1535704006', 1);
 
-# insert문 travel_image 수정했고 update문도 추가했습니다. 편한 쪽으로 적용해주세요. 만약 sql문이 먹히지 않는다면 set sql_safe_updates =0;을 실행한 뒤 다시 적용해보세요.
+# insert문 travel_image 수정했고 update문도 추가했으니 편한 쪽으로 적용해주세요. 만약 sql문이 먹히지 않는다면 set sql_safe_updates =0;을 실행한 뒤 다시 적용해보세요.
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('피렌체', '피렌체', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/florence-1608113_1280.jpg', 1);
 UPDATE travelCard
