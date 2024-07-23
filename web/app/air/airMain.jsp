@@ -68,9 +68,9 @@
 
         </div>
     </section>
-<%--    <section class="airBanner">--%>
-<%--        <%@ include file="../air/airBanner.jsp" %>--%>
-<%--    </section>--%>
+    <section class="airBanner">
+        <%@ include file="../air/airBanner.jsp" %>
+    </section>
 </main>
 <div class="default-components" id="footer-components">
     <footer id="footer" class="footer-container">
