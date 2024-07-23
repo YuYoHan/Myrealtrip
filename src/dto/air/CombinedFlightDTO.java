@@ -57,6 +57,18 @@ public class CombinedFlightDTO {
     public String calculateNewTime(String ttt, int hours, int minutes) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("HHmm");
         SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm");
+        if (ttt.contains(":")) {
+            inputFormat = new SimpleDateFormat("HH:mm");
+            try {
+                Date date = outputFormat.parse(ttt);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                calendar.add(Calendar.HOUR_OF_DAY, hours);
+                calendar.add(Calendar.MINUTE, minutes + (int) (Math.random() * 20));
+                return outputFormat.format(calendar.getTime());
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }}
         try {
             Date date = inputFormat.parse(ttt);
             Calendar calendar = Calendar.getInstance();
@@ -73,6 +85,7 @@ public class CombinedFlightDTO {
         SimpleDateFormat inputFormat;
         if (ttt.contains(":")) {
             inputFormat = new SimpleDateFormat("HH:mm");
+            return ttt;
         } else {
             inputFormat = new SimpleDateFormat("HHmm");
         }

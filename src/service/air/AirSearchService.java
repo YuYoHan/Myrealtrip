@@ -19,9 +19,6 @@ public class AirSearchService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-
-
-
         //req.setAttribute("remainSeat",);
         req.setAttribute("from", "김포");
         req.setAttribute("to", "도쿄");
@@ -37,8 +34,6 @@ public class AirSearchService implements Action {
         // 그거에 해당하는 코드 가져오기
 
 
-
-
         ArrayList<InternationalOperation> outList = AirDAO.getInternationalAir("GMP","HND","20240730","OUT");
         ArrayList<InternationalOperation> inList = AirDAO.getInternationalAir("GMP","HND","20240802","IN");
         ArrayList<CombinedFlightDTO> combineList = new ArrayList<CombinedFlightDTO>();
@@ -49,9 +44,20 @@ public class AirSearchService implements Action {
                 c.setRandomPrice(0);
                 // 좌석 랜덤으로 정함
                 c.setRandomSeat(0);
+
                 // 도착 시간 정함
+
+                //출발시간으로 도착시간에 기본값 초기화
+                c.setInArriveTime(c.getIn().getInternationalTime());
+                c.setOutArriveTime(c.getOut().getInternationalTime());
+
+                //도착시간 시간 랜덤값 넣기
                 c.setInArriveTime(c.calculateNewTime(c.getIn().getInternationalTime(),1,20));
                 c.setOutArriveTime(c.calculateNewTime(c.getOut().getInternationalTime(),1,20));
+
+                //출발 시간 시간 포맷 정해주기
+                c.getIn().setInternationalTime(c.setDateFormat(c.getIn().getInternationalTime()));
+                c.getOut().setInternationalTime(c.setDateFormat(c.getOut().getInternationalTime()));
 
                 combineList.add(c);
             }
