@@ -281,6 +281,14 @@ create table airplane_reservations
     airplane_id                  bigint references airplanes (airplane_id),
     user_id                      bigint references users (user_id)
 );
+# 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
+ALTER TABLE airplane_reservations
+    DROP COLUMN airplane_id;
+
+-- Then, add the new columns in_airplane_id and out_airplane_id
+ALTER TABLE airplane_reservations
+    ADD COLUMN in_airplane_id bigint,
+    ADD COLUMN out_airplane_id bigint;
 
 # 항공권 공지사항
 create table air_notices
