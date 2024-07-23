@@ -56,7 +56,7 @@
                                        readonly="readonly">
                                 <button type="button" class="btn_swapper" id="btn_arrDepChange">도착지 출발지 교체</button>
                                 <input id="txt_arrCtyCode" placeholder="제주 (CJU)" class="input_text" type="text"
-                                       readonly="readonly">
+                                       readonly="readonly" name="dep">
                             </div>
                             <div class="date_selector clearfix border_all ml8" id="div_day_selector"
                                  style="cursor: pointer;">
@@ -91,7 +91,6 @@
                                                 <button class="Nop_btn_plus" type="button"></button>
                                             </dd>
                                         </dl>
-
                                         <dl class="Nop_item">
                                             <dt>소아 <span>만 12세 미만</span></dt>
                                             <dd class="count-box">
@@ -100,7 +99,6 @@
                                                 <button class="Nop_btn_plus" type="button"></button>
                                             </dd>
                                         </dl>
-
                                         <dl class="Nop_item">
                                             <dt>유아 <span>24개월 미만</span></dt>
                                             <dd class="count-box">
