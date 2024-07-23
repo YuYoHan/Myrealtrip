@@ -86,7 +86,6 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
         1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
-#두바이와 서울 이미지 추가
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
 insert into travelCard (title, contents, travel_image, admin_id)
