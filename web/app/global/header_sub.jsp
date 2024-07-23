@@ -50,53 +50,33 @@
         <nav class="localNavBar">
             <div class="lnbWrapper">
                 <div class="localItemWithIcon">
-                    <a href="../../index.jsp">
-                        <span>홈</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
                     <a href="${cp}/air/airMain.ar">
+                        <img src="../../img/global/plane.png" alt="plane">
                         <span>항공권</span>
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="${cp}/tour/tourTicket.tr">
-                        <span>투어·티켓</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
-                    <a href="${cp}/hotel.ht">
+                    <a href="${cp}/hotel/hotel.ht">
+                        <img src="../../img/global/pool.png" alt="pool">
                         <span>숙소</span>
                     </a>
                 </div>
                 <div class="localItemWithIcon">
+                    <a href="${cp}/tour/tourTicket.tr">
+                        <img src="../../img/global/domestichotel.png" alt="flag">
+                        <span>국내호텔</span>
+                    </a>
+                </div>
+                <div class="localItemWithIcon">
                     <a href="${cp}/hotel/hotel.ht">
-                        <span>호캉스</span>
+                        <img src="../../img/global/trip.png" alt="trip">
+                        <span>해외호텔</span>
                     </a>
                 </div>
                 <div class="localItemWithIcon">
                     <a href="#">
-                        <span>렌터카</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
-                    <a href="#">
-                        <span>패키지</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
-                    <a href="#">
-                        <span>한인민박</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
-                    <a href="#">
-                        <span>키즈</span>
-                    </a>
-                </div>
-                <div class="localItemWithIcon">
-                    <a href="#">
-                        <span>할인혜택</span>
+                        <img src="../../img/global/insurance.png" alt="car">
+                        <span>여행자보험</span>
                     </a>
                 </div>
             </div>

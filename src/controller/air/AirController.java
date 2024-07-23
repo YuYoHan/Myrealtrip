@@ -64,10 +64,10 @@ public class AirController extends HttpServlet {
             }
         }
 
-        // 예약 이동
-        if (command.equals("/air/airReserve.ar")) {
+        // 항공권 예약 보기
+        if (command.equals("/reserve/airReserve.rs")) {
             try {
-
+                acto = new AirReserveService().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("항공권 예약 이동 에러 : " + e.getMessage());
             }
