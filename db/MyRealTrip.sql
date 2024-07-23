@@ -55,9 +55,16 @@ create table travelCard
 drop table travelCard;
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('뉴욕', '뉴욕', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/4721_large_square_1535704006.jpg?1535704006', 1);
+
+# insert문 travel_image 수정했고 update문도 추가했으니 편한 쪽으로 적용해주세요. 만약 sql문이 먹히지 않는다면 set sql_safe_updates =0;을 실행한 뒤 다시 적용해보세요.
 insert into travelCard (title, contents, travel_image, admin_id)
-values ('피렌체', '피렌체', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/476_large_square_1448513381.jpg?1448513381', 1);
-insert into travelCard (title, contents, travel_image, admin_id)
+values ('피렌체', '피렌체', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/florence-1608113_1280.jpg', 1);
+UPDATE travelCard
+SET travel_image = 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/florence-1608113_1280.jpg'
+WHERE title = '피렌체';
+
+insert
+into travelCard (title, contents, travel_image, admin_id)
 values ('라스베가스', '라스베가스',
         'https://d2ur7st6jjikze.cloudfront.net/landscapes/4654_large_square_1535621335.jpg?1535621335', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
@@ -79,6 +86,10 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
         1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+insert into travelCard (title, contents, travel_image, admin_id)
+values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
+insert into travelCard (title, contents, travel_image, admin_id)
+values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
 
 select *
 from travelCard;
