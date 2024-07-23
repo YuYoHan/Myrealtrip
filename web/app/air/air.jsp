@@ -74,7 +74,9 @@
                                     <span class="txt" id="bin_people">승객 <span class="count-total"></span>명, 전체</span>
                                 </a>
                             </div>
-                            <a class="btn_price_search" onclick="return ok_frm()">검색</a>
+                            <div class="btn_box">
+                                <a class="btn_price_search" onclick="return ok_frm()">검색</a>
+                            </div>
                             <div class="Nop_wrap hidden">
                                 <div class="Nop_header">
                                     <h1>인원 & 좌석등급</h1>
@@ -107,6 +109,29 @@
                                                 <button class="Nop_btn_plus" type="button"></button>
                                             </dd>
                                         </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Nop_wrap2 hidden" id="cityPopup">
+                                <div class="Nop_header">
+                                    <h1>도착지 선택</h1>
+                                </div>
+                                <div class="Nop_container">
+                                    <div class="Nop_items2">
+                                        <ul class="city_list">
+                                            <li data-city="뉴욕">뉴욕</li>
+                                            <li data-city="피렌체">피렌체</li>
+                                            <li data-city="라스베가스">라스베가스</li>
+                                            <li data-city="파리">파리</li>
+                                            <li data-city="런던">런던</li>
+                                            <li data-city="바르셀로나">바르셀로나</li>
+                                            <li data-city="로마">로마</li>
+                                            <li data-city="루체른">루체른</li>
+                                            <li data-city="인터라켄">인터라켄</li>
+                                            <li data-city="세고비아">세고비아</li>
+                                            <li data-city="톨레도">톨레도</li>
+                                            <li data-city="두바이">두바이</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -196,6 +221,35 @@
     function ok_frm() {
         document.getElementById("frm").submit();
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const cityPopup = document.getElementById('cityPopup');
+        const arrCityInput = document.getElementById('txt_arrCtyCode');
+
+        // 도착지 필드를 클릭하면 팝업을 표시
+        arrCityInput.addEventListener('click', (event) => {
+            const rect = arrCityInput.getBoundingClientRect();
+            cityPopup.style.top = `${rect.bottom + window.scrollY}px`;
+            cityPopup.style.left = `${rect.left + window.scrollX}px`;
+
+            cityPopup.classList.toggle('hidden');
+        });
+
+        // 도시 목록의 항목을 클릭하면 도착지 필드에 반영하고 팝업을 숨김
+        document.querySelectorAll('.city_list li').forEach(city => {
+            city.addEventListener('click', () => {
+                arrCityInput.value = city.dataset.city;
+                cityPopup.classList.add('hidden');
+            });
+        });
+
+        // 팝업 외부 클릭 시 팝업을 숨김
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.city_selector') && !event.target.closest('.Nop_wrap')) {
+                cityPopup.classList.add('hidden');
+            }
+        });
+    });
 </script>
 <script src="../../js/myInfo.js"></script>
 
