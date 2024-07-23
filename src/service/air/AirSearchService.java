@@ -29,8 +29,15 @@ public class AirSearchService implements Action {
         String arriveYear = date.substring(19, 23);
         String arriveMonth = date.substring(13, 15);
         String arriveDay = date.substring(16, 18);
-        System.out.printf("출발년도  : %s\n출발 월 : %s\n출발일 : %s", departureYear, departureMonth, departureDay);
-        System.out.printf("도착년도  : %s\n도착 월 : %s\n도착일 : %s", arriveYear, arriveMonth, arriveDay);
+        System.out.printf("출발년도  : %s 출발 월 : %s 출발일 : %s", departureYear, departureMonth, departureDay);
+        System.out.println();
+        System.out.printf("도착년도  : %s 도착 월 : %s 도착일 : %s", arriveYear, arriveMonth, arriveDay);
+
+        String departure = req.getParameter("dep");
+        System.out.println("도착지 : " + departure);
+
+        String personCount = req.getParameter("count-total-input");
+        System.out.println("인원수 : " + personCount);
 
         // OPEN API에서 받은 XML을 받고 DAO로 처리한 것을 가져옴
         // 해당 메서드를 실행하면 NodeList 타입으로 받아오게 됨
@@ -62,7 +69,7 @@ public class AirSearchService implements Action {
             // 랜덤으로 가격 생성
             int price_hd = (int) (Math.random()*(999-100+1)+100);
             int price_b = (int)(Math.random()*(99-50+1)+50);
-            randomPrice[i] = price_b +", " + price_hd;
+            randomPrice[i] = price_b +"," + price_hd;
             System.out.println(randomPrice[i]);
 
             // 가져온 자식 요소의 길이 만큼 반복시키면 자식 요소 안의

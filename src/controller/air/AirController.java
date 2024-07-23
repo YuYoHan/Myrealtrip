@@ -5,6 +5,7 @@ import action.air.AirNoticeDetailAction;
 import action.air.AirNoticeListAction;
 import config.action.ActionTo;
 import service.air.AirSearchService;
+import service.reserve.AirReserveService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,6 +52,15 @@ public class AirController extends HttpServlet {
                 acto = new AirNoticeDetailAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("항공권 이동 에러 : " + e.getMessage());
+            }
+        }
+
+        // 항공권 예약 보기
+        if (command.equals("/reserve/airReserve.rs")) {
+            try {
+                acto = new AirReserveService().execute(req, resp);
+            } catch (Exception e) {
+                System.out.println("항공권 예약 이동 에러 : " + e.getMessage());
             }
         }
 
