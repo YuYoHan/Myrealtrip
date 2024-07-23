@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/air/airReserve.css">
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/air/air.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/air/airticket.css">

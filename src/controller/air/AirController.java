@@ -4,6 +4,7 @@ import action.air.AirMainAction;
 import action.air.AirNoticeDetailAction;
 import action.air.AirNoticeListAction;
 import config.action.ActionTo;
+import service.air.AirReserveService;
 import service.air.AirSearchService;
 
 import javax.servlet.RequestDispatcher;
@@ -45,6 +46,15 @@ public class AirController extends HttpServlet {
             }
         }
 
+        // 항공권 공지사항 리스트 이동
+        if (command.equals("/air/airReserve.ar")) {
+            try {
+                acto = new AirReserveService().execute(req, resp);
+            } catch (Exception e) {
+                System.out.println("항공권 이동 에러 : " + e.getMessage());
+            }
+        }
+
         // 항공권 공지사항 디테일 이동
         if (command.equals("/air/airNoticeDetail.ar")) {
             try {
@@ -67,16 +77,19 @@ public class AirController extends HttpServlet {
             try {
                 acto = new AirSearchService().execute(req, resp);
             } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("catch : StringIndexOutOfBoundsException ");
                 acto = new ActionTo();
                 System.out.println(e.getMessage());
                 acto.setRedirect(true);
                 acto.setPath("/air/airReserve.ar");
             } catch (NumberFormatException e) {
+                System.out.println("catch : NumberFormatException ");
                 acto = new ActionTo();
                 System.out.println(e.getMessage());
                 acto.setRedirect(true);
                 acto.setPath("/air/airReserve.ar");
             } catch (Exception e) {
+                System.out.println("catch : Exception ");
                 System.out.println("항공권 에러 : " + e.getMessage());
             }
         }
