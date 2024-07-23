@@ -1,4 +1,4 @@
-package action.pay;
+package service.reserve;
 
 import config.action.Action;
 import config.action.ActionTo;
@@ -8,7 +8,7 @@ import dto.pay.AirPaymentDTO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AirPayAction implements Action {
+public class AirPayService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         // 날짜를 받아와서 년, 월, 일 나누어서 보내줌
@@ -52,7 +52,7 @@ public class AirPayAction implements Action {
             System.out.println("결제 실패");
             ActionTo acto = new ActionTo();
             acto.setRedirect(true);
-            acto.setPath("../web/app/reserve/airReserves.jsp");
+            acto.setPath("/app/reserve/airReserves.jsp");
             return acto;
         }
     }

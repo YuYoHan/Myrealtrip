@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
     <link rel="stylesheet" href="${cp}/css/header_sub.css">
     <link rel="stylesheet" href="${cp}/css/footer.css">
+    <!-- 포트원 결제 -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     <title>마이리얼트립 :: 항공권 예약</title>
 </head>
 <body>
@@ -75,7 +81,7 @@
                                     </div>
                                     <div class="ProductInfoSummary-style-textWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 정보가 아래에 들어가야함 -->
-                                        <h3 class="ProductInfoSummary-style-title">서울 - 제주[${airLine} / ${airNum}]</h3>
+                                        <h3 class="ProductInfoSummary-style-title">서울 - ${dep}[${airLine} / ${airNum}]</h3>
                                         <div class="ProductInfoSummary-style-schedule">
                                             <time class="ProductInfoSummary-style-startDateTime">${startYear}년 ${startMonth}월 ${startDay}일
                                                 (${startweekhangle}) ~
@@ -154,11 +160,11 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content">${loginUser.userName}</div>
+                                            <div class="InfoField-style-content" id="userName">${loginUser.userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
-                                            <div class="InfoField-style-content">${loginUser.userEmail}</div>
+                                            <div class="InfoField-style-content" id="userEmail">${loginUser.userEmail}</div>
                                         </div>
                                     </div>
                                     <div class="ReservationPersonInfo-style-option">
@@ -325,5 +331,5 @@
     </footer>
 </div>
 </body>
-
+<script src="../../js/payment.js"></script>
 </html>

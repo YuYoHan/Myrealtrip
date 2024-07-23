@@ -3,6 +3,7 @@ package controller.air;
 import action.air.AirMainAction;
 import action.air.AirNoticeDetailAction;
 import action.air.AirNoticeListAction;
+import action.reserve.AirReserveAction;
 import config.action.ActionTo;
 import service.air.AirReserveService;
 import service.air.AirSearchService;
@@ -67,7 +68,7 @@ public class AirController extends HttpServlet {
         // 항공권 예약 보기
         if (command.equals("/reserve/airReserve.rs")) {
             try {
-                acto = new AirReserveService().execute(req, resp);
+                acto = new AirReserveAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("항공권 예약 이동 에러 : " + e.getMessage());
             }

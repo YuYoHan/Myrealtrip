@@ -63,14 +63,6 @@
                         <strong class="Allterms-defaultCheckAllTerm">위 약관을 확인하였으며, 회원 본인은 약관 및 결제에 동의합니다.</strong>
                     </div>
                 </div>
-                <div class="PolicyForm-notice">
-                    <img class="css-1fc8vz0"
-                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgyMFYyMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLXdpZHRoPSIxLjI1IiBkPSJNMTAgLjYyNWMtMi41ODkgMC00LjkzMiAxLjA1LTYuNjMgMi43NDZDMS42NzUgNS4wNjguNjI2IDcuNDExLjYyNiAxMGMwIDIuNTg5IDEuMDUgNC45MzIgMi43NDYgNi42MjkgMS42OTcgMS42OTcgNC4wNCAyLjc0NiA2LjYyOSAyLjc0NiAyLjU4OSAwIDQuOTMyLTEuMDUgNi42My0yLjc0NiAxLjY5Ni0xLjY5NyAyLjc0NS00LjA0IDIuNzQ1LTYuNjI5IDAtMi41ODktMS4wNS00LjkzMi0yLjc0Ni02LjYyOUMxNC45MzIgMS42NzQgMTIuNTkuNjI1IDEwIC42MjV6Ii8+CiAgICAgICAgPHBhdGggc3Ryb2tlPSIjNDk1MDU2IiBzdHJva2Utd2lkdGg9IjEuMjUiIGQ9Ik0xMC40MTcgMTQuNTE1TDEwLjQxNyA4LjQ4MSA4LjI5MSA4LjQ4MU03LjYyNiAxNC45NTlMMTMuMTMzIDE0Ljk1OSIvPgogICAgICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGQ9Ik0xMS4wMyA1LjcxNmMwIC41MTMtLjQxNy45MjgtLjkzNC45MjgtLjUxNiAwLS45MzQtLjQxNS0uOTM0LS45MjggMC0uNTE0LjQxOC0uOTI5LjkzNC0uOTI5LjUxNyAwIC45MzUuNDE1LjkzNS45Mjl6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=">
-                    <div class="css-liyoj2o">
-                        <div class="css-5sumbj">이런 경우 현장 결제가 필요할 수 있어요.</div>
-                        <div class="css-1kx9bws">기준 인원 초과, 바베큐 시설 이용 등은 현장에서 추가 비용이 청구될 수 있습니다.</div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -79,7 +71,7 @@
 			<a style="width: 100%;"
                href="${cp}/pay/airPayment.pm?dateFilter=${param.datefilter}&airLine=${param.airline}&airNum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&userEmail=${loginUser.useremail}">
 				<button type="button" class="PurchaseButton-button css-jgs6n">
-					<span class="css-1s4v6ia">${price} 결제하기</span>
+					<span class="css-1s4v6ia" id="payment">${price} 결제하기</span>
 				</button>
 			</a>
 		</span>
