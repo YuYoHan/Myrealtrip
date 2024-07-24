@@ -16,8 +16,6 @@ public class AirPayService implements Action {
         System.out.println("날짜 : " + dateFilter);
         String airLine = req.getParameter("airLine");
         System.out.println("airLine : " + airLine);
-        String airNum = req.getParameter("airNum");
-        System.out.println("airNum : " + airNum);
         String departure = req.getParameter("dep");
         System.out.println("출발지 : " + departure);
         String arrive = req.getParameter("arr");
@@ -30,7 +28,7 @@ public class AirPayService implements Action {
         AirPaymentDTO airPay = AirPaymentDTO.builder()
                 .dateFilter(dateFilter)
                 .airLine(airLine)
-                .airNum(airNum)
+                .airNum("0")
                 .departure(departure)
                 .arrive(arrive)
                 .build();
