@@ -3,6 +3,7 @@ package controller.insurance;
 import action.air.AirMainAction;
 import action.hotel.HotelBannerAction;
 import action.insurance.InsuranceAction;
+import action.insurance.InsuranceFormAction;
 import config.action.ActionTo;
 
 import javax.servlet.RequestDispatcher;
@@ -23,6 +24,13 @@ public class InsuranceController extends HttpServlet {
         if (command.equals("/insurance/insurance.ns")) {
             try {
                 acto = new InsuranceAction().execute(req, resp);
+            } catch (Exception e) {
+                System.out.println("여행자 보험 에러 : " + e.getMessage());
+            }
+        }
+        if (command.equals("/insurance/insuranceForm.ns")) {
+            try {
+                acto = new InsuranceFormAction().execute(req, resp);
             } catch (Exception e) {
                 System.out.println("여행자 보험 에러 : " + e.getMessage());
             }
