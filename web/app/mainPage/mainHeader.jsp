@@ -20,7 +20,7 @@
             <!-- swiper를 초기화하여 스크립트 태그에서 옵션을 설정한다. -->
             <div class="swiper-container">
                 <!-- 슬라이드를 감싸는 div태그 -->
-                <div style="width: 3240px;" class="swiper-wrapper">
+                <div style="width: 3900px;" class="swiper-wrapper">
                     <!-- 슬라이드 내용 -->
                     <c:forEach items="${cardList}" var="card">
                         <div class="swiper-slide image-slide">

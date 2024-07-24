@@ -1,6 +1,6 @@
 package controller.pay;
 
-import action.pay.AirPayAction;
+import service.reserve.AirPayService;
 import config.action.ActionTo;
 import exception.pay.PayException;
 
@@ -31,7 +31,7 @@ public class PayController extends HttpServlet {
 
         if (command.equals("/pay/airPayment.pm")) {
             try {
-                acto = new AirPayAction().execute(req, resp);
+                acto = new AirPayService().execute(req, resp);
             } catch (Exception e) {
                 throw new PayException(e.getMessage());
             }

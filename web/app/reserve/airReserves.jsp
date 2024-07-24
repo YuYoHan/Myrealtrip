@@ -9,20 +9,29 @@
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
     <link rel="stylesheet" href="${cp}/css/common.css">
     <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
-    <link rel="stylesheet" href="${cp}/css/header_sub.css">
+<%--    <link rel="stylesheet" href="${cp}/css/header_sub.css">--%>
     <link rel="stylesheet" href="${cp}/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
+    <link rel="stylesheet" href="../../css/air/airlist.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <!-- 포트원 결제 -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     <title>마이리얼트립 :: 항공권 예약</title>
 </head>
 <body>
 <!-- 해더 시작 -->
 <c:if test="${loginUser == null}">
     <script>
-        alert("로그인 후 이용해 주세요!");
-        location.href = "${cp}/member/signIn.us";
+        <%--alert("로그인 후 이용해 주세요!");--%>
+        <%--location.href = "${cp}/member/signIn.us";--%>
     </script>
 </c:if>
 <div style="position: relative" class="defult-com">
-    <%@include file="/app/global/header_sub.jsp" %>
+    <%@ include file="../global/header.jsp" %>
 </div>
 <!-- 해더 끝 -->
 <div>
@@ -75,7 +84,7 @@
                                     </div>
                                     <div class="ProductInfoSummary-style-textWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 정보가 아래에 들어가야함 -->
-                                        <h3 class="ProductInfoSummary-style-title">서울 - 제주[${airLine} / ${airNum}]</h3>
+                                        <h3 class="ProductInfoSummary-style-title">서울 - ${dep}[${airLine} / ${airNum}]</h3>
                                         <div class="ProductInfoSummary-style-schedule">
                                             <time class="ProductInfoSummary-style-startDateTime">${startYear}년 ${startMonth}월 ${startDay}일
                                                 (${startweekhangle}) ~
@@ -118,6 +127,7 @@
                             <div class="SectionContainerHeader-style-box">
                                 <h2 class="SectionContainerHeader-style-title">포인트 사용</h2>
                             </div>
+
                         </div>
                         <hr class="SectionContainer-style-divider">
                         <div class="SectionContainer-style-body">
@@ -154,11 +164,11 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content">${loginUser.userName}</div>
+                                            <div class="InfoField-style-content" id="userName">${loginUser.userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
-                                            <div class="InfoField-style-content">${loginUser.userEmail}</div>
+                                            <div class="InfoField-style-content" id="userEmail">${loginUser.userEmail}</div>
                                         </div>
                                     </div>
                                     <div class="ReservationPersonInfo-style-option">
@@ -302,11 +312,11 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="PAYCO" type="radio" value="PAYCO" class="css-8djd7q">
+											<input id="KAKAO" name="KAKAO" type="radio" value="KAKAO" class="css-8djd7q">
 										</span>
-                                        <label class="css-1jvr7pu" for="PAYCO">
-                                            페이코
-                                            <img src="${cp}/img/etc/payco.svg">
+                                        <label class="css-1jvr7pu" for="KAKAO">
+                                            카카오페이
+                                            <img src="${cp}/img/etc/kakaoPay.png">
                                         </label>
                                     </div>
                                 </div>
@@ -325,5 +335,5 @@
     </footer>
 </div>
 </body>
-
+<script src="../../js/payment.js"></script>
 </html>

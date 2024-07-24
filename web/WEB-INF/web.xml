@@ -53,6 +53,10 @@
         <servlet-name>AirController</servlet-name>
         <url-pattern>*.ar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AirController</servlet-name>
+        <url-pattern>*.rs</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>PayController</servlet-name>
         <servlet-class>controller.pay.PayController</servlet-class>
@@ -61,30 +65,12 @@
         <servlet-name>PayController</servlet-name>
         <url-pattern>*.pm</url-pattern>
     </servlet-mapping>
-    <!--    <servlet>-->
-    <!--        <servlet-name>HotelFrontController</servlet-name>-->
-    <!--        <servlet-class>app.hotels.HotelFrontController</servlet-class>-->
-    <!--    </servlet>-->
-    <!--    <servlet-mapping>-->
-    <!--        <servlet-name>HotelFrontController</servlet-name>-->
-    <!--        <url-pattern>*.ht</url-pattern>-->
-    <!--    </servlet-mapping>-->
-    <!--    <servlet>-->
-    <!--        <servlet-name>ReserveFrontController</servlet-name>-->
-    <!--        <servlet-class>app.loading.ReserveFrontController</servlet-class>-->
-    <!--    </servlet>-->
-    <!--    <servlet-mapping>-->
-    <!--        <servlet-name>ReserveFrontController</servlet-name>-->
-    <!--        <url-pattern>*.rs</url-pattern>-->
-    <!--    </servlet-mapping>-->
-
-    <!--    <servlet>-->
-    <!--        <servlet-name>MytripFrontController</servlet-name>-->
-    <!--        <servlet-class>app.mytrip.MytripFrontController</servlet-class>-->
-    <!--    </servlet>-->
-    <!--    <servlet-mapping>-->
-    <!--        <servlet-name>MytripFrontController</servlet-name>-->
-    <!--        <url-pattern>*.mt</url-pattern>-->
-    <!--    </servlet-mapping>-->
-
+        <servlet>
+            <servlet-name>HotelFrontController</servlet-name>
+            <servlet-class>controller.hotel.HotelController</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>HotelFrontController</servlet-name>
+            <url-pattern>*.ht</url-pattern>
+        </servlet-mapping>
 </web-app>
