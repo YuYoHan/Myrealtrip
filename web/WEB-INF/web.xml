@@ -53,6 +53,10 @@
         <servlet-name>AirController</servlet-name>
         <url-pattern>*.ar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AirController</servlet-name>
+        <url-pattern>*.rs</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>PayController</servlet-name>
         <servlet-class>controller.pay.PayController</servlet-class>
@@ -69,14 +73,4 @@
             <servlet-name>HotelFrontController</servlet-name>
             <url-pattern>*.ht</url-pattern>
         </servlet-mapping>
-        <servlet>
-            <servlet-name>ReserveController</servlet-name>
-            <servlet-class>controller.reserve.ReserveController</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>ReserveController</servlet-name>
-            <url-pattern>*.rs</url-pattern>
-        </servlet-mapping>
-
-
 </web-app>
