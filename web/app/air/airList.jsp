@@ -389,20 +389,14 @@
                                     <span class="arr_time time">${flight.inArriveTime}  <br> <em class="from_to_time time">${from}</em></span>
                                 </span>
                             </div>
-
-
-
-
                             // &people=${people}
                             // &outDate=${outDate}
                             // &inDate=${inDate}
-
                             <span class="seat_num">좌석수:${flight.seat}</span>
                             <strong class="airline_price">${flight.price}원</strong>
-                            <a href="${cp}/air/airReserve.ar?outAirline=${flight.out.airlineKorean}&outTime=${flight.out.internationalTime}&outArriveTime=${flight.outArriveTime}&inAirline=${flight.in.airlineKorean}&inTime=${flight.in.internationalTime}&inArriveTime=${flight.inArriveTime}&seat=${flight.seat}&price=${flight.price}">
+                            <a href="${cp}/air/airReserve.ar?outAirline=${flight.out.airlineKorean}&outTime=${flight.out.internationalTime}&outArriveTime=${flight.outArriveTime}&inAirline=${flight.in.airlineKorean}&inTime=${flight.in.internationalTime}&inArriveTime=${flight.inArriveTime}&outArriveTime=${flight.outArriveTime}&fromAirPort=${flight.out.airport}&toAirPort=${flight.out.city}&seat=${flight.seat}&price=${flight.price}&peopleCount=${peopleCount}&depDate=${depDate}&retDate=${retDate}&dateFilter=${dateFilter}">
                                 <button class="airline_btn">선택</button>
                             </a>
-
                         </li>
                     </c:forEach>
                 </ul>

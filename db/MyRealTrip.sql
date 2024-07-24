@@ -302,6 +302,31 @@ create table air_notices
 );
 
 
+create table air_code(
+    air_code_id BIGINT PRIMARY key AUTO_INCREMENT,
+    air_code_iata varchar(3000) not null,
+    air_code_loc varchar(3000) not null,
+    air_code_default_price bigint
+);
+
+INSERT INTO air_code (air_code_iata, air_code_loc, air_code_default_price) VALUES
+    ('LGA', '뉴욕', 1500000),
+    ('FLR', '피렌체', 2000000),
+    ('LAS', '라스베가스', 1800000),
+    ('CDG', '파리', 2200000),
+    ('LHR', '런던', 2300000),
+    ('BCN', '바르셀로나', 2100000),
+    ('FCO', '로마', 1900000),
+    ('ZRH', '루체른', 2500000),
+    ('BRN', '인터라켄', 2400000),
+    ('MAD', '세고비아', 2600000),
+    ('MAD', '톨레도', 2600000),
+    ('DXB', '두바이', 2700000),
+    ('HND', '도쿄', 150000);
+
+use myRealTrip;
+select * from air_code;
+
 insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
 values('Myrealtrip 클론프로젝트 공지사항입니다.','Myrealtrip 클론프로젝트 공지사항입니다. 화이팅',now(),now(),3);
 

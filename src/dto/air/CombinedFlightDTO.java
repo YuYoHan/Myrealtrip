@@ -12,9 +12,9 @@ import java.util.Locale;
 
 @ToString
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
 @Builder
 public class CombinedFlightDTO {
     private InternationalOperation in;
