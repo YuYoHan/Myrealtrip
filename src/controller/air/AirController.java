@@ -64,6 +64,7 @@ public class AirController extends HttpServlet {
             }
         }
 
+        // 항공 검색시 airList로 이동
         if (command.equals("/air/airSearch.ar")) {
             try {
                 acto = new AirSearchService().execute(req, resp);
@@ -71,12 +72,12 @@ public class AirController extends HttpServlet {
                 acto = new ActionTo();
                 System.out.println(e.getMessage());
                 acto.setRedirect(true);
-                acto.setPath("/air/airReserve.ar");
+                acto.setPath("/air/airMain.ar");
             } catch (NumberFormatException e) {
                 acto = new ActionTo();
                 System.out.println(e.getMessage());
                 acto.setRedirect(true);
-                acto.setPath("/air/airReserve.ar");
+                acto.setPath("/air/airMain.ar");
             } catch (Exception e) {
                 System.out.println("항공권 에러 : " + e.getMessage());
             }

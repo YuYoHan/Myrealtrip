@@ -118,6 +118,7 @@
                             <div class="SectionContainerHeader-style-box">
                                 <h2 class="SectionContainerHeader-style-title">포인트 사용</h2>
                             </div>
+
                         </div>
                         <hr class="SectionContainer-style-divider">
                         <div class="SectionContainer-style-body">

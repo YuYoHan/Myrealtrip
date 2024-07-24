@@ -8,10 +8,7 @@ import org.w3c.dom.NodeList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AirSearchService implements Action {
     @Override
@@ -51,6 +48,7 @@ public class AirSearchService implements Action {
         Map<String, Object> map;
 
         String[] randomPrice = new String[10];
+        int[] remainSeat = new int[10];
         // NodeList의 길이만큼 반복시켜서 노드들을 가져온다.
         // [{key : value, key : value...},{key : value, key : value...},
         // {key : value, key : value...},{key : value, key : value...}.......]
@@ -71,6 +69,7 @@ public class AirSearchService implements Action {
             int price_b = (int)(Math.random()*(99-50+1)+50);
             randomPrice[i] = price_b +"," + price_hd;
             System.out.println(randomPrice[i]);
+            remainSeat[i] = (int)(Math.random()*300)+1;
 
             // 가져온 자식 요소의 길이 만큼 반복시키면 자식 요소 안의
             // 모든 데이터들을 가져 올 수 있다.
@@ -96,11 +95,10 @@ public class AirSearchService implements Action {
             list.add(i, map);
         }
 
-        int remainSeat = AirDAO.getCount();
-        System.out.println("남은 좌석 : " + remainSeat);
+        System.out.println("남은 좌석 : " + Arrays.toString(remainSeat));
 
 
-//        req.setAttribute("remainSeat",);
+        req.setAttribute("remainSeat", remainSeat);
         req.setAttribute("price", randomPrice);
         // setAttribute로 list를 담자.
         req.setAttribute("list", list);
