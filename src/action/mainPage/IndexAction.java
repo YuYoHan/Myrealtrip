@@ -5,10 +5,12 @@ import config.action.ActionTo;
 import dao.mainPage.MainDAO;
 import dto.mainPage.MainBannerDTO;
 import dto.mainPage.TravelCardDTO;
+import dto.mainPage.RePlaceDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,9 +20,13 @@ public class IndexAction implements Action {
 
         List<TravelCardDTO> cardList = MainDAO.cardList();
         System.out.println(cardList);
+        List<RePlaceDTO> replaceList = MainDAO.placeList();
+        System.out.println(replaceList);
         List<MainBannerDTO> bannerList = MainDAO.bannerList();
         System.out.println(bannerList);
 
+
+        req.setAttribute("replaceList", replaceList);
         req.setAttribute("cardList", cardList);
         req.setAttribute("bannerList", bannerList);
 

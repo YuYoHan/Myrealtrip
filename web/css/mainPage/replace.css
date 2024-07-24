@@ -1,0 +1,68 @@
+/* 컨테이너 스타일 */
+.rePlace_container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.headlineWrapper {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.headline {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 제품 카드 스타일 */
+.productCard {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+}
+
+.productImage {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.productContent {
+    padding: 15px;
+}
+
+.productTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.productDescription {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.productButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.productButton:hover {
+    background-color: #0056b3;
+}

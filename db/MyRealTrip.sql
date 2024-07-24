@@ -36,6 +36,9 @@ values ('700eeu@gmail.com', '김예은', 'ADMIN');
 insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
+insert into admin(admin_email, admin_name, admin_role)
+values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
+
 select *
 from admin;
 
@@ -76,6 +79,10 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
         1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+insert into travelCard (title, contents, travel_image, admin_id)
+values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+insert into travelCard (title, contents, travel_image, admin_id)
+values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 
 select *
 from travelCard;
@@ -132,6 +139,58 @@ create table recommendedPlace
     place_image    varchar(4000),
     admin_id       bigint references admin (admin_id)
 );
+
+drop table recommendedPlace;
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (1, 1, '/img/mainPage/place1.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (2, 2, '/img/mainPage/place2.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (3, 3, '/img/mainPage/place3.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (4, 4, '/img/mainPage/place4.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (5,5, '/img/mainPage/place5.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (6, 6, '/img/mainPage/place6.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (7, 7, '/img/mainPage/place7.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (8, 8, '/img/mainPage/place8.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (9, 9, '/img/mainPage/place9.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (10, 10, '/img/mainPage/place10.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (11, 11, '/img/mainPage/place11.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (12, 12, '/img/mainPage/place12.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (13, 13, '/img/mainPage/place13.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (14, 14, '/img/mainPage/place14.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (15, 15, '/img/mainPage/place15.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (16, 16, '/img/mainPage/place16.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (17, 17, '/img/mainPage/place17.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (18, 18, '/img/mainPage/place18.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (19, 19, '/img/mainPage/place19.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (20, 20, '/img/mainPage/place20.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (21, 21, '/img/mainPage/place21.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (22, 22, '/img/mainPage/place22.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (23, 23, '/img/mainPage/place23.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (24, 24, '/img/mainPage/place24.png', 1);
+
+
 
 # 여행지 소개 이미지
 create table placeImg
@@ -385,3 +444,20 @@ create table pay
 drop table pay;
 drop table airPay;
 drop table hotelPay;
+
+#메인 상세화면
+create table mainDetail
+(
+    mainDetail_id       bigint primary key auto_increment,
+    mainDetail_title    varchar(1000)  not null,
+    mainDetail_price    varchar(3000) not null,
+    mainDetail_option   varchar(3000) not null,
+    content_image       varchar(4000) not null,
+    content             varchar(4000) not null,
+    address             varchar(3000) not null
+);
+
+
+
+
+
