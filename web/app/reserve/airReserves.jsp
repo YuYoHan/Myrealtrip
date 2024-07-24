@@ -320,11 +320,11 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="PAYCO" type="radio" value="PAYCO" class="css-8djd7q">
+											<input id="KAKAO" name="KAKAO" type="radio" value="KAKAO" class="css-8djd7q">
 										</span>
-                                        <label class="css-1jvr7pu" for="PAYCO">
-                                            페이코
-                                            <img src="${cp}/img/etc/payco.svg">
+                                        <label class="css-1jvr7pu" for="KAKAO">
+                                            카카오페이
+                                            <img src="${cp}/img/etc/kakaoPay.png">
                                         </label>
                                     </div>
                                 </div>

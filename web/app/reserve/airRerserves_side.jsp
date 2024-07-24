@@ -40,22 +40,22 @@
                     <div class="form-item">
                         <div class="AllTerms-termContainer">
                             <div class="required-term">
-                                <span aria-hidden="true" class="term-defaultCheckTerm">여행자 약관 동의 (필수)</span>
+                                <input type="checkbox" aria-hidden="true" class="term-defaultCheckTerm c_h">여행자 약관 동의 (필수)</input>
                                 <img class="css-xqn21t"
                                      src="https://dffoxz5he03rp.cloudfront.net/icons/ic_arrowright_md_gray_300.svg">
                             </div>
                             <div class="required-term">
-                                <span aria-hidden="true" class="term-defaultCheckTerm">개인정보 제공 동의 (필수)</span>
+                                <input type="checkbox" aria-hidden="true" class="term-defaultCheckTerm c_h">개인정보 제공 동의 (필수)</input>
                                 <img class="css-xqn21t"
                                      src="https://dffoxz5he03rp.cloudfront.net/icons/ic_arrowright_md_gray_300.svg">
                             </div>
                             <div class="required-term">
-                                <span aria-hidden="true" class="term-defaultCheckTerm">개인정보 수집 및 이용 동의(필수)</span>
+                                <input type="checkbox" aria-hidden="true" class="term-defaultCheckTerm c_h">개인정보 수집 및 이용 동의(필수)</input>
                                 <img class="css-xqn21t"
                                      src="https://dffoxz5he03rp.cloudfront.net/icons/ic_arrowright_md_gray_300.svg">
                             </div>
                             <div class="required-term">
-                                <span aria-hidden="true" class="term-defaultCheckTerm">특가 항공권 및 할인 혜택 안내 동의 (선택)</span>
+                                <input type="checkbox" aria-hidden="true" class="term-defaultCheckTerm">특가 항공권 및 할인 혜택 안내 동의 (선택)</input>
                                 <img class="css-xqn21t"
                                      src="https://dffoxz5he03rp.cloudfront.net/icons/ic_arrowright_md_gray_300.svg">
                             </div>
@@ -68,12 +68,13 @@
     </div>
     <div class="PurchaseButton-buttonWrapper">
 		<span role="button" class="css-w0pi5v">
-			<a style="width: 100%;"
-               href="${cp}/pay/airPayment.pm?dateFilter=${param.datefilter}&airLine=${param.airline}&airNum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&userEmail=${loginUser.useremail}">
-				<button type="button" class="PurchaseButton-button css-jgs6n">
-					<span class="css-1s4v6ia" id="payment">${price} 결제하기</span>
-				</button>
-			</a>
+<%--			<a style="width: 100%;"--%>
+<%--               href="${cp}/pay/airPayment.pm?dateFilter=${param.datefilter}&airLine=${param.airline}&airNum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&userEmail=${loginUser.useremail}">--%>
+<%--			--%>
+<%--			</a>--%>
+                <button type="button" class="PurchaseButton-button css-jgs6n">
+   					<span class="css-1s4v6ia" id="payment">${price} 결제하기</span>
+   				</button>
 		</span>
     </div>
 </div>
