@@ -9,8 +9,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
     <link rel="stylesheet" href="${cp}/css/common.css">
     <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
-    <link rel="stylesheet" href="${cp}/css/header_sub.css">
+<%--    <link rel="stylesheet" href="${cp}/css/header_sub.css">--%>
     <link rel="stylesheet" href="${cp}/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
+    <link rel="stylesheet" href="../../css/air/airlist.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
     <!-- 포트원 결제 -->
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <!-- jQuery -->
@@ -28,7 +31,7 @@
     </script>
 </c:if>
 <div style="position: relative" class="defult-com">
-    <%@include file="/app/global/header_sub.jsp" %>
+    <%@ include file="../global/header.jsp" %>
 </div>
 <!-- 해더 끝 -->
 <div>
