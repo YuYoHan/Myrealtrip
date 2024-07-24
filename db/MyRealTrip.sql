@@ -15,6 +15,16 @@ create table users
     user_role     varchar(300),
     user_pw       varchar(300)
 );
+select * from users;
+
+insert into users(user_email, user_name, postCode, address, detailAddress, user_role, user_pw) values
+('kosta@naver.com','이재원','asd','asd','1','1','688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6');
+# asdasd
+
+update users set user_pw = '5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8'; ## asdasd 비번 설정
+commit;
+select * from users;
+
 drop table users;
 
 # 관리자
