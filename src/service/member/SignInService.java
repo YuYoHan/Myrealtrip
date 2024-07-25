@@ -45,22 +45,26 @@ public class SignInService implements Action {
                 HttpSession session = req.getSession();
                 session.setAttribute("loginUser", response.getUserEmail());
                 session.setAttribute("userName", response.getUserName());
+                session.setAttribute("userId", response.getUserId());
+                System.out.println("이메일 : " + session.getAttribute("userEmail"));
+                System.out.println("이름 : " + session.getAttribute("userName"));
+                System.out.println("유저 번호 : " + session.getAttribute("userId"));
                 acto.setRedirect(false);
                 acto.setPath("/");
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("loginUser", response.getUserEmail());
                 session.setAttribute("userName", response.getUserName());
+                session.setAttribute("userId", response.getUserId());
+                System.out.println("이메일 : " + session.getAttribute("userEmail"));
+                System.out.println("이름 : " + session.getAttribute("userName"));
+                System.out.println("유저 번호 : " + session.getAttribute("userId"));
                 acto.setRedirect(false);
                 acto.setPath("/");
             }
         } else {
-            out.print("<script>");
-            out.print("alert('로그인 실패하셨습니다.')");
-            out.print("location.href = '" + req.getContextPath() + "/app/member/signIn_form.jsp';");
-            out.print("</script>");
+            System.out.println("문제 생김");
         }
-        out.close();
         return acto;
     }
 }

@@ -7,13 +7,9 @@
     <meta charset="UTF-8">
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
-    <link rel="stylesheet" href="${cp}/css/common.css">
-    <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
-<%--    <link rel="stylesheet" href="${cp}/css/header_sub.css">--%>
-    <link rel="stylesheet" href="${cp}/css/footer.css">
-    <link rel="stylesheet" href="../../css/global/footer.css">
-
     <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/reserve/reserves.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
     <!-- 포트원 결제 -->
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <!-- jQuery -->
@@ -230,52 +226,6 @@
                         </div>
                     </div>
 
-<%--                    <div class="SectionContainer-style-container">--%>
-<%--                        <div class="SectionContainerHeader-style-wrapper">--%>
-<%--                            <div class="SectionContainerHeader-style-box">--%>
-<%--                                <h2 class="SectionContainerHeader-style-title">추가 예약 정보</h2>--%>
-<%--                                <span class="SectionContainerHeader-style-required">(필수)</span>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <hr class="SectionContainer-style-divider">--%>
-<%--                        <div class="SectionContainer-style-body">--%>
-<%--                            <div class="AdditionalInfoForm-style-container">--%>
-<%--                                <div class="AdditionalInfoForm-style-wrapper">--%>
-<%--                                    <div class="AdditionalInfoFormTitle-style-wrapper">--%>
-<%--                                        <div>--%>
-<%--                                            <h3 class="AdditionalInfoFormTitle-style-title">대표 투숙자</h3>--%>
-<%--                                            <p class="AdditionalInfoFormTitle-style-helperText">--%>
-<%--                                                원활한 예약 확인을 위해 정확하게 입력해주세요.--%>
-<%--                                            </p>--%>
-<%--                                        </div>--%>
-<%--                                        <span class="AdditionalInfoFormTitle-style-checkbox">--%>
-<%--											<div class="css-1f7apd6">--%>
-<%--												<span class="css-paqlg9">--%>
-<%--													<input id="mrt-traveler-info" type="checkbox" class="css-v5mf5a">--%>
-<%--												</span>--%>
-<%--												<label class="css-an51kc" for="mrt-traveler-info">다른 사람이 투숙해요</label>--%>
-<%--											</div>--%>
-<%--										</span>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="Name-style-container">--%>
-<%--                                        <div class="css-1vqiqg7">--%>
-<%--                                            <label class="css-e89lkq">한글 이름</label>--%>
-<%--                                            <input class="css-1e7i9br" type="text" placeholder="홍길동"--%>
-<%--                                                   value="${loginUser.userName}">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="Email-style-container">--%>
-<%--                                        <div class="css-1vqiqg7">--%>
-<%--                                            <label class="css-e89lkq">이메일 주소</label>--%>
-<%--                                            <input class="css-1e7i9br" type="email" placeholder="example@example.com"--%>
-<%--                                                   value="${loginUser.userEmail}">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
                     <div class="SectionContainer-style-container">
                         <div class="SectionContainerHeader-style-wrapper">
                             <div class="SectionContainerHeader-style-box">
@@ -285,15 +235,6 @@
                         <hr class="SectionContainer-style-divider">
                         <div class="SectionContainer-style-body">
                             <div class="PaymentMethods-style-paymentRadiosWrapper">
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="CREDIT_CARD" type="radio" value="CREDIT_CARD" class="css-8djd7q">
-											<span class="css-mlq5g6"></span>
-										</span>
-                                        <label class="css-1jvr7pu" for="CREDIT_CARD">신용/체크카드</label>
-                                    </div>
-                                </div>
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
@@ -309,7 +250,7 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="KAKAO" name="payment"  type="radio" value="KAKAO" class="css-8djd7q">
+											<input id="KAKAO" name="payment"  type="radio" value="KAKAO" class="css-8djd7q" checked>
 										</span>
                                         <label class="css-1jvr7pu" for="KAKAO">
                                             카카오페이
