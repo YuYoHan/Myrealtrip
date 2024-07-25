@@ -15,7 +15,7 @@ $(document).ready(function() {
     // 결제 버튼 클릭 시 동작
     $("#paymentButton").click(function() {
         let getKakao = document.getElementById('KAKAO');
-        if (getKakao.checked) {
+        if (getKakao && getKakao.checked) {
             let emailElement = document.getElementById('userEmail');
             let nameElement = document.getElementById('userName');
             let payElement = document.getElementById('payment');
@@ -60,7 +60,28 @@ function kakaoPay(userEmail, userName, pay) {
             if (rsp.success) { // 결제 성공 시
                 console.log(rsp);
                 alert('결제가 완료되었습니다.');
-                window.location.href = `/pay/airPayment.pm`;
+
+                // 결제 성공 후 리다이렉트할 URL
+                const params = {
+                    outAirline: document.getElementById('outAirline').value,
+                    outTime: document.getElementById('outTime').value,
+                    outArriveTime: document.getElementById('outArriveTime').value,
+                    inAirline: document.getElementById('inAirline').value,
+                    inTime: document.getElementById('inTime').value,
+                    inArriveTime: document.getElementById('inArriveTime').value,
+                    fromAirPort: document.getElementById('fromAirPort').value,
+                    toAirPort: document.getElementById('toAirPort').value,
+                    seat: document.getElementById('seat').value,
+                    price: document.getElementById('price').value,
+                    peopleCount: document.getElementById('peopleCount').value,
+                    depDate: document.getElementById('depDate').value,
+                    retDate: document.getElementById('retDate').value
+                };
+
+                const queryString = Object.entries(params)
+                    .map(([key, val]) => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`)
+                    .join('&');
+                window.location.href = `/pay/airPayment.pm?` + queryString;
             } else { // 결제 실패 시
                 alert('결제에 실패하였습니다.');
             }

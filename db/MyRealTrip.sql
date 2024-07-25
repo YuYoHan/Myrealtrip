@@ -23,8 +23,9 @@ insert into users(user_email, user_name, postCode, address, detailAddress, user_
 
 select * from users;
 
-update users  set user_pw = (select user_pw from users where user_name ='테스터') where asd; ## asdasd 비번 설정
-commit;
+UPDATE users
+SET user_role = 'USER'
+WHERE user_name = '이재원';commit;
 select * from users;
 
 drop table users;
@@ -152,7 +153,7 @@ select *
 from mainBanner;
 drop table mainBanner;
 select * from air_notices ORDER BY notice_id DESC ;
-SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET ;
+SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET 2;
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
 create table recommendedPlace
@@ -324,6 +325,7 @@ delete from operations;
 delete from airplane_reservations;
 delete from airPay;
 
+commit;
 select * from airplanes;
 select * from operations;
 select * from airplane_reservations;
@@ -370,6 +372,9 @@ create table airplane_reservations
 # 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
 ALTER TABLE airplane_reservations
     DROP COLUMN airplane_id;
+
+ALTER TABLE airplane_reservations
+    ADD COLUMN peopleCount bigint;
 
 -- Then, add the new columns in_airplane_id and out_airplane_id
 ALTER TABLE airplane_reservations

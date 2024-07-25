@@ -29,26 +29,6 @@ public class AirReserveAction implements Action {
         String retDate = req.getParameter("retDate");
 
 
-        System.out.println("출발 항공사: " + outAirline);
-        System.out.println("출발 시간: " + outTime);
-        System.out.println("출발 도착 시간: " + outArriveTime);
-        System.out.println("귀국 항공사: " + inAirline);
-        System.out.println("귀국 출발 시간: " + inTime);
-        System.out.println("귀국 도착 시간: " + inArriveTime);
-        System.out.println("출발지 공항: " + fromAirPort);
-        System.out.println("도착지 공항: " + toAirPort);
-        System.out.println("좌석: " + seat);
-        System.out.println("가격: " + price);
-        System.out.println("인원: " + peopleCount);
-        System.out.println("출발 날짜: " + depDate);
-        System.out.println("귀국 날짜: " + retDate);
-
-
-        System.out.println("인원: " + req.getSession().getAttribute("login"));
-        System.out.println("출발 날짜: " + depDate);
-        System.out.println("귀국 날짜: " + retDate);
-
-
 
         // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
         String date = req.getParameter("dateFilter");
@@ -118,6 +98,10 @@ public class AirReserveAction implements Action {
         req.setAttribute("endDay", endDay);                             //
         req.setAttribute("startweekhangle", startweekhangle);           //
         req.setAttribute("endweekhangle", endweekhangle);               //
+
+        req.setAttribute("startYear", startYear);
+        req.setAttribute("depDate", depDate);
+        req.setAttribute("retDate", retDate);
 
 
         //                                              인원수
