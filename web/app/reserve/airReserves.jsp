@@ -7,13 +7,9 @@
     <meta charset="UTF-8">
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
-    <link rel="stylesheet" href="${cp}/css/common.css">
-    <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
-<%--    <link rel="stylesheet" href="${cp}/css/header_sub.css">--%>
-    <link rel="stylesheet" href="${cp}/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="../../css/calendar.css"/>
-    <link rel="stylesheet" href="../../css/air/airlist.css">
     <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/reserve/reserves.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
     <!-- 포트원 결제 -->
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <!-- jQuery -->
@@ -52,35 +48,43 @@
                                 <div class="ProductInfoSummary-style-titleWrapper">
                                     <div class="ProductInfoSummary-style-imageWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 이미지를 가져와야함.  -->
+                                        <c:choose>
+                                            <c:when test="${airLine eq '에어서울'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/RS.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '아시아나항공'}">
+                                                <img src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '제주항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '진에어'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '대한항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/KE.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '티웨이항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png">
+                                            </c:when>
+                                            <c:when  test="${airLine eq '에어부산'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '이스트항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/ZE.png">
+                                            </c:when>
+                                            <c:when test="${airLine eq '일본항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/JL.png">
+                                            </c:when>
+                                            <c:when test="${airLineeq eq 'ANA항공'}">
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/NH.png">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <img class="ProductInfoSummary-style-image" src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/CX.png">
+                                            </c:otherwise>
+                                        </c:choose>
 
-                                        <c:if test="${airLine eq '에어서울'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/RS.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '아시아나항공'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '제주항공'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '진에어'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '대한항공'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/KE.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '티웨이항공'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png">
-                                        </c:if>
-                                        <c:if test="${airLine eq '에어부산'}">
-                                            <img class="ProductInfoSummary-style-image"
-                                                 src="https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png">
-                                        </c:if>
+
                                     </div>
                                     <div class="ProductInfoSummary-style-textWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 정보가 아래에 들어가야함 -->
@@ -225,52 +229,6 @@
                     <div class="SectionContainer-style-container">
                         <div class="SectionContainerHeader-style-wrapper">
                             <div class="SectionContainerHeader-style-box">
-                                <h2 class="SectionContainerHeader-style-title">추가 예약 정보</h2>
-                                <span class="SectionContainerHeader-style-required">(필수)</span>
-                            </div>
-                        </div>
-                        <hr class="SectionContainer-style-divider">
-                        <div class="SectionContainer-style-body">
-                            <div class="AdditionalInfoForm-style-container">
-                                <div class="AdditionalInfoForm-style-wrapper">
-                                    <div class="AdditionalInfoFormTitle-style-wrapper">
-                                        <div>
-                                            <h3 class="AdditionalInfoFormTitle-style-title">대표 투숙자</h3>
-                                            <p class="AdditionalInfoFormTitle-style-helperText">
-                                                원활한 예약 확인을 위해 정확하게 입력해주세요.
-                                            </p>
-                                        </div>
-                                        <span class="AdditionalInfoFormTitle-style-checkbox">
-											<div class="css-1f7apd6">
-												<span class="css-paqlg9">
-													<input id="mrt-traveler-info" type="checkbox" class="css-v5mf5a">
-												</span>
-												<label class="css-an51kc" for="mrt-traveler-info">다른 사람이 투숙해요</label>
-											</div>
-										</span>
-                                    </div>
-                                    <div class="Name-style-container">
-                                        <div class="css-1vqiqg7">
-                                            <label class="css-e89lkq">한글 이름</label>
-                                            <input class="css-1e7i9br" type="text" placeholder="홍길동"
-                                                   value="${loginUser.userName}">
-                                        </div>
-                                    </div>
-                                    <div class="Email-style-container">
-                                        <div class="css-1vqiqg7">
-                                            <label class="css-e89lkq">이메일 주소</label>
-                                            <input class="css-1e7i9br" type="email" placeholder="example@example.com"
-                                                   value="${loginUser.userEmail}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="SectionContainer-style-container">
-                        <div class="SectionContainerHeader-style-wrapper">
-                            <div class="SectionContainerHeader-style-box">
                                 <h2 class="SectionContainerHeader-style-title">결제 방법</h2>
                             </div>
                         </div>
@@ -280,16 +238,7 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="CREDIT_CARD" type="radio" value="CREDIT_CARD" class="css-8djd7q">
-											<span class="css-mlq5g6"></span>
-										</span>
-                                        <label class="css-1jvr7pu" for="CREDIT_CARD">신용/체크카드</label>
-                                    </div>
-                                </div>
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="TOSS" type="radio" value="TOSS" class="css-8djd7q">
+											<input id="TOSS" name="payment" type="radio" value="TOSS" class="css-8djd7q">
 										</span>
                                         <label class="css-1jvr7pu" for="TOSS">
                                             토스
@@ -301,18 +250,7 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="NAVERPAY" type="radio" value="NAVERPAY" class="css-8djd7q">
-										</span>
-                                        <label class="css-1jvr7pu" for="NAVERPAY">
-                                            네이버페이
-                                            <img src="${cp}/img/etc/naverB.svg">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="KAKAO" name="KAKAO" type="radio" value="KAKAO" class="css-8djd7q">
+											<input id="KAKAO" name="payment"  type="radio" value="KAKAO" class="css-8djd7q" checked>
 										</span>
                                         <label class="css-1jvr7pu" for="KAKAO">
                                             카카오페이
@@ -329,11 +267,14 @@
         </form>
     </main>
 </div>
+<!-- footer 시작 -->
 <div class="default-components" id="footer-components">
     <footer id="footer" class="footer-container">
-        <%@ include file="/app/global/footer.jsp" %>
+        <jsp:include page="../global/footer.jsp"/>
     </footer>
 </div>
+<!-- footer 끝 -->
 </body>
+
 <script src="../../js/payment.js"></script>
 </html>

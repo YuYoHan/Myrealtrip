@@ -44,13 +44,13 @@ public class AirPayService implements Action {
             System.out.println("결제 성공");
             ActionTo acto = new ActionTo();
             acto.setRedirect(false);
-            acto.setPath("../web/app/mainPage/mainPage.jsp");
+            acto.setPath("/");
             return acto;
         } else {
             System.out.println("결제 실패");
             ActionTo acto = new ActionTo();
             acto.setRedirect(true);
-            acto.setPath("/app/reserve/airReserves.jsp");
+            acto.setPath("/");
             return acto;
         }
     }
