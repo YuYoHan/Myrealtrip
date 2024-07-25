@@ -72,7 +72,7 @@
 <%--               href="${cp}/pay/airPayment.pm?dateFilter=${param.datefilter}&airLine=${param.airline}&airNum=${param.airnum}&dep=${param.dep}&arr=${param.arr}&price=${param.price}&userEmail=${loginUser.useremail}">--%>
 <%--			--%>
 <%--			</a>--%>
-                <button type="button" class="PurchaseButton-button css-jgs6n">
+                <button type="button" class="PurchaseButton-button css-jgs6n" id="paymentButton">
    					<span class="css-1s4v6ia" id="payment">${price} 결제하기</span>
    				</button>
 		</span>

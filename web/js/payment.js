@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     // 결제 버튼에 이벤트 리스너 추가
-    document.getElementById("payment").addEventListener("click", function () {
+    document.getElementById("paymentButton").addEventListener("click", function () {
         // 어떤 결제인지 체크
         let getKakao = document.getElementById('KAKAO');
         console.log('결제 체크 : ' + getKakao);
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 pg: 'kakaopay.TC0ONETIME', // PG사 코드표에서 선택
                 pay_method: 'card', // 결제 방식
                 merchant_uid: "IMP" + makeMerchantUid, // 결제 고유 번호
-                name: '항공권 결제', // 제품명
+                name: '결제', // 제품명
                 amount: pay, // 가격
                 //구매자 정보 ↓
                 buyer_email: userEmail,

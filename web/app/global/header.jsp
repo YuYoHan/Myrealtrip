@@ -62,7 +62,7 @@
                                             <img src="http://d2yoing0loi5gh.cloudfront.net/assets/default/user_profile_image-414acc60b27f0a258bec14c82b70dc361fc6768da9289f924f887bec1fc33849.png">
                                         </div>
                                         <div class="DetailContainer">
-                                            <span>${loginUser.username}</span>
+                                            <span>${loginUser.userName}</span>
                                         </div>
                                     </div>
                                 </div>

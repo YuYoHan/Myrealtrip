@@ -1,6 +1,6 @@
 const userEmail = document.getElementById("userEmail");
 const emailReg =
-    /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailCheck = document.getElementsByClassName("emailCheck");
 userEmail.oninput = () => {
     //email 유효성 검사는 여기서

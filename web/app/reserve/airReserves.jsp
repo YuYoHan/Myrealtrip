@@ -297,7 +297,7 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="TOSS" type="radio" value="TOSS" class="css-8djd7q">
+											<input id="TOSS" name="payment" type="radio" value="TOSS" class="css-8djd7q">
 										</span>
                                         <label class="css-1jvr7pu" for="TOSS">
                                             토스
@@ -309,18 +309,7 @@
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
 										<span class="css-1u9dzhu">
-											<input id="NAVERPAY" type="radio" value="NAVERPAY" class="css-8djd7q">
-										</span>
-                                        <label class="css-1jvr7pu" for="NAVERPAY">
-                                            네이버페이
-                                            <img src="${cp}/img/etc/naverB.svg">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="KAKAO" name="KAKAO" type="radio" value="KAKAO" class="css-8djd7q">
+											<input id="KAKAO" name="payment"  type="radio" value="KAKAO" class="css-8djd7q">
 										</span>
                                         <label class="css-1jvr7pu" for="KAKAO">
                                             카카오페이
