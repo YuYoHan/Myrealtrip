@@ -20,7 +20,7 @@ public class MemberDAO {
         String sql = "INSERT INTO users (user_email, user_name, postCode, address, detailAddress, user_role, user_pw) VALUES (?, ?, ?, ?, ?, ?, ?)";
         return ConnectDB.connect(sql, member.getUserEmail(), member.getUserName(),
                 member.getPostCode(), member.getAddress(), member.getDetailAddress(),
-                role, member.getUserPw());
+                role.name(), member.getUserPw());
     }
 
     // 비밀번호 수정

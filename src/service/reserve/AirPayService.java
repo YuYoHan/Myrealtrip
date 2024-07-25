@@ -1,4 +1,4 @@
-package action.pay;
+package service.reserve;
 
 import config.action.Action;
 import config.action.ActionTo;
@@ -8,7 +8,7 @@ import dto.pay.AirPaymentDTO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AirPayAction implements Action {
+public class AirPayService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         // 날짜를 받아와서 년, 월, 일 나누어서 보내줌
@@ -16,8 +16,6 @@ public class AirPayAction implements Action {
         System.out.println("날짜 : " + dateFilter);
         String airLine = req.getParameter("airLine");
         System.out.println("airLine : " + airLine);
-        String airNum = req.getParameter("airNum");
-        System.out.println("airNum : " + airNum);
         String departure = req.getParameter("dep");
         System.out.println("출발지 : " + departure);
         String arrive = req.getParameter("arr");
@@ -30,7 +28,7 @@ public class AirPayAction implements Action {
         AirPaymentDTO airPay = AirPaymentDTO.builder()
                 .dateFilter(dateFilter)
                 .airLine(airLine)
-                .airNum(airNum)
+                .airNum("0")
                 .departure(departure)
                 .arrive(arrive)
                 .build();
@@ -46,13 +44,13 @@ public class AirPayAction implements Action {
             System.out.println("결제 성공");
             ActionTo acto = new ActionTo();
             acto.setRedirect(false);
-            acto.setPath("../web/app/mainPage/mainPage.jsp");
+            acto.setPath("/");
             return acto;
         } else {
             System.out.println("결제 실패");
             ActionTo acto = new ActionTo();
             acto.setRedirect(true);
-            acto.setPath("../web/app/reserve/airReserves.jsp");
+            acto.setPath("/");
             return acto;
         }
     }

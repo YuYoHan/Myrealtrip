@@ -120,7 +120,7 @@
                             <div class="SignUpAgree_item">
                                 <label class="Checkbox_label Checkbox_medium" for="agree_agreement">
                                     <input type="checkbox" id="agree_agreement" name="check1"
-                                           class="Checkbox_input Checkbox_medium c_h" for="agree_agreement"
+                                           class="Checkbox_input Checkbox_medium c_h" form="agree_agreement"
                                            value="true">
                                 </label>
                                 <div class="SignUpAgree_label">

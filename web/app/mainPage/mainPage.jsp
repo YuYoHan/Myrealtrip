@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.mainPage.MainDAO"%>
@@ -18,6 +17,7 @@
     <link rel="stylesheet" href="../../css/mainPage/aboutTravel.css">
     <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
+    <link rel="stylesheet" href="../../css/mainPage/custom.css"> <!-- 새로운 CSS 파일 추가 -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 </head>
@@ -27,20 +27,32 @@
         alert("예약이 완료되었습니다.");
     </script>
 </c:if>
-<!-- header시작 -->
+<!-- header 시작 -->
 <%@ include file="../global/header.jsp" %>
-<!-- header끝 -->
+<!-- header 끝 -->
 <!-- main 시작 -->
 <main>
+    <!-- 첫 번째 travelCard 섹션 -->
     <section class="mainHeader">
+        <div class="mainHeader_container">
+            <div class="headlineWrapper">
+
+
+
+            </div>
+        </div>
         <%@ include file="../mainPage/mainHeader.jsp" %>
     </section>
+
     <section class="mainBanner">
         <%@ include file="../mainPage/mainBanner.jsp" %>
     </section>
-<%--    <div class="content">--%>
-<%--        <%@ include file="aboutTravel.jsp" %>--%>
-<%--    </div>--%>
+
+    <!-- 두 번째 travelCard 섹션을 메인 배너 하단에 추가 -->
+    <section class="mainProduct">
+        <%@ include file="rePlace.jsp" %>
+    </section>
+
     <div class="pointContainer">
         <%@ include file="../mainPage/event.jsp" %>
     </div>
@@ -61,6 +73,5 @@
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/myInfo.js"></script>
-
 </body>
 </html>

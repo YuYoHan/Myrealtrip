@@ -15,6 +15,16 @@ create table users
     user_role     varchar(300),
     user_pw       varchar(300)
 );
+select * from users;
+
+insert into users(user_email, user_name, postCode, address, detailAddress, user_role, user_pw) values
+('kosta@naver.com','이재원','asd','asd','1','1','688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6');
+# asdasd
+
+update users set user_pw = '5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8'; ## asdasd 비번 설정
+commit;
+select * from users;
+
 drop table users;
 
 # 관리자
@@ -37,7 +47,11 @@ insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
+<<<<<<< HEAD
+values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
+=======
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
+>>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from admin;
@@ -87,9 +101,15 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
+<<<<<<< HEAD
+values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+insert into travelCard (title, contents, travel_image, admin_id)
+values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
+=======
 values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
+>>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from travelCard;
@@ -146,6 +166,58 @@ create table recommendedPlace
     place_image    varchar(4000),
     admin_id       bigint references admin (admin_id)
 );
+
+drop table recommendedPlace;
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (1, 1, '/img/mainPage/place1.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (2, 2, '/img/mainPage/place2.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (3, 3, '/img/mainPage/place3.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (4, 4, '/img/mainPage/place4.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (5,5, '/img/mainPage/place5.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (6, 6, '/img/mainPage/place6.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (7, 7, '/img/mainPage/place7.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (8, 8, '/img/mainPage/place8.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (9, 9, '/img/mainPage/place9.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (10, 10, '/img/mainPage/place10.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (11, 11, '/img/mainPage/place11.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (12, 12, '/img/mainPage/place12.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (13, 13, '/img/mainPage/place13.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (14, 14, '/img/mainPage/place14.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (15, 15, '/img/mainPage/place15.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (16, 16, '/img/mainPage/place16.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (17, 17, '/img/mainPage/place17.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (18, 18, '/img/mainPage/place18.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (19, 19, '/img/mainPage/place19.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (20, 20, '/img/mainPage/place20.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (21, 21, '/img/mainPage/place21.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (22, 22, '/img/mainPage/place22.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (23, 23, '/img/mainPage/place23.png', 1);
+insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
+values (24, 24, '/img/mainPage/place24.png', 1);
+
+
 
 # 여행지 소개 이미지
 create table placeImg
@@ -281,6 +353,14 @@ create table airplane_reservations
     airplane_id                  bigint references airplanes (airplane_id),
     user_id                      bigint references users (user_id)
 );
+# 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
+ALTER TABLE airplane_reservations
+    DROP COLUMN airplane_id;
+
+-- Then, add the new columns in_airplane_id and out_airplane_id
+ALTER TABLE airplane_reservations
+    ADD COLUMN in_airplane_id bigint,
+    ADD COLUMN out_airplane_id bigint;
 
 # 항공권 공지사항
 create table air_notices
@@ -293,6 +373,31 @@ create table air_notices
     admin_id          bigint references admin (admin_id)
 );
 
+
+create table air_code(
+    air_code_id BIGINT PRIMARY key AUTO_INCREMENT,
+    air_code_iata varchar(3000) not null,
+    air_code_loc varchar(3000) not null,
+    air_code_default_price bigint
+);
+
+INSERT INTO air_code (air_code_iata, air_code_loc, air_code_default_price) VALUES
+    ('LGA', '뉴욕', 1500000),
+    ('FLR', '피렌체', 2000000),
+    ('LAS', '라스베가스', 1800000),
+    ('CDG', '파리', 2200000),
+    ('LHR', '런던', 2300000),
+    ('BCN', '바르셀로나', 2100000),
+    ('FCO', '로마', 1900000),
+    ('ZRH', '루체른', 2500000),
+    ('BRN', '인터라켄', 2400000),
+    ('MAD', '세고비아', 2600000),
+    ('MAD', '톨레도', 2600000),
+    ('DXB', '두바이', 2700000),
+    ('HND', '도쿄', 150000);
+
+use myRealTrip;
+select * from air_code;
 
 insert into air_notices (notice_title,notice_details,notice_regTime,notice_updateTime,admin_id)
 values('Myrealtrip 클론프로젝트 공지사항입니다.','Myrealtrip 클론프로젝트 공지사항입니다. 화이팅',now(),now(),3);
@@ -398,6 +503,24 @@ create table pay
 drop table pay;
 drop table airPay;
 drop table hotelPay;
+
+
+#메인 상세화면
+create table mainDetail
+(
+    mainDetail_id       bigint primary key auto_increment,
+    mainDetail_title    varchar(1000)  not null,
+    mainDetail_price    varchar(3000) not null,
+    mainDetail_option   varchar(3000) not null,
+    content_image       varchar(4000) not null,
+    content             varchar(4000) not null,
+    address             varchar(3000) not null
+);
+
+
+
+
+
 
 # rooms 테이블에 room_name 컬럼 추가
 alter table rooms add column room_name varchar(1000) not null after room_id;
@@ -944,3 +1067,4 @@ insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/proper
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/21667684/295005603/9f6a9236f211fe3afbbf9699224c9f55.jpg?ca=16&ce=1&s=1000x', 178);
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/21667684/459346227/4f36b0180f1a24c4c3dccbcc0755fe3d.jpeg?ce=0&s=1000x', 179);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/7000000/6900000/6899100/6899004/85ff2389_z.jpg', 180);
+

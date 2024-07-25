@@ -149,7 +149,7 @@ public class MemberController extends HttpServlet {
         String contextPath = req.getContextPath();
         String command = requestURI.substring(contextPath.length());
         // 이메일 중복 검사 체크
-        if (command.equals("/checkEmail.us")) {
+        if (command.equals("/member/checkEmail.us")) {
             req.setCharacterEncoding("UTF-8");
             resp.setContentType("application/json;charset=UTF-8");
 
