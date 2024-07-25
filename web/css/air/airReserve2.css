@@ -1,0 +1,60 @@
+@import url("../global/share.css");
+
+
+
+.main-notice {
+    position: relative;
+    top: 200px;
+    width: 1060px;
+    margin: 0 auto 120px;
+    overflow: hidden;
+}
+
+.main-notice > h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #393939;
+    line-height: 20px;
+    display: inline;
+}
+
+.notice-more {
+    float: right;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.notice-more-btn {
+    padding-right: 16px;
+    font-weight: 500;
+    color: #848c94;
+    background: url("https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_arrow-right_xs_gray-500.png") no-repeat right;
+    background-size: 16px 16px;
+}
+
+.air-board {
+    border-top: 1px solid #ced4da;
+    width: 1060px;
+    margin-top: 20px;
+}
+
+.air-board > .rowlength > tr > td {
+    border-bottom: #d9d9d9 1px solid;
+}
+
+.air-board > .rowlength > tr > td.air-tal {
+    padding: 16px 0 !important;
+    font-size: 15px;
+    color: #495056;
+    line-height: 16px !important;
+    border-right: none;
+}
+
+.air-board > .rowlength > tr > td.time {
+    width: 102px;
+    text-align: right;
+    font-size: 13px;
+    color: #848c94;
+    padding-left: 0;
+}
