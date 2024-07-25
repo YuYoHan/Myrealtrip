@@ -36,7 +36,7 @@
             </div>
             <div class="oauthList_container">
                 <div class="oauth_container">
-                    <div class="icon-wrapper, g-signin2" onclick="googleOnSignIn()">
+                    <div class="icon-wrapper" id="GoogleLoginBtn">
                         <img class="iconImg" src="<c:url value="/img/member/google_log.png"/>" alt="페이스북">
                         <img class="iconImgHover" src="<c:url value="/img/member/google_log_on.svg"/>" alt="페이스북">
                         <input type="hidden" value="구글">
@@ -87,7 +87,6 @@
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>
 <script src="../../js/myInfo.js"></script>
-<script>
-
-</script>
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script>startApp();</script>
 </html>
