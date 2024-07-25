@@ -37,11 +37,11 @@ insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
-<<<<<<< HEAD
 values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
-=======
+
+insert into admin(admin_email, admin_name, admin_role)
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
->>>>>>> 965289929211b91d216e06c252a28211650befb3
+
 
 select *
 from admin;
@@ -91,15 +91,10 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
-<<<<<<< HEAD
-values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
-insert into travelCard (title, contents, travel_image, admin_id)
-values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
-=======
+
 values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
->>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from travelCard;
@@ -495,7 +490,7 @@ drop table airPay;
 drop table hotelPay;
 
 
-#메인 상세화면
+# 메인 상세화면
 create table mainDetail
 (
     mainDetail_id       bigint primary key auto_increment,
@@ -503,10 +498,200 @@ create table mainDetail
     mainDetail_price    varchar(3000) not null,
     mainDetail_option   varchar(3000) not null,
     content_image       varchar(4000) not null,
-    content             varchar(4000) not null,
-    address             varchar(3000) not null
+    content             varchar(4000) not null
 );
 
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[강원] 설악산 & 낙산사 당일여행(서울출발)', '104,500원 / 1인','차량이동,12시간소요,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/83598/832001_large_1686634748.jpg?1686634748',
+        ' 매주 [월, 금]에 진행하는 상품입니다.,
+        가볍게 떠나는 서울 근교 버스여행,
+        계절마다 바뀌는 화려함과 웅장함속에서의 힐링,
+        고요한 사찰에서 내 눈앞에 펼쳐진 동해바다의 절경,
+        1명이어도 언제든지 출발 가능합니다. (최소 예약인원 없음)');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('서울<->에버랜드 셔틀버스 티켓(합정역, 홍대입구, 서울역...)', '12,000원 / 1인','e티켓,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/82076/503193_large_1586744690.jpg?1586744690',
+        '복잡한 대중교통과 수많은 인파 걱정 끝! 전문 운전기사가 운행하는 셔틀버스를 이용해 서울 근교의 에버랜드로 떠나보세요.,
+        명동역, 홍대입구역, 서울역 등 다양한 장소에서 탑승 가능합니다.,
+        목적지를 오가는 동안 충분한 소지품 수납공간이 준비된 포근한 좌석에 앉아 편안히 휴식을 취해보세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[수도권] 운전 걱정 없는 골프장 이동 서비스 LANE4 GOLF', '492,000원 / 1인','e티켓,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/138471/871459_large_1693374063.jpg?1693374063',
+        'LANE4 GOLF의 특징,
+        동반자와 함께 이동하세요!  본인 외 동반자 집 앞까지 픽업, 경유, 샌딩 OK!,
+        라운딩에만 집중! 이동 중 충분한 휴식이 가능합니다:) 새벽부터 피곤하고 힘든 운전 NO!,
+        넓은 공간감과 적재 공간! 최대 4인, 골프백 5개까지 OK!,
+        라운딩 후 음주도 편안하게! 자차 운전이나 대리 운전 NO!,
+        플랫폼운송사업자(Type1)로 합법적 운송 서비스 지원! 사고 보상도(유상운송특약) OK!,
+        차량, 기사, 유류비 포함 요금! 자차 운전으로 손실되는 기회 비용 NO!');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[서울/경기] LANE4 프리미엄 공항이동 서비스(인천공항,김포공항)', '48,000원 / 1인','e티켓,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/136856/849897_large_1689669348.jpg?1689669348',
+        '안녕하세요 LANE4 입니다.
+        LANE4 서비스란 프리미엄 차량과 검증된 쇼퍼(기사)로 구성된 하이엔드 모빌리티 서비스로,
+        국내 최초 플랫폼운송허가(Type1)를 국토부로부터 부여 받았으며, 플랫폼 기반의 다양한 프리미엄 운송 서비스를 구축하고 있습니다.
+        이를 기반으로 여행의 시작과 끝이라 할 수 있는 이동에 대한 특별한 경험을 제공해드리고자 합니다.
+        여정의 시작과 마무리를 프리미엄하고 편안하게~
+        공항으로 오갈 때 LANE4 AIR로 이동하세요!');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[강원/투어] 초보자를 위한 명상 리스릿 버스 여행(1박2일)', '199,000원 / 1인','그룹투어,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/102881/561205_large_1617243340.jpg?1617243340',
+        '* 주말과 공휴일에만 진행되는 투어입니다. *
+        매력 포인트 -  강원도 청정지역에서 맛보는 자연과 하나 되는 명상 리트릿!!
+        안녕하세요, 오랫동안 몸과 마음을 공부하고 여행을 좋아하여
+        명상 전문 여행사를 만든 마음챙김여행입니다.
+        청정내 설악, 강원도의 산과 바다. 그리고 내 마음을 일깨워주는 명상 리트릿을 소개합니다.
+        *고성 핫플 아야진해변과 바다 정원 카페를 갑니다 (2시간)
+        * 4만 평 넓은 소나무숲에 둘러싸인 미리내힐빙스테이에서 명상 리트릿 체험
+        1부 : 명상에 대한 오해와 이해 (1시간 30분)
+        2부: 숙면을 돕는 소도구 테라피와 소리 명상 (1시간 30분)
+        3부: 내 마음을 부탁해, 일상에 명상 적용하기 (2시간)
+        * 속초에서 바다와 갯배 그리고 먹거리가 가득한 중앙시장 둘러보기 (2시간)
+        * 강원도 현지에서 재배하는 로컬푸드로 만든  웰빙 식단 4식 포함');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[강원/고성] 설악썬밸리', '383,000원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/83638/512747_large_1590647992.jpg?1590647992',
+        '[이 골프장의 매력 포인트]
+        탁 트인 동해바다와 설악산의 울산바위가 어우러진 제일의 절경!
+        지중해풍 최고급 콘도미니엄과 27홀의 환상적인 골프장
+        4계절 내내 골프를 즐길 수 있는 최상의 환경
+        티켓 예약 방법
+        캘린더에서 이용 일자와 인원을 선택해 주세요.
+        예약 확정시까지 약 3일정도 시간이 소요됩니다.
+        자세한 사항은 문의하기를 이용해주세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('설악산뷰 숙박 해맞이여행 그림책명상 1박2일', '290,000원 / 1인','그룹투어,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/145171/949957_large_1702554722.jpg?1702554722',
+        '2023년을 멋지게 마무리하고 새해를 맞이하는
+        자작나무숲 눈꽃트래킹과 그림책명상 1박2일여행입니다
+        강원도 설악산 설경이 아름다운 인제에서 하룻밤을 보냅니다
+        원대리 자작나무숲의 겨울설경은 소문이 자자한것 아시죠?
+        숲속의 귀족자작나무숲을 고요히 걸어보고  저녁에는
+        그림책명상으로 한해를 정리해 봅니다.
+        새해 아침  속초바다의 뜨거운 새해를 맞이하며
+        2024년도 힘차게 출발해보아요. !!');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[강원/고성] 고고비치서프 렌탈+강습 패키치', '105,000원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/103703/477540_medium_1713514611.jpg?1713514611',
+        '- 운영시간 : 08:00~24:00 (주중/주말공통)
+        (날씨나 현장 상황에 따라 변동가능)
+        - 휴무 : 휴무없음');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('소노 델피노 기획전', '164,000원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/meeting_point/156748_medium_1721092612.jpg?1721092612',
+        '자별 추가요금은 예약링크 내 선결제가 필요합니다.,
+        일자별 추가 요금 이외 모든 추가 요금은 현장 결제입니다.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[특가]롯데월드 어드벤처 종합&파크이용권', '23,000원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/70816/514000_medium_1721574074.jpg?1721574074',
+        '[추가정보]
+        - 본 티켓은 입장 게이트에서 QR코드 인증 후 바로입장이 가능합니다.,
+        - 36개월 미만의 유아는 증빙서류를 지참 시 무료입장 가능합니다. (단, 무료 입장에 대한 혜택이며 놀이시설 이용시 별도의 요금이 부과됩니다.),
+        - 발송되는 QR코드 캡쳐 이용시 입장이 제한될 수 있습니다.,
+        - 퇴장 후 재입장이 불가하오니 이용에 참고 부탁드리겠습니다.,
+        - 주중/주말 동일 이용 상품입니다.,
+        - 부분 환불 불가합니다.,
+        - 2인권(어른1+어린이1) 옵션은 부분환불 불가하오니 참고 부탁드립니다.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[1일권]오사카 유니버셜 스튜디오 재팬 입장권', '75,100원 / 1인','e-ticket' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/146079/990619_large_1703737236.jpg?1703737236',
+        '[이 패스의 매력 포인트!],
+        • 유니버설 스튜디오 입장권과 간사이 조이 패스를 한 번에 구매해 보세요.,
+        • 간사이 조이 패스를 통해 일주일 동안 3개의 명소를 선택하여 이용할 수 있어요.,
+        • 다양한 시설과 음식점. 교통편에서 알찬 혜택을 받아 보세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[특가]캐리비안베이 입장권 + 에버랜드 오후이용권', '50,440원 / 1인','e-ticket,유효기간(~2024.08.25)내 사용' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/135498/513861_medium_1721377729.jpg?1721377729',
+        '① 기재해주신 핸드폰 번호로 문자(MMS)혹은 카카오톡 알림톡을 발송해드립니다.,
+        - 통신사별로 수신 시간에 다소 차이가 있을 수 있습니다.,
+        ② 매표소 또는 입구에서 수신한 바코드 또는 티켓을 제시하여 입장해주세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[특가][서울 잠심] 롯데월드타워 전망대 서울스카이 입장권', '21,500원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/135498/513861_medium_1721377729.jpg?1721377729',
+        '이용 시간,
+        - 정확한 운영시간은 홈페이지 참고 부탁드립니다.,
+        - 서울스카이 홈페이지 : https://seoulsky.lotteworld.com/ko/main/index.do,
+        - 마감시간 1시간 전까지 발권 및 입장 가능합니다.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[특가][서울 잠심] 롯데월드 아쿠아리움 입장권', '23,500원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/84620/514028_medium_1721574107.jpg?1721574107',
+        '이용 시간,
+        - 운영시간 : 자세한 운영시간은 홈페이지 참고 부탁드립니다.,
+        - http://www.lotteworld.com/aquarium/index.asp');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[특가]에버랜드 오후이용권(방문 날짜지정)', '25,000원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/43365/511505_medium_1721009158.jpg?1721009158',
+        '사용 방법,
+        - 판매기간 : ~ 2024.09.06,
+        - 유효기간 : 2024.06.17 ~ 2024.09.06');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[부산]부산투어패스 부산여행 프리패스권', '17,300원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/113378/497148_medium_1718176506.jpg?1718176506',
+        '사용 방법,
+        기재해주신 핸드폰 번호로 카카오톡 알림톡을 발송해드립니다.,
+        발신자 엘에스컴퍼니,
+        통신사별로 바코드 티켓 수령시간에 다소 차이가 있을 수 있습니다.,
+        매표소 또는 입구에서 수신한 바코드를 제시하여 입장해주세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[제주서쪽]제주1번가 프리미엄 서쪽 감성 제주도 버스투어[매일출발]', '31,255원 / 1인','차량이동,한국어' ,
+        'https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/26/A8Sz/qi30ZxiwaQ.jpg',
+        '- 벌써부터 갈 곳을 찾아볼 생각에 머리가 복잡하신 분,
+        - 이번 여행은 브레이크 없이! 운전 계획이 없으신 분,
+        - 계절마다 다른 제주, 지금 이 계절 최고의 감성 스팟을 여행하고 싶으신 분,
+        - 원하는 점심 메뉴. 노 옵션. 노 쇼핑! 자유로운 투어를 좋아하시는 분,
+        - 혼자 떠나는 제주 여행자, 뚜벅이 제주 여행자');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[제주동쪽]제주1번가 프리미엄 동쪽 감성 우도투어/아쿠아플라넷 선택', '23,655원 / 1인','차량이동,한국어' ,
+        'https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/26/evFl/oUNirdOwjw.jpg',
+        '- 벌써부터 갈 곳을 찾아볼 생각에 머리가 복잡하신 분,
+        - 이번 여행은 브레이크 없이! 운전 계획이 없으신 분,
+        - 계절마다 다른 제주, 지금 이 계절 최고의 감성 스팟을 여행하고 싶으신 분,
+        - 원하는 점심 메뉴. 노 옵션. 노 쇼핑! 자유로운 투어를 좋아하시는 분,
+        - 혼자 떠나는 제주 여행자, 뚜벅이 제주 여행자');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[우도]제주도 우도 1일 버스여행 원데이 패키지[매일 출발]', '31,350원 / 1인','차량이동,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/84057/515249_large_1591767362.jpg?1591767362',
+        '- 찐! 핫플과 테마가 있는 갓성비 투어에요,
+        - 제주 NO.1 감성투어 플랫폼 ! 매일 출발하는 제주핫플버스의 제주 우도 투어에요,
+        - 한국여행업협회 우수여행상품 선정, 제주관광협회 우수관광사업체 지정된 믿을 수 있는 투어에요');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[제주동쪽]트립이즈마인 제주도 동부 프리미엄 리무진 버스여행[매일 출발]', '31,810원 / 1인','차량이동,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_photos/102533/566667_large_1622544418.jpg?1622544418',
+        '만나는 시간,
+        8:15 신신호텔 제주공항점,
+        8:30 제주공항 3층 버스 승하차장 ,
+        8:45 동문시장 다이소 앞');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[재오픈 특가]제주 여행 필수템 카페패스! 인기카페 3일 무제한', '12,510원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/81174/508704_medium_1720164513.jpg?1720164513',
+        '카페패스(CAFEPASS)는?,
+        제주 여행에서 결코 빼먹을 수 없는 카페 자유 이용권 입니다.,
+        제주도 내 180여 곳의 인기 카페에서 3시간마다 1잔씩 자유롭게 즐겨보세요.,
+        제주 입도 전. 구매! 제주도에 오신 후 사용 등록을 하시고 최대한 알뜰하게 사용해 보세요.,
+        소중한 여행을 카페패스와 함께 행복한 시간 보내세요.,
+        제주패스의 카페패스 이용권 한 장이면 충분합니다.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[제주]아르떼뮤지엄 입장권', '8,900원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/100914/512462_medium_1721196763.jpg?1721196763',
+        '- 1인 입장권 + ARTE TEA BAR: 1인 체험 이용티켓으로 입장권만 구매한 일행은 TEA BAR 입장 불가,
+        입장을 원할 경우 체험티켓을 현장에서 추가 결제(4,000원) 후 입장가능합니다.,
+        - 개인 위생용품(마스크) 착용자에 한하여 입장이 가능합니다.,
+        - 입장 후 환불이 불가하며, 퇴장 후 재입장이 불가합니다.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[안덕]제주 뽀로로 앤 타요 테마파크', '11,400원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/73268/383860_medium_1688968587.jpg?1688968587',
+        '① 기재해주신 핸드폰 번호로 문자(MMS)혹은 카카오톡 알림톡을 발송해드립니다.,
+        - 통신사별로 수신 시간에 다소 차이가 있을 수 있습니다.,
+        ② 매표소 또는 입구에서 수신한 바코드 또는 티켓을 제시하여 입장해주세요.');
+insert into mainDetail (mainDetail_title, mainDetail_price, mainDetail_option, content_image,content)
+values ('[제주 애월]9.81파크 제주 카트 이용권', '33,465원 / 1인','e-ticket,한국어' ,
+        'https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/101144/440221_medium_1705372461.jpg?1705372461',
+        '[1] 나에게 딱 맞는 패키지와 이용 시간을 선택하세요.,
+        [2] 결제가 완료되면 카카오톡으로 예약번호 9자리를 보내드려요.,
+        >> 영문 대문자. 숫자 조합 (예. I4AYTO868),
+        [3] 이용 당일 9.81 파크 티켓 키오스크에 예약번호를 입력하고 팔찌형 티켓으로 교환하세요.,
+        [4] 액티비티 이용 시 팔찌로 편하게 태그하고 즐기기만 하면 돼요!');
 
 
 

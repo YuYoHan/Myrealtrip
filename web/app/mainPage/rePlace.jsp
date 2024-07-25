@@ -24,11 +24,9 @@
             <c:forEach items="${replaceList}" var="replace" varStatus="status">
             <div class="col-md-3">
                 <div class="productCard">
-<%--                    <a href="${replace.placeDetailurl }">--%>
                     <img class="img-fluid productImage" src="${replace.placeImage}" alt="${replace.placeTitle}">
-<%--                    </a>--%>
-<%--                        <div class="productContent">--%>
-<%--                        <div class="productTitle">--%>
+                    <div class="productContent">
+                        <div class="productTitle">
                             <span>${replace.placeTitle}</span>
                         </div>
                         <span class="productDescription">${replace.placeContents}</span>

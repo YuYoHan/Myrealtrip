@@ -3,6 +3,7 @@ package dao.mainPage;
 
 import config.jdbc.JDBCConfig;
 import dto.mainPage.MainBannerDTO;
+import dto.mainPage.MainDetailDTO;
 import dto.mainPage.RePlaceDTO;
 import dto.mainPage.TravelCardDTO;
 
@@ -89,4 +90,37 @@ public class MainDAO {
         }
         return list;
     }
+
+    public static List<MainDetailDTO> mainDetailList(){
+        String sql = "select mainDetailTitle, mainDetailPrice, mainDetailOption, contentImage, content from mainDetailDTO ";
+        List<MainDetailDTO> list = new ArrayList<>();
+        try {
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+;           rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                MainDetailDTO mainDetailDTO = new MainDetailDTO();
+                mainDetailDTO.setMainDetailTitle(rs.getString("mainDetailTitle"));
+                mainDetailDTO.setMainDetailPrice(rs.getString("mainDetailPrice"));
+                mainDetailDTO.setMainDetailOption(rs.getString("mainDetailOption"));
+                mainDetailDTO.setContentImage(rs.getString("contentImage"));
+                mainDetailDTO.setContent(rs.getString("content"));
+                list.add(mainDetailDTO);
+
+            }
+
+        }catch (Exception e){
+            System.out.println("에러발생:"+e.getMessage());
+        }finally {
+            try {
+                JDBCConfig.close(rs, preparedStatement, connection);
+            }catch (Exception e){
+                System.out.println("에러발생:"+e.getMessage());
+            }
+
+        }
+        return list;
+    }
+
+
 }
