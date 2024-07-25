@@ -28,17 +28,17 @@
                             <div class="city_selector clearfix border_all">
                                 <input id="depCtyCodeSearch" placeholder="서울" class="input_text input" type="text" readonly="">
                                 <button type="button" class="btn_swapper" id="btn_arrDepChange">도착지 출발지 교체</button>
-                                <input id="txt_arrCtyCode" placeholder="제주 (CJU)" class="input_text" type="text" readonly="">
+                                <input id="txt_arrCtyCode" placeholder="${dep}" class="input_text"  name="dep" type="text" readonly="" value="${dep}">
                             </div>
                             <div class="date_selector clearfix border_all ml8" id="div_day_selector" style="cursor: pointer;">
                                 <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택" placeholder="가는날 선택" readonly="readonly" value="">
-                                <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택" placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="dateFilter" role="combobox" style="cursor: pointer;" value="">
+                                <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택" placeholder="가는날 선택 - 오는날 선택" readonly="readonly" name="dateFilter" role="combobox" style="cursor: pointer;" value="${dateFilter}">
                             </div>
 
                             <div class="seat_wrap border_all">
                                 <a class="select_border">
-                                    <input name="count-total-input" class="count-total-input" type="hidden" readonly="readonly" value="">
-                                    <span class="txt" id="bin_people">승객 <span class="count-total"></span>명, 전체</span>
+                                    <input name="count-total-input" class="count-total-input" type="hidden" readonly="readonly" value="${peopleCount}">
+                                    <span class="txt" id="bin_people">승객 <span class="count-total"></span>${peopleCount}명, 전체</span>
                                 </a>
                             </div>
                             <a class="btn_price_search" onclick="return ok_frm()">검색</a>
