@@ -44,6 +44,11 @@ public class AirReserveAction implements Action {
         System.out.println("귀국 날짜: " + retDate);
 
 
+        System.out.println("인원: " + req.getSession().getAttribute("login"));
+        System.out.println("출발 날짜: " + depDate);
+        System.out.println("귀국 날짜: " + retDate);
+
+
 
         // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
         String date = req.getParameter("dateFilter");
@@ -101,7 +106,7 @@ public class AirReserveAction implements Action {
         String airNum = "0";
         String dep = fromAirPort;
         String arr = toAirPort;
-       //
+        //
         // String price = req.getParameter("price");
 
 
