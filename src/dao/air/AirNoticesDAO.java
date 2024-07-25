@@ -112,4 +112,79 @@ public class AirNoticesDAO {
         }
         return notices;
     }
+    public static List<AirNoticeDTO> getNoticesWithPagination(int page) {
+        String sql = "SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET ?";
+        List<AirNoticeDTO> notices = new ArrayList<>();
+        int offset = (page - 1) * 7; // Calculate the offset based on the page number
+
+        try (Connection connection = JDBCConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, offset);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                while (rs.next()) {
+                    AirNoticeDTO notice = AirNoticeDTO.builder()
+                            .airNoticeId(rs.getInt("notice_id"))
+                            .airNoticeTitle(rs.getString("notice_title"))
+                            .airNoticeDetails(rs.getString("notice_details"))
+                            .airNoticeRegTime(rs.getDate("notice_regTime"))
+                            .airNoticeUpdateTime(rs.getDate("notice_updateTime"))
+                            .adminId(rs.getString("admin_id"))
+                            .build();
+                    notices.add(notice);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("에러 발생 : " + e.getMessage());
+        }
+        return notices;
+    }
+
+    // 공지사항 페이징 처리 조회 메서드
+    public static List<AirNoticeDTO> getNoticesWithPagination(int page, int amount) {
+        String sql = "SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT ? OFFSET ?";
+        List<AirNoticeDTO> notices = new ArrayList<>();
+        int offset = (page - 1) * amount;
+
+        try (Connection connection = JDBCConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, amount);
+            preparedStatement.setInt(2, offset);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                while (rs.next()) {
+                    AirNoticeDTO notice = AirNoticeDTO.builder()
+                            .airNoticeId(rs.getInt("notice_id"))
+                            .airNoticeTitle(rs.getString("notice_title"))
+                            .airNoticeDetails(rs.getString("notice_details"))
+                            .airNoticeRegTime(rs.getDate("notice_regTime"))
+                            .airNoticeUpdateTime(rs.getDate("notice_updateTime"))
+                            .adminId(rs.getString("admin_id"))
+                            .build();
+                    notices.add(notice);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("에러 발생 : " + e.getMessage());
+        }
+        return notices;
+    }
+
+    // 공지사항 총 개수 조회 메서드
+    public static int getTotalNoticesCount() {
+        String sql = "SELECT COUNT(*) FROM air_notices";
+        try (Connection connection = JDBCConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+             ResultSet rs = preparedStatement.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("에러 발생 : " + e.getMessage());
+        }
+        return 0;
+    }
 }
