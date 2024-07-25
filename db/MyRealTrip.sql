@@ -47,11 +47,8 @@ insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
-<<<<<<< HEAD
 values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
-=======
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
->>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from admin;
@@ -101,15 +98,12 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
-<<<<<<< HEAD
 values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
-=======
 values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
->>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from travelCard;
