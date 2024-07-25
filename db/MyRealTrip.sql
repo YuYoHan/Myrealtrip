@@ -42,16 +42,15 @@ values ('zxzz45@naver.com', '유요한', 'ADMIN');
 insert into admin(admin_email, admin_name, admin_role)
 values ('700eeu@gmail.com', '김예은', 'ADMIN');
 
-
 insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
-<<<<<<< HEAD
 values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
-=======
+
+insert into admin(admin_email, admin_name, admin_role)
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
->>>>>>> 965289929211b91d216e06c252a28211650befb3
+
 
 select *
 from admin;

@@ -36,7 +36,7 @@ const logged = (loginMethod) => {
             console.log("url 체크 : " + url)
             //원본은 그대로, 새로운 문자열을 반환.
             newUrl = url.replace("/member/signUp.us", "/app/member/signUp_form.jsp");
-            console.log("새로운 url 체크 : " +newUrl);
+            console.log("새로운 url 체크 : " + newUrl);
             location.href = newUrl;
             console.log("이메일로 회원가입 합니다.");
             break;
@@ -46,7 +46,7 @@ const logged = (loginMethod) => {
             console.log("url 체크 : " + url)
             //원본은 그대로, 새로운 문자열을 반환.
             newUrl = url.replace("/member/signIn.us", "/app/member/signIn_form.jsp");
-            console.log("새로운 url 체크 : " +newUrl);
+            console.log("새로운 url 체크 : " + newUrl);
             location.href = newUrl;
             break;
         case "페이스북":
@@ -131,27 +131,17 @@ function handleNaverLogin() {
     });
 }
 
-<!-- 페이스북 로그인-->
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: 'YOUR_APP_ID',
-        cookie: true,
-        xfbml: true,
-        version: 'v10.0'
+<!-- 구글 로그인-->
+function googleOnSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+function googleSignOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
     });
-};
-
-function fcebookLogin() {
-    FB.login(function (response) {
-        if (response.authResponse) {
-            FB.api('/me', {fields: 'name, email'}, function (response) {
-                let email = response.email;
-                let name = response.name;
-                // 로그인 성공 시 필요한 동작 수행
-                location.href = "http://localhost:8080/app/mainPage/mainPage.jsp?loginUser=" + email + "&userName=" + name;
-            });
-        } else {
-            console.log("로그인 실패");
-        }
-    }, {scope: 'public_profile, email'});
 }
