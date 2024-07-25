@@ -78,3 +78,44 @@ function imp() {
     let milliseconds = today.getMilliseconds();
     return `${hours}${minutes}${seconds}${milliseconds}`;
 }
+
+// 토스 결제
+/*
+    jsp에 아래 코드를 추가 후 tossPay() 함수를 연결해서 사용하세요.
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+*/
+
+function tossPay(userEmail, userName, pay) {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1; // getMonth()는 0부터 11까지 반환하므로 1을 더해줌
+    let date = now.getDate();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    let IMP = window.IMP;
+    IMP.init("imp10888263");
+
+    IMP.request_pay(
+        {
+            pg: "uplus",
+            pay_method: "card",
+            merchant_uid: year + (("00"+month.toString()).slice(-2)) + date + "-" + hours + minutes+ seconds,
+            name: "결제",
+            amount: pay,
+            buyer_email: userEmail,
+            buyer_name: userName
+        },
+        function (response) {
+            if (response.success) {
+                console.log(response);
+                alert("결제가 완료되었습니다.");
+                location.replace("/");
+            } else {
+                alert("결제에 실패하였습니다.");
+            }
+        }
+    );
+}
