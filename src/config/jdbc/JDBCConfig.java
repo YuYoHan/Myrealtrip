@@ -11,7 +11,7 @@ public class JDBCConfig {
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/myRealTrip";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "1234";
+    public static final String PASSWORD = "1111";
 
     // static 메서드이며 매개변수는 없고 커넥션을 변환하는 메서드
     public static Connection getConnection() {

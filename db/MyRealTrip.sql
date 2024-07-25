@@ -149,7 +149,8 @@ values ('https://www.myrealtrip.com/promotions/myrealhocance_zip',
 select *
 from mainBanner;
 drop table mainBanner;
-
+select * from air_notices ORDER BY notice_id DESC ;
+SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET ;
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
 create table recommendedPlace
@@ -314,6 +315,17 @@ create table airports
     airport_location varchar(1000) not null,
     admin_id         bigint references admin (admin_id)
 );
+use myRealTrip;
+
+delete from airplanes;
+delete from operations;
+delete from airplane_reservations;
+delete from airPay;
+
+select * from airplanes;
+select * from operations;
+select * from airplane_reservations;
+select * from airPay;
 
 # 비행기 테이블
 create table airplanes
@@ -338,7 +350,13 @@ create table operations
     airplane_id              bigint references airplanes (airplane_id)
 );
 
+use myRealTrip;
 # 비행기 예매
+drop table airplane_reservations;
+
+select * from airplane_reservations;
+
+
 create table airplane_reservations
 (
     airplane_reservation_id      bigint primary key auto_increment,

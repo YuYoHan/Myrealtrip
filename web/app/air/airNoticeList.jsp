@@ -9,6 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/favicon.ico"/>">
     <link rel="stylesheet" href="../../css/air/airReserve.css">
+    <link rel="stylesheet" href="../../css/global/header_sub.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/global/header_sub.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
+    <link rel="stylesheet" href="../../css/air/air.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
+    <link rel="stylesheet" href="../../css/air/airticket.css">
     <link rel="stylesheet" href="../../css/air/air.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
     <link rel="stylesheet" href="../../css/air/airticket.css">
@@ -23,15 +31,11 @@
     <section class="airMain">
         <div class="main-notice">
             <h2>항공권 공지사항</h2>
-<%--            <div class="notice-more">--%>
-<%--                <a class="notice-more-btn" href="#">더보기</a>--%>
-<%--            </div>--%>
             <table class="air-board">
                 <thead>
                 <tr>
                     <th>제목</th>
                     <th>등록일</th>
-<%--                    <th>액션</th>--%>
                 </tr>
                 </thead>
                 <tbody class="rowlength">
@@ -40,14 +44,9 @@
                         <c:forEach var="notice" items="${AirNoticesList}">
                             <tr>
                                 <td class="air-tal">
-                                    <span class="air-board-contents"><a style="color: #495056;"   href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] &nbsp;${notice.airNoticeTitle}</a></span>
+                                    <span class="air-board-contents"><a style="color: #495056;" href="${cp}/air/airNoticeDetail.ar?airNoticeId=${notice.airNoticeId}">[공지] ${notice.airNoticeId}&nbsp;${notice.airNoticeTitle}</a></span>
                                 </td>
                                 <td class="time">${notice.airNoticeRegTime}</td>
-<%--                                <td>--%>
-<%--                                    <a href="viewNotice.jsp?noticeId=${notice.airNoticeId}">상세보기</a> |--%>
-<%--                                    <a href="editNotice.jsp?noticeId=${notice.airNoticeId}">수정하기</a> |--%>
-<%--                                    <a href="deleteNotice.jsp?noticeId=${notice.airNoticeId}">삭제하기</a>--%>
-<%--                                </td>--%>
                             </tr>
                         </c:forEach>
                     </c:when>
@@ -61,9 +60,28 @@
                 </c:choose>
                 </tbody>
             </table>
-        </div>
-        <div class="actions">
-            <a style="color: #495056;"  href="${cp}/air/airMain.ar">목록으로</a>
+            <div class="pagination">
+                <c:if test="${pageDTO.prev}">
+                    <a href="${cp}/air/airNoticeList.ar?pageNum=${pageDTO.startPage - 1}">이전</a>
+                </c:if>
+                <c:forEach begin="${pageDTO.startPage}" end="${pageDTO.endPage}" var="i">
+                    <c:choose>
+                        <c:when test="${i == pageDTO.cri.pageNum}">
+                            <span>${i}</span>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${cp}/air/airNoticeList.ar?pageNum=${i}">${i}</a>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <c:if test="${pageDTO.next}">
+                    <a href="${cp}/air/airNoticeList.ar?pageNum=${pageDTO.endPage + 1}">다음</a>
+                </c:if>
+            </div>
+
+            <div class="actions">
+                <a style="color: #495056; font-size: 24px; float: right;" href="${cp}/air/airMain.ar">목록으로</a>
+            </div>
         </div>
     </section>
 </main>

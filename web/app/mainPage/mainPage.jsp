@@ -35,11 +35,7 @@
     <!-- 첫 번째 travelCard 섹션 -->
     <section class="mainHeader">
         <div class="mainHeader_container">
-            <div class="headlineWrapper">
-
-
-
-            </div>
+            <div class="headlineWrapper"></div>
         </div>
         <%@ include file="../mainPage/mainHeader.jsp" %>
     </section>
@@ -48,7 +44,7 @@
         <%@ include file="../mainPage/mainBanner.jsp" %>
     </section>
 
-    <!-- 두 번째 travelCard 섹션을 메인 배너 하단에 추가 -->
+
     <section class="mainProduct">
         <%@ include file="rePlace.jsp" %>
     </section>
