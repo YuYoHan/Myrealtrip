@@ -1,9 +1,7 @@
 package dao.hotel;
 
 import config.jdbc.JDBCConfig;
-import dto.hotel.HotelBannerDTO;
-import dto.hotel.HotelDetailDTO;
-import dto.hotel.HotelListDTO;
+import dto.hotel.*;
 import exception.hotel.HotelException;
 
 import java.sql.Connection;
@@ -103,4 +101,34 @@ public class HotelDAO {
         System.out.println(list);
         return list;
     }
+
+    public static HotelsDTO getHotel(int hotelId) {
+        String sql = "select * from hotels where hotel_id = ?";
+        HotelsDTO hotel = null;
+        try {
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,hotelId);
+            rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                hotel  = HotelsDTO.builder()
+                        .hotelId(rs.getInt("hotel_id"))
+                        .hotelName(rs.getString("hotel_name"))
+                        .hotelLocation(rs.getString("hotel_location"))
+                        .hotelInfo(rs.getString("hotel_info"))
+                        .adminId(rs.getInt("admin_id"))
+                        .build();
+                System.out.println(hotel);
+            }
+        } catch (Exception e) {
+            System.out.println("룸 이미지 가져오는거 실패 : " + e.getMessage());
+            throw new HotelException(e.getMessage());
+        } finally {
+            JDBCConfig.close(rs, preparedStatement, connection);
+        }
+        return hotel;
+    }
+
+
 }

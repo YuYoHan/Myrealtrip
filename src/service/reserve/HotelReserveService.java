@@ -2,6 +2,10 @@ package service.reserve;
 
 import config.action.Action;
 import config.action.ActionTo;
+import dao.hotel.HotelDAO;
+import dao.hotel.RoomDAO;
+import dto.hotel.HotelsDTO;
+import dto.hotel.RoomsDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +15,12 @@ import java.time.LocalDate;
 public class HotelReserveService implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
+
+
+        //" <a href=/hotel/hotemlReservl.pm?hotelNum=${hotelNum}&roomNum=${roomNum}&peopleCount=${peopleCount}&dateFilter=${dateFilter} >sdf</a>"
         String date = req.getParameter("dateFilter");
+
+        // 날짜를 받아와서 년, 월, 일 나누어 보내줌.
         String startYear = date.substring(6, 10);
         String startMonth = date.substring(0, 2);
         String startDay = date.substring(3, 5);
@@ -34,10 +42,18 @@ public class HotelReserveService implements Action {
         //요일 뽑아쓰기
         String startweekhangle = weekStirng[startDayOfWeekNumber];
         String endweekhangle = weekStirng[endDayOfWeekNumber];
-        String hotelNum = req.getParameter("hotelNum");
+        //String hotelNum = req.getParameter("hotelNum");
         String hotelName = req.getParameter("hotelName");
         String hotelImg = req.getParameter("hotelImg");
         String hotelPrice = req.getParameter("hotelPrice");
+
+        String hotelNum = req.getParameter("hotelNum");
+        String roomNum = req.getParameter("roomNum");
+        HotelsDTO hotelsDTO = HotelDAO.getHotel(Integer.parseInt(hotelNum));
+        RoomsDTO roomsDTO = RoomDAO.getRoom(Integer.parseInt(roomNum));
+        int peopleCount = Integer.parseInt(req.getParameter("peopleCount"));
+        int price = Integer.parseInt(req.getParameter("price"));
+
 
 
         req.setAttribute("startYear", startYear);
