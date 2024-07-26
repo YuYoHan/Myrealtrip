@@ -381,10 +381,18 @@ ALTER TABLE airplane_reservations
 use myRealTrip;
 select * from airplane_reservations;
 
+ALTER TABLE airplane_reservations
+    ADD COLUMN peopleCount bigint;
+
 -- Then, add the new columns in_airplane_id and out_airplane_id
 ALTER TABLE airplane_reservations
     ADD COLUMN in_airplane_id bigint,
     ADD COLUMN out_airplane_id bigint;
+
+select * from airplanes;
+select * from operations;
+select * from airplane_reservations;
+select * from airPay;
 
 # 항공권 공지사항
 create table air_notices
