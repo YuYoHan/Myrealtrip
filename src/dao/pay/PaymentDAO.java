@@ -1,6 +1,5 @@
 package dao.pay;
 
-import com.sun.tools.javac.Main;
 import config.jdbc.ConnectDB;
 import config.jdbc.JDBCConfig;
 import dto.air.AirPayDTO;
