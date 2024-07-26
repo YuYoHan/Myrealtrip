@@ -1,6 +1,5 @@
 package dao.pay;
 
-import com.sun.tools.javac.Main;
 import config.jdbc.ConnectDB;
 import config.jdbc.JDBCConfig;
 import dto.air.AirPayDTO;
@@ -12,6 +11,8 @@ import dto.pay.AirPaymentDTO;
 import java.sql.*;
 
 import dto.air.OperationsDTO;
+import dto.pay.HotelPaymentDTO;
+import dto.pay.PayDTO;
 
 public class PaymentDAO {
     public static Connection connection;
@@ -23,19 +24,100 @@ public class PaymentDAO {
         return ConnectDB.connect(sql, price, bankName);
     }
 
-    // 항공 결제
+    // 항공 결제\
     public static int airPay(AirPaymentDTO pay) {
-        String sql = "insert into airPay(dateFilter, airLine, airNum, departure, arrive)";
+        String sql = "insert into airPay(dateFilter, airLine, airNum, departure, arrive) values (?, ?, ?, ?, ?)";
         return ConnectDB.connect(
                 sql,
                 pay.getDateFilter(),
                 pay.getAirLine(),
                 pay.getAirNum(),
-                pay.getDeparture());
+                pay.getDeparture(),
+                pay.getArrive()
+        );
     }
 
+    public static int hotelPay(HotelPaymentDTO pay) {
+        String sql = "insert into hotelPay(dateFilter, hotelName, hotelImg, user_id, room_reservations_id) values (?, ?, ?, ?, ?)";
+        return ConnectDB.connect(
+                sql,
+                pay.getDateFilter(),
+                pay.getHotelName(),
+                pay.getHotelImg(),
+                pay.getUserId(),
+                pay.getRoomReservationId()
+        );
+    }
+
+    public static int pay(PayDTO pay){
+        String sql = "insert into pay(final_pay, pay_bank, pay_date, air_pay_id, hotel_pay_id) values (?, ?, ?, ?, ?)";
+        return ConnectDB.connect(
+                sql,
+                pay.getFinalPay(),
+                pay.getPayBank(),
+                pay.getPayDate(),
+                pay.getAirPayId(),
+                pay.getHotelPayId()
+        );
+    }
+
+    public static void payReservation(HotelPaymentDTO hotelPaymentDTO, PayDTO payDTO) {
+        Connection connection = null;
+        PreparedStatement pstmt1 = null;
+        PreparedStatement pstmt2 = null;
+        ResultSet rs = null;
+
+        try {
+            connection = JDBCConfig.getConnection();
+            connection.setAutoCommit(false); // Start transaction
+            // Insert into airPay table
+            String sql4 = "INSERT INTO hotelPay (dateFilter, hotelName, hotelImg, user_id, room_reservation_id) VALUES ( ?,?, ?, ?, ?)";
+            pstmt1 = connection.prepareStatement(sql4,Statement.RETURN_GENERATED_KEYS);
+            pstmt1.setString(1, hotelPaymentDTO.getDateFilter());
+            pstmt1.setString(2, hotelPaymentDTO.getHotelName());
+            pstmt1.setString(3, hotelPaymentDTO.getHotelImg());
+            pstmt1.setInt(4, hotelPaymentDTO.getUserId());
+            pstmt1.setInt(5, hotelPaymentDTO.getRoomReservationId());
+            pstmt1.executeUpdate();
+            rs = pstmt1.getGeneratedKeys();
+            int airPayKey = -1;
+            if(rs.next()) {
+                airPayKey = rs.getInt(1);
+            }
+            payDTO.setAirPayId(airPayKey);
+            pay(payDTO);
+
+
+            connection.commit(); // Commit transaction
+            System.out.println("All data inserted successfully.");
+
+        } catch (SQLException e) {
+            if (connection != null) {
+                try {
+                    connection.rollback(); // Rollback transaction on error
+                    System.out.println("Transaction rolled back.");
+                } catch (SQLException ex) {
+                    System.out.println("Error during rollback: " + ex.getMessage());
+                }
+            }
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt1 != null) pstmt1.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.out.println("Error closing resources: " + e.getMessage());
+            }
+        }
+
+    }
+
+
+
+
     public static void payReservation(AirplaneReservationsDTO airplaneReservations, OperationsDTO operations1, OperationsDTO operations2,
-                                  AirplanesDTO airplanes1, AirplanesDTO airplanes2, AirPayDTO airPay) {
+                                  AirplanesDTO airplanes1, AirplanesDTO airplanes2, AirPayDTO airPay, PayDTO pay) {
         Connection connection = null;
         PreparedStatement pstmt1 = null;
         PreparedStatement pstmt2_1 = null;
@@ -133,7 +215,7 @@ public class PaymentDAO {
 
             // Insert into airPay table
             String sql4 = "INSERT INTO airPay (dateFilter, airLine, airNum, departure, arrive, user_id, airplane_reservation_id) VALUES ( now(),?, ?, ?, ?, ?, ?)";
-            pstmt4 = connection.prepareStatement(sql4);
+            pstmt4 = connection.prepareStatement(sql4,Statement.RETURN_GENERATED_KEYS);
             pstmt4.setString(1, airPay.getAirLine());
             pstmt4.setString(2, airPay.getAirNum());
             pstmt4.setString(3, airPay.getDeparture());
@@ -141,6 +223,14 @@ public class PaymentDAO {
             pstmt4.setInt(5, airPay.getUserId());
             pstmt4.setInt(6, airplaneReservationId);
             pstmt4.executeUpdate();
+            rs = pstmt4.getGeneratedKeys();
+            int airPayKey = -1;
+            if(rs.next()) {
+                airPayKey = rs.getInt(1);
+            }
+            pay.setAirPayId(airPayKey);
+            pay(pay);
+
 
             connection.commit(); // Commit transaction
             System.out.println("All data inserted successfully.");
@@ -169,63 +259,7 @@ public class PaymentDAO {
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
-    }
 
-
-    // 테스트용 메인 추후에 삭제 예정!
-    public static void main(String[] args) {
-        // Create sample data
-        AirplanesDTO airplane1 = AirplanesDTO.builder()
-                .airplaneModel("Boeing 747")
-                .airplaneCompany("Boeing")
-                .airportId(1)
-                .build();
-
-        AirplanesDTO airplane2 = AirplanesDTO.builder()
-                .airplaneModel("Airbus A380")
-                .airplaneCompany("Airbus")
-                .airportId(2)
-                .build();
-
-        OperationsDTO operation1 = OperationsDTO.builder()
-                .operationNum("OP123")
-                .operationPrice("500")
-                .operationDepartureTime(new Timestamp(System.currentTimeMillis()))
-                .operationArriveTime(new Timestamp(System.currentTimeMillis() + 3600000)) // 1 hour later
-                .operationDepartureArea("New York")
-                .operationArriveArea("Los Angeles")
-                .airplaneCapacity(300)
-                .build();
-
-        OperationsDTO operation2 = OperationsDTO.builder()
-                .operationNum("OP456")
-                .operationPrice("700")
-                .operationDepartureTime(new Timestamp(System.currentTimeMillis() + 7200000)) // 2 hours later
-                .operationArriveTime(new Timestamp(System.currentTimeMillis() + 10800000)) // 3 hours later
-                .operationDepartureArea("San Francisco")
-                .operationArriveArea("Chicago")
-                .airplaneCapacity(400)
-                .build();
-
-        AirplaneReservationsDTO reservation = AirplaneReservationsDTO.builder()
-                .airplaneReservationRegTime(new Timestamp(System.currentTimeMillis()))
-                .airplanePay("Credit Card")
-                .inAirplaneId(0) // These IDs will be updated after insertion
-                .outAirplaneId(0)
-                .userId(123)
-                .build();
-
-        AirPayDTO airPay = AirPayDTO.builder()
-                .dateFilter("2024-07-25")
-                .airLine("Delta")
-                .airNum("DL1234")
-                .departure("New York")
-                .arrive("Los Angeles")
-                .userId(123)
-                .build();
-
-        // Call insertData method
-        payReservation(reservation, operation1, operation2, airplane1, airplane2, airPay);
     }
 }
 

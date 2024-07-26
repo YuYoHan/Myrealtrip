@@ -7,7 +7,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PageDTO {
+public class
+PageDTO {
     private int startPage;
     private int endPage;
     private boolean prev;

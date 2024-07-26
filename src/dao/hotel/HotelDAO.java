@@ -1,9 +1,7 @@
 package dao.hotel;
 
 import config.jdbc.JDBCConfig;
-import dto.hotel.HotelBannerDTO;
-import dto.hotel.HotelDetailDTO;
-import dto.hotel.HotelListDTO;
+import dto.hotel.*;
 import exception.hotel.HotelException;
 
 import java.sql.Connection;
@@ -53,7 +51,44 @@ public class HotelDAO {
         return list;
     }
 
-    // 검
+    public static List<HotelListDTO> hotelCityList(String hotelCity) {
+        String sql = "SELECT h.hotel_id, h.hotel_name, hi.hotel_img_url, h.hotel_city, "
+                + "MIN(CAST(r.room_price AS DECIMAL(10, 0))) AS lowest_room_price "
+                + "FROM hotels h JOIN hotelimg hi "
+                + "ON h.hotel_id = hi.hotel_id "
+                + "JOIN rooms r "
+                + "ON h.hotel_id = r.hotel_id "
+                + "WHERE h.hotel_city = ?"
+                + "GROUP BY h.hotel_id, h.hotel_name, hi.hotel_img_url, h.hotel_city "
+                + "ORDER BY h.hotel_id";
+        List<HotelListDTO> list = new ArrayList<>();
+        try {
+
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, hotelCity);
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                HotelListDTO hotel = new HotelListDTO();
+                hotel.setHotelID(rs.getInt("hotel_id"));
+                hotel.setHotelName(rs.getString("hotel_name"));
+                hotel.setHotelImgURL(rs.getString("hotel_img_url"));
+                hotel.setHotelCity(rs.getString("hotel_city"));
+                hotel.setRoomMinPrice(rs.getString("lowest_room_price"));
+
+                list.add(hotel);
+            }
+        } catch (Exception e) {
+            System.out.println("호텔 리스트 가져오는거 실패 : " + e.getMessage());
+            throw new HotelException(e.getMessage());
+        } finally {
+            JDBCConfig.close(rs, preparedStatement, connection);
+        }
+        System.out.println(list);
+        return list;
+    }
+
     public static List<HotelDetailDTO> hotelDetail(String hotelName) {
         String sql = "SELECT "
                 + "h.hotel_name, "
@@ -103,4 +138,34 @@ public class HotelDAO {
         System.out.println(list);
         return list;
     }
+
+    public static HotelsDTO getHotel(int hotelId) {
+        String sql = "select * from hotels where hotel_id = ?";
+        HotelsDTO hotel = null;
+        try {
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,hotelId);
+            rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                hotel  = HotelsDTO.builder()
+                        .hotelId(rs.getInt("hotel_id"))
+                        .hotelName(rs.getString("hotel_name"))
+                        .hotelLocation(rs.getString("hotel_location"))
+                        .hotelInfo(rs.getString("hotel_info"))
+                        .adminId(rs.getInt("admin_id"))
+                        .build();
+                System.out.println(hotel);
+            }
+        } catch (Exception e) {
+            System.out.println("룸 이미지 가져오는거 실패 : " + e.getMessage());
+            throw new HotelException(e.getMessage());
+        } finally {
+            JDBCConfig.close(rs, preparedStatement, connection);
+        }
+        return hotel;
+    }
+
+
 }

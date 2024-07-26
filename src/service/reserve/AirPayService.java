@@ -8,12 +8,14 @@ import dto.air.AirplaneReservationsDTO;
 import dto.air.AirplanesDTO;
 import dto.air.OperationsDTO;
 import dto.pay.AirPaymentDTO;
+import dto.pay.PayDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.Date;
 
 
 public class AirPayService implements Action {
@@ -104,8 +106,16 @@ public class AirPayService implements Action {
                 .userId(userId)
                 .build();
 
+        PayDTO pay = PayDTO.builder()
+                .finalPay(price)
+                .payBank("카카오or토스")
+                .payDate(new Timestamp(new Date().getTime()))
+                .airPayId(0)
+                .hotelPayId(0)
+                .build();
+
         // Call insertData method
-        PaymentDAO.payReservation(reservation, operation1, operation2, airplane1, airplane2, airPay);
+        PaymentDAO.payReservation(reservation, operation1, operation2, airplane1, airplane2, airPay,pay);
 
 
 

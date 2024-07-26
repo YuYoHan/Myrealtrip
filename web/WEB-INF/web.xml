@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <session-config>
         <session-timeout>30</session-timeout> <!-- 세션 유지 시간을 30분으로 설정 -->
     </session-config>
@@ -65,12 +66,20 @@
         <servlet-name>PayController</servlet-name>
         <url-pattern>*.pm</url-pattern>
     </servlet-mapping>
-        <servlet>
-            <servlet-name>HotelFrontController</servlet-name>
-            <servlet-class>controller.hotel.HotelController</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>HotelFrontController</servlet-name>
-            <url-pattern>*.ht</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>HotelFrontController</servlet-name>
+        <servlet-class>controller.hotel.HotelController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HotelFrontController</servlet-name>
+        <url-pattern>*.ht</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>InsuranceController</servlet-name>
+        <servlet-class>controller.insurance.InsuranceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsuranceController</servlet-name>
+        <url-pattern>*.ns</url-pattern>
+    </servlet-mapping>
 </web-app>
