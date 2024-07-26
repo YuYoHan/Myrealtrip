@@ -1,24 +1,22 @@
-package action.hotel;
+package action.insurance;
 
 import config.action.Action;
 import config.action.ActionTo;
-import dao.hotel.HotelDAO;
-import dto.hotel.HotelListDTO;
+import dao.air.AirDAO;
+import dao.air.AirNoticesDAO;
+import dto.air.AirBannerDTO;
+import dto.air.AirNoticeDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class HotelBannerAction implements Action {
+public class InsuranceAction implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        List<HotelListDTO> HotelListDTOS = HotelDAO.hotelBannerList();
-        System.out.println("호텔 리스트 조회 : " + HotelListDTOS);
-        req.setAttribute("hotelbannerList", HotelListDTOS);
         ActionTo acto = new ActionTo();
         acto.setRedirect(false);
-        acto.setPath("/app/hotel/hotel.jsp");
+        acto.setPath("/app/insurance/insurance.jsp");
         return acto;
     }
-
 }

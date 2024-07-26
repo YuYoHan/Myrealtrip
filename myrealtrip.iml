@@ -31,5 +31,10 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="daterangepicker" level="application" />
+    <orderEntry type="library" name="moment" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="swiper" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
   </component>
 </module>
