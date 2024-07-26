@@ -36,9 +36,9 @@
             </div>
             <div class="oauthList_container">
                 <div class="oauth_container">
-                    <div class="icon-wrapper" id="gBtn">
-                        <img class="iconImg" src="<c:url value="/img/member/google_log.png"/>" alt="페이스북">
-                        <img class="iconImgHover" src="<c:url value="/img/member/google_log_on.svg"/>" alt="페이스북">
+                    <div class="icon-wrapper">
+                        <img class="iconImg" src="<c:url value="/img/member/google_log.png"/>" alt="구글">
+                        <img class="iconImgHover" src="<c:url value="/img/member/google_log_on.svg"/>" alt="구글">
                         <input type="hidden" value="구글">
                         <span>구글</span>
                     </div>
@@ -80,8 +80,7 @@
 <!-- 네이버 SDK 추가 -->
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
 <!-- 구글 SDK 추가 -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script>startApp()</script>
+
 
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>

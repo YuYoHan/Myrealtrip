@@ -35,7 +35,7 @@
             </div>
             <div class="oauthList_container">
                 <div class="oauth_container">
-                    <div class="icon-wrapper">
+                    <div class="icon-wrapper" id="gSignInBtn">
                         <img class="iconImg" src="<c:url value="/img/member/google_log.png"/>" alt="구글">
                         <img class="iconImgHover" src="<c:url value="/img/member/google_log_on.svg"/>" alt="구글">
                         <input type="hidden" value="구글">
@@ -79,7 +79,7 @@
 <!-- 네이버 SDK 추가 -->
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
 <!-- 구글 SDK 추가 -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
 <script>startApp()</script>
 
 <script src="../../js/chatbot.js"></script>

@@ -138,14 +138,13 @@ var startApp = function() {
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         auth2 = gapi.auth2.init({
             client_id: '18601984993-624t084a7sc52aomfm1kfso276hbimg0.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin',
+            cookiepolicy: 'single_host_origin'
             // Request scopes in addition to 'profile' and 'email'
             //scope: 'additional_scope'
         });
-        attachSignin(document.getElementById('gBtn'));
+        attachSignin(document.getElementById('gSignInBtn'));
     });
 };
-
 function attachSignin(element) {
     console.log(element.id);
     auth2.attachClickHandler(element, {},
@@ -156,4 +155,11 @@ function attachSignin(element) {
             alert(JSON.stringify(error, undefined, 2));
         });
 }
+
 <!-- 구글 로그아웃 -->
+function googleSignOut() {
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+}
