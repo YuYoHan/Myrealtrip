@@ -35,10 +35,12 @@ public class IndexAction implements Action {
         HttpSession session = req.getSession();
         System.out.println("세션 확인 : " + session.getAttribute("loginUser"));
         System.out.println("세션 확인 : " + session.getAttribute("userName"));
+        System.out.println("세션 확인 : " + session.getAttribute("userId"));
 
         if (session.getAttribute("loginUser") != null) {
             loginUser.put("userEmail", req.getParameter("userEmail"));
             loginUser.put("userName", req.getParameter("userName"));
+            loginUser.put("userId", req.getParameter("userId"));
             // loginUser HashMap을 세션의 "loginUser" 속성에 저장합니다.
             // 이로써 로그인한 사용자의 정보가 세션에 유지
             session.setAttribute("loginUser", loginUser);

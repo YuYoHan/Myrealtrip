@@ -8,9 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class HotelPaymentDTO {
-    private String userEmail;
+    private String hotelPayId;
     private String dateFilter;
     private String hotelName;
     private String hotelImg;
-    private String hotelPrice;
+    private int userId;
+    private int roomReservationId;
 }

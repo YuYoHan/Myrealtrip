@@ -34,34 +34,26 @@ public class SignInService implements Action {
         System.out.println("조회 유저 : " + response);
 
         ActionTo acto = new ActionTo();
-        PrintWriter out = resp.getWriter();
 
-        if(response.getUserPw().equals(encodePw)) {
+        if (response != null && response.getUserPw().equals(encodePw)) {
             System.out.println("로그인 성공");
-            // 클라이언트에서 "true"가 전송된 경우
-            if(loginStatus != null && loginStatus.equals("true")) {
-                // 클라이언트로부터 전송된 요청(request)에 대해 이미 세션이 있는 경우 기존 세션을 반환하거나,
-                // 세션이 없는 경우 새로운 세션을 생성하여 반환
-                HttpSession session = req.getSession();
-                session.setAttribute("loginUser", response.getUserEmail());
-                session.setAttribute("userName", response.getUserName());
-                acto.setRedirect(false);
-                acto.setPath("/app/mainPage/mainPage.jsp");
-            } else {
-                // 세션 클릭을 안했기 때문에 이거로 처리
-                // 로그인은 성공했기 때문이다.
-                // 세션과 달리 클라이언트가 브라우저를 닫거나 사이트를 이탈하면 요청 스코프에 설정된 데이터는 사라져서 로그인 유지x
-                req.setAttribute("loginUser", userEmail);
-                acto.setRedirect(false);
-                acto.setPath("/app/mainPage/mainPage.jsp");
-            }
+
+            HttpSession session = req.getSession();
+            session.setAttribute("loginUser", response.getUserEmail());
+            session.setAttribute("userName", response.getUserName());
+            session.setAttribute("userId", response.getUserId());
+            System.out.println("이메일 : " + session.getAttribute("userEmail"));
+            System.out.println("이름 : " + session.getAttribute("userName"));
+            System.out.println("유저 번호 : " + session.getAttribute("userId"));
+            acto.setRedirect(false);
+            acto.setPath("/");
         } else {
-            out.print("<script>");
-            out.print("alert('로그인 실패하셨습니다.')");
-            out.print("location.href = '"+req.getContextPath()+"/app/member/signIn_form.jsp';");
-            out.print("</script>");
+            System.out.println("로그인 실패");
+            PrintWriter out = resp.getWriter();
+            out.println("<script>alert('이메일 또는 비밀번호가 올바르지 않습니다.'); history.go(-1);</script>");
+            out.close();
         }
-        out.close();
+
         return acto;
     }
 }

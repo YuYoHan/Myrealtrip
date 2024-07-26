@@ -7,33 +7,37 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PageDTO {
+public class
+PageDTO {
     private int startPage;
     private int endPage;
-    private int realPage;
-    private int totalPage;
-    private boolean prev, next;
+    private boolean prev;
+    private boolean next;
+    private int total;
     private Criteria cri;
 
-    public PageDTO(int totalPage, Criteria cri) {
-        int pageNum = cri.getPageNum();
-        this.totalPage = totalPage;
+    public PageDTO(int total, Criteria cri) {
         this.cri = cri;
+        this.total = total;
 
-        // 페이지 끝 번호
-        this.endPage = (int)Math.ceil(pageNum/10.0) * 10;
-        // 한 페이지에서 몇개 까지 보여줄 갯수에서 -1
-        // 거기서 끝 번호를 빼야 시작 페이지
-        this.startPage = this.endPage - (cri.getAmount() -1);
-        this.realPage = (int)Math.ceil(totalPage * 1.0 / cri.getAmount());
+        // endPage 계산
+        this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10;
 
-        if(endPage > realPage) {
-            endPage = realPage;
+        // startPage 계산
+        this.startPage = this.endPage - 9;
+
+        // 실제 endPage 계산
+        int realEnd = (int) (Math.ceil(total * 1.0 / cri.getAmount()));
+
+        // realEnd가 endPage보다 작으면 endPage 조정
+        if (realEnd < this.endPage) {
+            this.endPage = realEnd;
         }
 
-        // 이전
+        // prev와 next 표시 여부 결정
         this.prev = this.startPage > 1;
-        // 다음
-        this.next = this.endPage < this.realPage;
+        this.next = this.endPage < realEnd;
     }
+
+
 }

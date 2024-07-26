@@ -47,11 +47,8 @@ insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
-<<<<<<< HEAD
 values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
-=======
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
->>>>>>> 965289929211b91d216e06c252a28211650befb3
 
 select *
 from admin;
@@ -101,18 +98,24 @@ values ('세고비아', '세고비아', 'https://d2ur7st6jjikze.cloudfront.net/l
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('톨레도', '톨레도', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
-<<<<<<< HEAD
 values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://d2ur7st6jjikze.cloudfront.net/landscapes/725_large_square_1482978918.jpg?1482978918', 1);
-=======
 values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/dubai.jpg', 2);
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
->>>>>>> 965289929211b91d216e06c252a28211650befb3
 
+use myRealTrip;
 select *
-from travelCard;
+from hotels;
+select * from airPay;
+select * from hotelImg;
+select * from rooms;
+select * from room_reservations;
+select * from pay;
+
+
+
 drop table travelCard;
 
 # mainBanner
@@ -155,7 +158,8 @@ values ('https://www.myrealtrip.com/promotions/myrealhocance_zip',
 select *
 from mainBanner;
 drop table mainBanner;
-
+select * from air_notices ORDER BY notice_id DESC ;
+SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET 2 ;
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
 create table recommendedPlace
@@ -320,6 +324,18 @@ create table airports
     airport_location varchar(1000) not null,
     admin_id         bigint references admin (admin_id)
 );
+use myRealTrip;
+
+delete from airplanes;
+delete from operations;
+delete from airplane_reservations;
+delete from airPay;
+
+select * from airplanes;
+select * from operations;
+select * from airplane_reservations;
+select * from airPay;
+select * from pay;
 
 # 비행기 테이블
 create table airplanes
@@ -344,7 +360,13 @@ create table operations
     airplane_id              bigint references airplanes (airplane_id)
 );
 
+use myRealTrip;
 # 비행기 예매
+drop table airplane_reservations;
+
+select * from airplane_reservations;
+
+
 create table airplane_reservations
 (
     airplane_reservation_id      bigint primary key auto_increment,
@@ -356,6 +378,8 @@ create table airplane_reservations
 # 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
 ALTER TABLE airplane_reservations
     DROP COLUMN airplane_id;
+use myRealTrip;
+select * from airplane_reservations;
 
 -- Then, add the new columns in_airplane_id and out_airplane_id
 ALTER TABLE airplane_reservations
@@ -528,6 +552,9 @@ alter table rooms add column room_name varchar(1000) not null after room_id;
 # table room_reservations 테이블에 room_breakfast 컬럼 추가
 alter table room_reservations add column room_breakfast varchar(1000) not null after room_reservations_total_price;
 
+# hotels 테이블에 hotel_city 컬럼 추가
+alter table hotels add column hotel_city varchar(1000) not null after hotel_location;
+
 # 뉴욕
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('파크 레인 뉴욕', '36 Central Park S, New York, New York, 미국, 10019', '파크 레인 뉴욕은 센트럴 파크 남쪽에 위치한 럭셔리 호텔로, 공원의 아름다운 전망을 제공합니다. 세련된 객실과 다양한 편의 시설을 갖추고 있으며, 뉴욕의 주요 관광지와 인접해 있습니다. 우아한 레스토랑과 바, 피트니스 센터를 갖추고 있어 편안한 휴식을 즐길 수 있습니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('클럽 쿼터스 호텔, 월드 트레이드 센터', '140 Washington St, New York, New York, 미국, 10006', '클럽 쿼터스 호텔, 월드 트레이드 센터는 뉴욕의 금융 지구에 위치해 있으며, 현대적인 편안함과 뛰어난 접근성을 제공합니다. 비즈니스 여행객을 위한 다양한 시설을 갖추고 있으며, 유명한 월드 트레이드 센터와 인접해 있습니다. 세련된 객실과 친절한 서비스를 제공합니다.', 3);
@@ -572,6 +599,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/20000/19800/19768/48db06c0_z.jpg', 13);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/20000/19800/19768/45c38643_z.jpg', 14);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/20000/19800/19768/3920c3f1_z.jpg', 15);
+
+update hotels set hotel_city = '뉴욕' where hotel_id between 1 and 5;
 
 # 피렌체
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('머큐어 피렌체 센트로', 'Via Nazionale 21/23 R, Florence, Fl, 이탈리아, 50123', '머큐어 피렌체 센트로는 피렌체의 중심에 위치한 현대적인 호텔로, 주요 관광 명소와 편리하게 연결되어 있습니다. 편안한 객실과 우아한 인테리어를 갖추고 있으며, 다양한 편의 시설을 제공합니다. 비즈니스와 레저 여행객 모두에게 적합한 숙소입니다.', 3);
@@ -618,6 +647,8 @@ insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelI
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/425/42525/42525_20021814460088259595.jpg?ca=10&ce=1&s=1000x', 29);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/10000/6400/6371/c31af1cc_z.jpg', 30);
 
+update hotels set hotel_city = '피렌체' where hotel_id between 6 and 10;
+
 # 라스베이거스
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('트레저 아일랜드 – TI 라스베가스 호텔 카지노, 라디슨 호텔', '3300 Las Vegas Blvd S, Las Vegas, Nevada, 미국, 89109', '트레저 아일랜드 – TI 라스베가스 호텔 카지노는 라스베가스 스트립에 위치한 고급 호텔로, 다양한 엔터테인먼트 옵션과 카지노를 제공합니다. 편안한 객실과 고급 레스토랑, 스파 등 다양한 부대시설을 갖추고 있어 완벽한 휴식을 즐길 수 있습니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('트래블로지 바이 윈덤 라스베이거스', '2830 Las Vegas Blvd S, Las Vegas, Nevada, 미국, 89109', '트래블로지 바이 윈덤 라스베이거스는 합리적인 가격과 편리한 위치를 자랑하는 호텔로, 라스베가스 스트립의 주요 명소와 가까워 관광에 이상적입니다. 간편한 시설과 친절한 서비스를 제공하여 편안한 숙박을 보장합니다.', 3);
@@ -662,6 +693,8 @@ insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/proper
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/147/147263/147263_16062920570044258603.jpg?ca=13&ce=1&s=1000x', 43);
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/147263/-1/541b0aef3f3a5c944bb121599c9c0a39.jpg?ca=10&ce=1&s=1000x', 44);
 insert into roomimg(room_img_url, room_id) values('https://q-xx.bstatic.com/xdata/images/hotel/max500/407511870.jpg?k=fa2c8b5317237f00b4fd789c02b4ab5e664a907ab29cc8d4dca1f54fa5a18b8b&o=&s=1000x', 45);
+
+update hotels set hotel_city = '라스베이거스' where hotel_id between 11 and 15;
 
 # 파리
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('풀먼 파리 타워 에펠', '18 avenue de Suffren, Entrée au 22 rue Jean Rey, Paris, Paris, 프랑스, 75015', '풀먼 파리 타워 에펠 호텔은 에펠탑 바로 옆에 위치한 고급 호텔로, 세련된 인테리어와 최첨단 편의시설을 갖추고 있습니다. 모든 객실에서 에펠탑의 아름다운 전망을 즐길 수 있으며, 다양한 레스토랑과 바, 피트니스 센터가 마련되어 있습니다.', 3);
@@ -708,6 +741,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/property/4822203/33882689/549f38f3a27d448ee824d2a43257f8ab.jpg?ca=18&ce=1&s=1000x', 59);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/380000/374400/374356/1f49289d_z.jpg', 60);
 
+update hotels set hotel_city = '파리' where hotel_id between 16 and 20;
+
 # 런던
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('풀먼 런던 세인트 판크라스', '100-110 Euston Road, London, England, 영국, NW1 2AJ', '풀먼 런던 세인트 판크라스는 런던 중심부에 위치한 현대적인 호텔로, 세인트 판크라스 역과 가까워 매우 편리합니다. 세련된 디자인의 객실과 다양한 편의시설을 갖추고 있으며, 비즈니스와 레저 여행객 모두에게 이상적인 선택입니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('페이지8, 페이지 호텔스', '8 St. Martins Place, London, England, 영국, WC2N 4JH', '페이지8, 페이지 호텔스는 트라팔가 광장과 국립 미술관 근처에 위치한 부티크 호텔로, 럭셔리한 객실과 세심한 서비스를 제공합니다. 중심지에 위치해 런던의 주요 명소를 도보로 쉽게 접근할 수 있어 편리합니다.', 3);
@@ -752,6 +787,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/68000000/67550000/67541200/67541187/6f4f6398_z.jpg', 73);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/68000000/67550000/67541200/67541187/5a5cbfaf_z.jpg', 74);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/68000000/67550000/67541200/67541187/17b6907e_z.jpg', 75);
+
+update hotels set hotel_city = '런던' where hotel_id between 21 and 25;
 
 # 바르셀로나
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('바르셀로 산트스', 'Plaza Dels Paisos Catalans S/n, Barcelona, 스페인, 08014', '바르셀로 산트스는 바르셀로나 산트 역 바로 옆에 위치한 현대적인 호텔로, 여행객들에게 뛰어난 편의성을 제공합니다. 넓고 세련된 객실과 다양한 편의시설을 갖추고 있으며, 도시의 주요 명소로의 접근성이 뛰어납니다.', 3);
@@ -798,6 +835,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/2000000/1140000/1133400/1133365/da86d5d8_z.jpg', 89);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/2000000/1140000/1133400/1133365/71b04b5d_z.jpg', 90);
 
+update hotels set hotel_city = '바르셀로나' where hotel_id between 26 and 30;
+
 # 로마
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('알바니 호텔 로마', 'Via Adda 45, Rome, RM, 이탈리아, 198', '알바니 호텔 로마는 로마 중심부에 위치한 아늑한 호텔로, 역사적인 명소와 주요 교통수단에 가까워 편리합니다. 현대적이고 깔끔한 객실을 제공하며, 친절한 서비스와 함께 편안한 숙박을 보장합니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('iQ 호텔 로마', 'Via Firenze, 8, Rome, RM, 이탈리아, 184', 'iQ 호텔 로마는 로마의 중심지에 위치해 있어 주요 관광지와 쉽게 접근할 수 있습니다. 현대적인 디자인의 객실과 다양한 편의시설을 제공하며, 친절하고 전문적인 서비스로 편안한 숙박을 제공합니다.', 3);
@@ -842,6 +881,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/43350/-1/55922357ec12ffbdab8f3498025e23b7.jpg?ca=13&ce=1&s=1000x', 103);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/2000000/1130000/1124500/1124488/cf8bdfd6_z.jpg', 104);
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/43350/-1/6789c089cf5e2cde89ccab332b4c0533.jpg?ca=13&ce=1&s=1000x', 105);
+
+update hotels set hotel_city = '로마' where hotel_id between 31 and 35;
 
 # 루체른
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('호텔 모노폴', 'Pilatusstrasse 1, Lucerne, LU, 스위스, 6003', '호텔 모노폴은 루체른의 중심부에 위치하여 호수와 산의 멋진 전망을 제공합니다. 현대적이며 세련된 객실과 다양한 편의시설을 갖추고 있으며, 편리한 위치와 뛰어난 서비스로 여행객들에게 인기가 많습니다.', 3);
@@ -888,6 +929,8 @@ insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelI
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/910000/903400/903390/8d80665e_z.jpg', 119);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/910000/903400/903390/0961d451_z.jpg', 120);
 
+update hotels set hotel_city = '루체른' where hotel_id between 36 and 40;
+
 # 인터라켄
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('빅토리아 융프라우 그랜드 호텔 & 스파', 'Höheweg 41, Interlaken, BE, 스위스, 3800', '빅토리아 융프라우 그랜드 호텔 & 스파는 인터라켄의 중심부에 위치하며, 웅장한 알프스 산맥을 조망할 수 있습니다. 고급스러운 스파와 레스토랑, 넓은 객실을 제공하며, 편안한 휴식을 위한 완벽한 장소입니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('트럼프 인터내셔널 호텔 앤드 타워 뉴욕', '1 Central Park W, New York, New York, 미국, 10023', '트럼프 인터내셔널 호텔 앤드 타워는 센트럴 파크와 가까운 뉴욕의 럭셔리 호텔입니다. 모던한 인테리어와 고급스러운 시설을 갖추고 있으며, 도시 전경을 즐길 수 있는 뛰어난 위치를 자랑합니다.', 3);
@@ -932,6 +975,8 @@ insert into roomimg(room_img_url, room_id) values('https://q-xx.bstatic.com/xdat
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/90000/84000/83936/92139e77_z.jpg', 133);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/90000/84000/83936/3f5de73d_z.jpg', 134);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/1000000/90000/84000/83936/ee47785c_z.jpg', 135);
+
+update hotels set hotel_city = '인터라켄' where hotel_id between 41 and 45;
 
 # 세고비아
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('레알 세고비아 아파트먼트', 'C. Juan Bravo 30, Segovia, Segovia, 스페인, 40001', '레알 세고비아 아파트먼트는 세고비아의 중심부에 위치하며, 넓고 현대적인 객실을 제공합니다. 여행객들에게 편안한 숙박을 제공하며, 세고비아의 주요 관광지와도 가까운 위치에 있습니다.', 3);
@@ -978,6 +1023,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://q-xx.bstatic.com/xdata/images/hotel/max500/96427597.jpg?k=a94b9486b741c1013ce4057c3a0b37e4c7962c8750dd644b126a191a6e2dd51d&o=&s=1000x', 149);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/2000000/1490000/1480400/1480373/742f9a86_z.jpg', 150);
 
+update hotels set hotel_city = '세고비아' where hotel_id between 46 and 50;
+
 # 톨레도
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('파라도르 데 톨레도', 'Cerro del Emperador, s/n, Toledo, Toledo, 스페인, 45002', '파라도르 데 톨레도는 톨레도의 역사적인 언덕에 위치한 고급 호텔로, 멋진 도시 전경을 제공합니다. 고전적인 스페인식 장식과 현대적인 편의시설이 어우러진 숙소입니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('호텔 세르코텔 알폰소 VI', 'Cuesta de los Capuchinos 2, Toledo, Toledo, 스페인, 45001', '호텔 세르코텔 알폰소 VI는 톨레도의 중심부에 위치하며, 전통적인 스페인식 매력을 가진 숙소입니다. 고객에게 편안하고 고급스러운 숙박을 제공합니다.', 3);
@@ -1023,6 +1070,8 @@ insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodgi
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/3000000/2540000/2532500/2532490/f5206f0c_z.jpg', 164);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/3000000/2540000/2532500/2532490/ebabba3b_z.jpg', 165);
 
+update hotels set hotel_city = '톨레도' where hotel_id between 51 and 55;
+
 # 두바이
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('스테이브리지 스위트 두바이 피낸셜 센터, 안 IHG 호텔', 'SHEIKH ZAYED ROAD, PO BOX 11189, Dubai, 아랍에미리트', '스테이브리지 스위트 두바이 피낸셜 센터는 현대적인 시설과 편안한 숙박을 제공하는 고급 스위트 호텔입니다. 두바이의 금융 중심지에 위치하여 비즈니스 여행객에게 적합합니다.', 3);
 insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('그랜드 하얏트 두바이', 'Riyadh Street, Sheikh Rashid Road, Dubai Healthcare City, Dubai, 아랍에미리트', '그랜드 하얏트 두바이는 럭셔리와 편안함을 제공하는 5성급 호텔로, 두바이 헬스케어 시티에 위치하며, 우수한 식사와 스파 서비스를 제공합니다.', 3);
@@ -1067,4 +1116,53 @@ insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/proper
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/21667684/295005603/9f6a9236f211fe3afbbf9699224c9f55.jpg?ca=16&ce=1&s=1000x', 178);
 insert into roomimg(room_img_url, room_id) values('https://pix8.agoda.net/hotelImages/21667684/459346227/4f36b0180f1a24c4c3dccbcc0755fe3d.jpeg?ce=0&s=1000x', 179);
 insert into roomimg(room_img_url, room_id) values('https://i.travelapi.com/lodging/7000000/6900000/6899100/6899004/85ff2389_z.jpg', 180);
+
+update hotels set hotel_city = '두바이' where hotel_id between 56 and 60;
+
+# 서울
+insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('앰배서더 서울 풀만 호텔', '대한민국 서울특별시 중구 동호로 287, 04618', '럭셔리한 객실과 최첨단 시설을 갖춘 앰배서더 서울 풀만 호텔은 도심 속 평온한 휴식을 제공합니다. 다양한 다이닝 옵션과 편안한 스파로 완벽한 휴가를 만끽하세요.', 3);
+insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('호텔 나루 서울 엠갤러리', '대한민국 서울특별시 마포구 마포대로19길 8, 04117', '한강 뷰를 자랑하는 호텔 나루 서울 엠갤러리는 현대적인 디자인과 편안함을 결합한 고급 호텔입니다. 피트니스 센터, 레스토랑, 루프탑 바 등 다양한 시설을 제공합니다.', 3);
+insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('파라스파라 서울', '대한민국 서울특별시 강북구 삼양로 689, 01000', '자연과 어우러진 파라스파라 서울은 도심에서 벗어나 힐링을 원하는 분들께 완벽한 장소입니다. 친환경적인 디자인과 편안한 객실을 통해 진정한 휴식을 즐길 수 있습니다.', 3);
+insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('롯데호텔 서울', '대한민국 서울특별시 중구 을지로 30, 04533', '서울의 중심에 위치한 롯데호텔 서울은 비즈니스와 레저를 위한 최상의 선택입니다. 고급 레스토랑, 스파, 쇼핑몰 등 다양한 편의시설을 갖추고 있습니다.', 3);
+insert into hotels (hotel_name, hotel_location, hotel_info, admin_id) values('소피텔 앰배서더 서울 호텔 & 서비스드 레지던스', '대한민국 서울특별시 송파구 잠실로 209, 05552', '프랑스의 우아함과 한국의 환대가 만난 소피텔 앰배서더 서울은 럭셔리한 숙박 경험을 제공합니다. 올림픽 공원과 인접해 있으며 고급 다이닝 및 스파를 이용할 수 있습니다.', 3);
+
+insert into hotelimg (hotel_img_url, hotel_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/12/22/XX7s/rupqNfWYvB.jpg?width=980&height=735&quality=90', 61);
+insert into hotelimg (hotel_img_url, hotel_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/02/22/2aR8/WLndzcT97m.jpg?width=980&height=735&quality=90', 62);
+insert into hotelimg (hotel_img_url, hotel_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/16/Bk9L/Htyf8L3vUY.jpg?width=980&height=735&quality=90', 63);
+insert into hotelimg (hotel_img_url, hotel_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/12/22/5kZV/TvfWd4Wb3p.jpg?width=980&height=735&quality=90', 64);
+insert into hotelimg (hotel_img_url, hotel_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/03/11/foAH/fVNqIAzSTd.JPG?width=980&height=735&quality=90', 65);
+
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('슈페리어 킹', 'RESERVATION_O', 2, '155000', '킹침대 1개, 성인 2명, 산 전망,시내 전망, 객실 크기(㎡) - 27.00, 전용 욕실, 에어컨', 61);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('디럭스 킹', 'RESERVATION_O', 2, '344000', '킹침대 1개, 성인 2명, 산 전망,시내 전망, 객실 크기(㎡) - 28.00, 전용 욕실, 에어컨', 61);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('디럭스 트윈', 'RESERVATION_O', 2, '275000', '싱글침대 2개, 성인 2명, 산 전망,시내 전망, 객실 크기(㎡) - 28.00, 전용 욕실, 에어컨', 61);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('슈페리어 킹 (씨티뷰/NEW)', 'RESERVATION_O', 2, '268000', '킹침대 1개, 성인 2명, 시내 전망, 객실 크기(㎡) - 29.75, 전용 욕실, 에어컨', 62);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('슈페리어 킹 시티뷰(시티뷰)', 'RESERVATION_O', 2, '151000', '킹 침대 1개, 성인 2명', 62);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('디럭스리버 킹(리버뷰/NEW)', 'RESERVATION_O', 2, '193000', '킹침대 1개, 성인 2명, 강 전망, 객실 크기(㎡) - 37.00, 전용 욕실, 에어컨', 62);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('캐빈', 'RESERVATION_O', 2, '284000', '킹침대 1개, 성인 2명, 객실 크기(㎡) - 43.00, 전용 욕실, 에어컨, 냉장고', 63);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('팀버 주니어', 'RESERVATION_O', 2, '323000', '싱글침대 1개,킹침대 1개, 성인 2명, 객실 크기(㎡) - 66.00, 전용 욕실, 에어컨, 냉장고', 63);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('팀버', 'RESERVATION_O', 2, '338000', '킹침대 1개, 성인 2명, 객실 크기(㎡) - 66.00, 전용 욕실, 에어컨, 냉장고', 63);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('슈페리어 더블', 'RESERVATION_O', 2, '268000', '더블 침대 1개, 성인 2명', 64);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('디럭스 더블', 'RESERVATION_O', 2, '379000', '더블 침대 1개, 성인 2명', 64);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('슈페리어 더블', 'RESERVATION_O', 2, '276000', '더블 침대 1개, 성인 2명', 64);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('럭셔리 킹 룸', 'RESERVATION_O', 2, '266000', '킹침대 1개, 성인 2명, 시내 전망, 객실 크기(㎡) - 37.00, 전용 욕실, 에어컨', 65);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('럭셔리 트윈 룸', 'RESERVATION_O', 2, '152000', '싱글침대 2개, 성인 2명, 시내 전망, 객실 크기(㎡) - 37.00, 전용 욕실, 에어컨', 65);
+insert into rooms (room_name, room_status, room_count, room_price, option_others, hotel_id) values('럭셔리 레이크 킹', 'RESERVATION_O', 2, '220000', '킹 침대 1개, 성인 2명', 65);
+
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/11/29/aYb4/qkR7zml32H.jpg?width=720&quality=90', 181);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/11/29/9B3j/v9CtvE7AWr.jpg?width=720&quality=90', 182);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/11/29/mCCu/cwEPUq0cYB.jpg?width=720&quality=90', 183);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/04/11/oTZp/5UWEbJ4sWd.jpg?width=720&quality=90', 184);
+insert into roomimg(room_img_url, room_id) values('https://yaimg.yanolja.com/v5/2022/12/28/15/63ac5d3a17a249.78268184.jpg', 185);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/06/13/1NMS/PVAzZ5Q7R2.jpg?width=720&quality=90', 186);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/10/25/hsr4/doxYBhIRlD.jpg?width=720&quality=90', 187);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/10/25/MJ2v/sBKOSSdraQ.jpg?width=720&quality=90', 188);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/10/25/byWr/rJaCYal276.jpg?width=720&quality=90', 189);
+insert into roomimg(room_img_url, room_id) values('https://yaimg.yanolja.com/v5/2022/10/30/13/635e776cf0ef14.07464400.jpg', 190);
+insert into roomimg(room_img_url, room_id) values('https://yaimg.yanolja.com/v5/2022/10/30/13/635e77714085c1.28972843.jpg', 191);
+insert into roomimg(room_img_url, room_id) values('https://yaimg.yanolja.com/v5/2022/10/30/13/635e776f459b79.94822000.jpg', 192);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/11/01/ACtu/BnQgin88UE.jpg?width=720&quality=90', 193);
+insert into roomimg(room_img_url, room_id) values('https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/11/01/o7TP/MWPjlZD3Ei.jpg?width=720&quality=90', 194);
+insert into roomimg(room_img_url, room_id) values('https://yaimg.yanolja.com/v5/2022/10/25/17/63581d3a3fa9d1.81374196.jpg', 195);
+
+update hotels set hotel_city = '서울' where hotel_id between 61 and 65;
 

@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="SignInForm_row">
-                    <button type="submit" class="Button_button Button_primary Button_large Button_block undefind" name ="buttons" disabled>이메일 로그인</button>
+                    <button type="submit" class="Button_button Button_primary Button_large Button_block undefind" name ="buttons">이메일 로그인</button>
                 </div>
             </div>
             <div class="SignInJoinLink_container">
