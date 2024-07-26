@@ -94,7 +94,7 @@
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="${cp}/tour/tourTicket.tr">
+                    <a href="${cp}/hotel/hotel.ht">
                         <img src="../../img/global/domestichotel.png" alt="flag">
                         <span>국내호텔</span>
                     </a>
@@ -106,7 +106,7 @@
                     </a>
                 </div>
                 <div class="localItemWithIcon">
-                    <a href="#">
+                    <a href="${cp}/insurance/insurance.ns">
                         <img src="../../img/global/insurance.png" alt="car">
                         <span>여행자보험</span>
                     </a>

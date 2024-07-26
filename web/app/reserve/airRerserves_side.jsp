@@ -103,7 +103,7 @@
     <div class="PurchaseButton-buttonWrapper">
         <span role="button" class="css-w0pi5v">
             <button type="button" class="PurchaseButton-button css-jgs6n" id="paymentButton">
-                <span class="css-1s4v6ia" id="payment">${price} 결제하기</span>
+                <span class="css-1s4v6ia" id="payment">${totalPrice} 결제하기</span>
             </button>
         </span>
     </div>

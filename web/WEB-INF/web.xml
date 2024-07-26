@@ -66,12 +66,20 @@
         <servlet-name>PayController</servlet-name>
         <url-pattern>*.pm</url-pattern>
     </servlet-mapping>
-        <servlet>
-            <servlet-name>HotelFrontController</servlet-name>
-            <servlet-class>controller.hotel.HotelController</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>HotelFrontController</servlet-name>
-            <url-pattern>*.ht</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>HotelFrontController</servlet-name>
+        <servlet-class>controller.hotel.HotelController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HotelFrontController</servlet-name>
+        <url-pattern>*.ht</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>InsuranceController</servlet-name>
+        <servlet-class>controller.insurance.InsuranceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsuranceController</servlet-name>
+        <url-pattern>*.ns</url-pattern>
+    </servlet-mapping>
 </web-app>
