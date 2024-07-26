@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>마이리얼트립 :: 여행자 보험</title>
     <link rel="stylesheet" href="../../css/insurance/insurance.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -15,7 +15,7 @@
                         <span onclick="ConfirmTerms()">보기</span><br>
 
                 `,
-                confirmButtonColor: "#3085d6",
+                confirmButtonColor: "#2b96ed",
                 confirmButtonText: `약관 동의하기`
 
             }).then((result) => {
@@ -53,7 +53,8 @@
                         <p>보험계약자가 기존에 체결했던 보험계약을 해지하고 다른 보험계약을 체결하면 보험인수가 거절되거나 보험료가 인상되거나 보장내용이 달라질 수 있습니다. 또한 지급한도, 면책사항 등에 따라 보험금 지급이 제한될 수 있습니다.<br><br>※ 보험계약 체결 전 상품설명서 및 약관을 읽어보시기 바랍니다. 보험회사는 해당 상품에 대해 충분히 설명할 의무가 있으며, 가입자는 가입에 앞서 이에 대한 충분한 설명을 받으시기 바랍니다.<br><br>본 광고는 광고심의기준을 준수하였으며, 유효기간은 심의일로부터 1년입니다.</p>
                     </div>
                 `,
-                confirmButtonText: `확인`
+                confirmButtonText: `확인`,
+                confirmButtonColor: "#2b96ed"
             }).then((result) => {
                 if (result.isConfirmed) {
                     confirmInsurance();
@@ -62,22 +63,28 @@
             });
         }
     </script>
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/global/header.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
+    <link rel="stylesheet" href="../../css/insurance/insurance.css">
 </head>
 <body>
-    <div>
-        <h3>여행자 보험으로,<br>걱정없이 편한 여행하세요</h3>
-        <ul>
-            <li><img src="../../img/insurance/check_circle.svg">휴대품 파손 보장</li>
-            <li><img src="../../img/insurance/check_circle.svg">수하물 지연 보장</li>
-            <li><img src="../../img/insurance/check_circle.svg">상해/질병의료비 보장</li>
-            <li><img src="../../img/insurance/check_circle.svg">코로나 질병 관련 보장</li>
-        </ul>
+<%@ include file="../global/header.jsp" %>
+    <div id="phrase-Box">
+        <div id="main-Phrase">여행자 보험으로,<br>걱정없이 편한 여행하세요</div>
+        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;휴대품 파손 보장</div>
+        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;수하물 지연 보장</div>
+        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;상해/질병의료비 보장</div>
+        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;코로나 질병 관련 보장</div>
+        <div id="cpic-Wrapper">
+            <img src="../../img/insurance/carrier.svg" id="cpic">
+        </div>
+        <button id="phrase-btn" onclick="confirmInsurance()">5분만에 준비하기</button>
     </div>
-    <div>
-        <img src="../../img/insurance/carrier.svg">
-    </div>
-    <div>
-        <button onclick="confirmInsurance()">5분만에 준비하기</button>
+    <div class="default-components" id="footer-components">
+        <footer id="footer" class="footer-container">
+            <%@ include file="../../app/global/footer.jsp" %>
+        </footer>
     </div>
 </body>
 </html>
