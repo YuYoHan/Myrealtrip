@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="dao.mainPage.MainDAO"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="java.util.Map" %>
+<%@page import="java.util.List" %>
+<%@page import="dao.mainPage.MainDAO" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../css/mainPage/aboutTravel.css">
     <link rel="stylesheet" href="../../css/mainPage/mainInfo.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
-    <link rel="stylesheet" href="../../css/mainPage/custom.css"> <!-- 새로운 CSS 파일 추가 -->
+    <link rel="stylesheet" href="../../css/mainPage/replace.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 </head>
