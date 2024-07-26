@@ -105,8 +105,17 @@ values ('두바이', '두바이', 'https://bucketmystudy.s3.ap-northeast-2.amazo
 insert into travelCard (title, contents, travel_image, admin_id)
 values ('서울', '서울', 'https://bucketmystudy.s3.ap-northeast-2.amazonaws.com/picture/seoul-7241711_1280.jpg', 2);
 
+use myRealTrip;
 select *
-from travelCard;
+from hotels;
+select * from airPay;
+select * from hotelImg;
+select * from rooms;
+select * from room_reservations;
+select * from pay;
+
+
+
 drop table travelCard;
 
 # mainBanner
@@ -326,6 +335,7 @@ select * from airplanes;
 select * from operations;
 select * from airplane_reservations;
 select * from airPay;
+select * from pay;
 
 # 비행기 테이블
 create table airplanes
@@ -368,6 +378,8 @@ create table airplane_reservations
 # 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
 ALTER TABLE airplane_reservations
     DROP COLUMN airplane_id;
+use myRealTrip;
+select * from airplane_reservations;
 
 -- Then, add the new columns in_airplane_id and out_airplane_id
 ALTER TABLE airplane_reservations
