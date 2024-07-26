@@ -19,22 +19,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="javax.annotation" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="gson-2.11.0" level="project" />
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/lombok-1.18.30.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="daterangepicker" level="application" />
-    <orderEntry type="library" name="moment" level="application" />
-    <orderEntry type="library" name="jquery" level="application" />
-    <orderEntry type="library" name="swiper" level="application" />
-    <orderEntry type="library" name="jquery-ui" level="application" />
   </component>
 </module>
