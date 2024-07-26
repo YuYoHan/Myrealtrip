@@ -22,8 +22,8 @@
 <!-- 해더 시작 -->
 <c:if test="${loginUser == null}">
     <script>
-        <%--alert("로그인 후 이용해 주세요!");--%>
-        <%--location.href = "${cp}/member/signIn.us";--%>
+        alert("로그인 후 이용해 주세요!");
+        location.href = "/member/signIn.us";
     </script>
 </c:if>
 <div style="position: relative" class="defult-com">
