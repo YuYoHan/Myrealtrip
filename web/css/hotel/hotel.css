@@ -3,7 +3,7 @@
 
 
 input.searchInput::placeholder {
-    color: white;
+    color: rgb(73, 80, 86);
     font-size: 16px;
 }
 
@@ -13,6 +13,11 @@ input.searchInput::placeholder {
     height: 122px !important;
     margin-bottom: 0 !important;
     background: none;
+}
+
+main {
+    /*min-height: calc(100vh - 100px);*/
+    padding-bottom: 100px;
 }
 
 .headerGnb {
@@ -78,13 +83,13 @@ input.searchInput::placeholder {
 .searchInput {
     width: 100%;
     height: 100%;
-    background: rgba(245, 246, 255, 0.15);
+    background: rgb(245, 246, 247);
     border: none;
     font-size: 15px;
     font-weight: 500;
     text-align: left;
     padding: 0px 16px 0px 48px;
-    color: #fff;
+    color: rgb(73, 80, 86);
     transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
@@ -116,7 +121,7 @@ input.searchInput::placeholder {
 }
 
 .globalItem:hover {
-    background-color: var(--gray-500);
+    background-color: var(--gray-60);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     border-radius: 2px;
 }
@@ -129,7 +134,7 @@ input.searchInput::placeholder {
 .globalItem > a {
     background-color: transparent;
     border: 0;
-    color: #fff;
+    color: var(--gray-600);
     text-decoration: none;
     border-radius: 3px;
     font-size: 15px;
@@ -143,13 +148,13 @@ input.searchInput::placeholder {
 
 .globalItem.signInItem {
     cursor: pointer;
-    border: 1px solid var(--white);
+    border: 1px solid var(--blue-200);
     padding-left: 32px;
     padding-right: 32px;
 }
 
 .globalItem.signInItem > a {
-    color: var(--white);
+    color: var(--blue-500);
 }
 
 .globalItem.signInItem:hover {
@@ -186,7 +191,7 @@ input.searchInput::placeholder {
 
 .headerLnb {
     width: 100%;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--gray-200);
 }
 
 .localNavBar {
@@ -227,7 +232,7 @@ input.searchInput::placeholder {
 }
 
 .localItemWithIcon > a > span {
-    color: #fff;
+    color: var(--gray-500);
     border-bottom: 3px solid transparent;
     display: inline-block;
     font-size: 16px;
@@ -247,7 +252,6 @@ input.searchInput::placeholder {
     position: relative;
     padding-top: 123px;
     height: 235px;
-    background-image: url("https://dffoxz5he03rp.cloudfront.net/build/production/7e070a94fe6a0cd43978efbe915e22adea3eeb91/9b37b84db8397d0faf6c.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -260,7 +264,6 @@ input.searchInput::placeholder {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .home-style-content {
@@ -275,7 +278,7 @@ input.searchInput::placeholder {
     font-weight: bold;
     font-size: 36px;
     letter-spacing: -0.4px;
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 24px;
     line-height: 44px;
 }
@@ -789,27 +792,28 @@ button[disabled], html input[disabled] {
 }
 
 .image_container {
-    position: relative;
-    display: inline-flex;
+    padding: 20px 10px 20px 20px;
+    /*border: 1px solid black;*/
+}
+
+.image_content {
+    display: inline-block;
     flex-direction: column;
     -webkit-box-pack: center;
     justify-content: center;
     overflow: hidden;
-    width: 526px;
-    height: 140px;
     border-radius: 8px;
 }
 
-.bannerImage {
-    display: inline-flex;
-    overflow: hidden;
-    position: relative;
-    inset: 0px;
-    width: inherit;
-    height: inherit;
-    min-width: inherit;
-    min-height: inherit;
-    object-fit: cover;
+.hotel-banner-image{
+    width: 224px;
+    height: 168px;
+    object-fit: cover !important;
+    border-radius: 10px;
+}
+
+#hotel-content{
+    display: inline-block;
 }
 
 .swiper-pagination-bullets {
@@ -1046,4 +1050,82 @@ button[disabled], html input[disabled] {
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
+}
+
+/*숙소 사이드*/
+#filter-section-container{
+    border: 1px solid #ccc;
+    margin-right: 50px;
+}
+
+#section, #container-sort{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#filter-section-content{
+    position: sticky;
+    top: 0;
+    width: 600px;
+    height: 672px;
+
+}
+
+#product-side-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+#aside-section{
+    position: sticky;
+}
+
+#price, #h4sort{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+div.filter-section > span.sp1dp {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 124%;
+    letter-spacing: -0.02em;
+    white-space: pre-wrap;
+    margin-top: 2px;
+    color: rgb(132, 140, 148);
+}
+
+.rc-slider {
+    margin: 20px 0;
+}
+
+#section-sort{
+    margin-top: 100px;
+}
+
+div#radio-list-sort > input{
+    margin-top: 20px;
+}
+
+.hotel-hotelName {
+    font-size: 1.35rem;
+    color: black;
+    font-weight: 900;
+}
+
+#hotel-title {
+    margin-bottom: 90px;
+    margin-left: 20px;
+}
+
+#hotel-min-price {
+    margin-left: 440px;
+    margin-bottom: 15px;
+}
+
+.room-prices {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
 }
