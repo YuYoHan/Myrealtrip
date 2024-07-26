@@ -80,8 +80,27 @@
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
 <!-- 구글 SDK 추가 -->
 <script src="https://apis.google.com/js/api:client.js"></script>
-<script>startApp()</script>
-
+<script>
+    let googleUser = {};
+    function startApp() {
+        gapi.load('auth2', function(){
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '18601984993-624t084a7sc52aomfm1kfso276hbimg0.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+            auth2.attachClickHandler(document.getElementById('gSignInBtn'), {},
+                function(googleUser) {
+                    googleUser.getBasicProfile().getName();
+                }, function(error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+        });
+    };
+    startApp();
+</script>
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>

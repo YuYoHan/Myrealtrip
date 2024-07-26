@@ -49,11 +49,11 @@ const logged = (loginMethod) => {
             console.log("새로운 url 체크 : " + newUrl);
             location.href = newUrl;
             break;
-        case "페이스북":
-            //페이스북 회원가입을 요청하는 url
-            console.log("페이스북으로 로그인/회원가입 합니다.");
-            fcebookLogin();
-            break;
+        // case "구글":
+        //     //구글 로그인을 요청하는 url
+        //     console.log("구글로 로그인 합니다.");
+        //     startApp();
+        //     break;
         case "네이버":
             //네이버 회원가입을 요청하는 url
             console.log("네이버로 로그인/회원가입 합니다.");
@@ -129,31 +129,6 @@ function handleNaverLogin() {
             naverLogin.authorize();
         }
     });
-}
-
-<!-- 구글 로그인 -->
-var googleUser = {};
-var startApp = function() {
-    gapi.load('auth2', function(){
-        // Retrieve the singleton for the GoogleAuth library and set up the client.
-        auth2 = gapi.auth2.init({
-            client_id: '18601984993-624t084a7sc52aomfm1kfso276hbimg0.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin'
-            // Request scopes in addition to 'profile' and 'email'
-            //scope: 'additional_scope'
-        });
-        attachSignin(document.getElementById('gSignInBtn'));
-    });
-};
-function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-            document.getElementById('name').innerText = "Signed in: " +
-                googleUser.getBasicProfile().getName();
-        }, function(error) {
-            alert(JSON.stringify(error, undefined, 2));
-        });
 }
 
 <!-- 구글 로그아웃 -->
