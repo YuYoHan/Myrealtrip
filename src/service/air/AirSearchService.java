@@ -95,6 +95,10 @@ public class AirSearchService implements Action {
             }
         }
 
+        req.setAttribute("dateFilter",dateFilter);
+        req.setAttribute("dep",dep);
+        req.setAttribute("peopleCount",peopleCount);
+
         req.setAttribute("depDate",depDate);        // 출발날짜
         req.setAttribute("retDate",retDate);        // 도착날짜
         req.setAttribute("peopleCount",peopleCount);// 사람수
