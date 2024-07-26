@@ -5,8 +5,11 @@ import config.action.ActionTo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class AirReserveAction implements Action {
     @Override
@@ -105,6 +108,9 @@ public class AirReserveAction implements Action {
 
 
         //                                              인원수
+        req.setAttribute("peopleCount", peopleCount);       // 항공사(출발)
+        req.setAttribute("totalPrice", multiplyAndFormat(price,peopleCount));       // 항공사(출발)
+
         req.setAttribute("airLine", airLine);       // 항공사(출발)
         req.setAttribute("airNum", airNum);         // 삭제될 예정
         req.setAttribute("dep", dep);               //출발지
@@ -116,5 +122,23 @@ public class AirReserveAction implements Action {
         acto.setRedirect(false);
         acto.setPath("/app/reserve/airReserves.jsp");
         return acto;
+    }
+
+
+    public static String multiplyAndFormat(String num1Str, String num2Str) {
+        try {
+            // 문자열 숫자에서 콤마(,) 제거 및 숫자로 변환
+            int num1 = NumberFormat.getNumberInstance(Locale.US).parse(num1Str).intValue();
+            int num2 = NumberFormat.getNumberInstance(Locale.US).parse(num2Str).intValue();
+
+            // 곱셈 수행
+            int result = num1 * num2;
+
+            // 결과를 문자열로 변환하며 천 단위 콤마 포함
+            return NumberFormat.getNumberInstance(Locale.US).format(result);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
