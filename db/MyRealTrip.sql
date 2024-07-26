@@ -21,11 +21,8 @@ insert into users(user_email, user_name, postCode, address, detailAddress, user_
 ('kosta@naver.com','이재원','asd','asd','1','1','688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6');
 # asdasd
 
-select * from users;
-
-UPDATE users
-SET user_role = 'USER'
-WHERE user_name = '이재원';commit;
+update users set user_pw = '5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8'; ## asdasd 비번 설정
+commit;
 select * from users;
 
 drop table users;
@@ -152,8 +149,7 @@ values ('https://www.myrealtrip.com/promotions/myrealhocance_zip',
 select *
 from mainBanner;
 drop table mainBanner;
-select * from air_notices ORDER BY notice_id DESC ;
-SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET 2;
+
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
 create table recommendedPlace
@@ -167,7 +163,7 @@ create table recommendedPlace
 
 drop table recommendedPlace;
 insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
-values (1, 1, '/img/mainPage/place1.png', 1);
+values ('1','1', '/img/mainPage/place1.png', 1);
 insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
 values (2, 2, '/img/mainPage/place2.png', 1);
 insert into recommendedPlace (place_title, place_contents, place_image, admin_id)
@@ -318,18 +314,6 @@ create table airports
     airport_location varchar(1000) not null,
     admin_id         bigint references admin (admin_id)
 );
-use myRealTrip;
-
-delete from airplanes;
-delete from operations;
-delete from airplane_reservations;
-delete from airPay;
-
-commit;
-select * from airplanes;
-select * from operations;
-select * from airplane_reservations;
-select * from airPay;
 
 # 비행기 테이블
 create table airplanes
@@ -354,13 +338,7 @@ create table operations
     airplane_id              bigint references airplanes (airplane_id)
 );
 
-use myRealTrip;
 # 비행기 예매
-drop table airplane_reservations;
-
-select * from airplane_reservations;
-
-
 create table airplane_reservations
 (
     airplane_reservation_id      bigint primary key auto_increment,
@@ -372,9 +350,6 @@ create table airplane_reservations
 # 비행기 운행 항공사를 1개에서 2개로 추가한다. IN 입국 : OUT : 출국
 ALTER TABLE airplane_reservations
     DROP COLUMN airplane_id;
-
-ALTER TABLE airplane_reservations
-    ADD COLUMN peopleCount bigint;
 
 -- Then, add the new columns in_airplane_id and out_airplane_id
 ALTER TABLE airplane_reservations
