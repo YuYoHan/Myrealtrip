@@ -678,6 +678,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 }
 .SectionContainerHeader-box {
     display: flex;
+    margin-top: 25px;
 }
 .SectionContainerHeader-title {
     font-size: 20px;

@@ -75,12 +75,9 @@
         </div>
         <div class="PurchaseButton-buttonWrapper">
 		    <span role="button" class="css-w0pi5v">
-			    <a style="width: 100%;"
-                   href="${cp}/pay/payment.pm?dateFilter=${param.dateFilter}&hotelNum=${param.hotelNum}&hotelName=${param.hotelName}&hotelImg=${param.hotelImg}&hotelPrice=${param.hotelPrice}&userEmail=${loginUser.userEmail}">
-				<button type="button" class="PurchaseButton-button css-jgs6n">
-					<span class="css-1s4v6ia">${hotelPrice} 결제하기</span>
+				<button type="button" class="PurchaseButton-button css-jgs6n" id="paymentButton">
+					<span class="css-1s4v6ia" id="payment">${hotelPrice} 결제하기</span>
 				</button>
-			    </a>
 		    </span>
         </div>
     </div>

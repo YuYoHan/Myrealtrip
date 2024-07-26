@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/reserve/reserves.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
-    <link rel="stylesheet" href="../../css/global/header_sub.css">
     <title>마이리얼트립 :: 숙소 예약</title>
     <!-- 포트원 결제 -->
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
@@ -21,15 +20,13 @@
 </head>
 <body>
 <!-- 해더 시작 -->
-<c:if test="${loginUser == null}">
-    <script>
-        alert("로그인 후 이용해 주세요!");
-        location.href = "/member/signIn.us";
-    </script>
-</c:if>
-<div style="position: relative" class="defult-com">
-    <%@include file="/app/global/header_sub.jsp" %>
-</div>
+<%--<c:if test="${loginUser == null}">--%>
+<%--    <script>--%>
+<%--        alert("로그인 후 이용해 주세요!");--%>
+<%--        location.href = "/member/signIn.us";--%>
+<%--    </script>--%>
+<%--</c:if>--%>
+    <%@include file="/app/global/header.jsp" %>
 <!-- 해더 끝 -->
 <div>
     <main class="Order-style-container">
@@ -132,11 +129,11 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content">${sessionScope.userName}</div>
+                                            <div class="InfoField-style-content" id="userName">${sessionScope.userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
-                                            <div class="InfoField-style-content">${loginUser.userEmail}</div>
+                                            <div class="InfoField-style-content" id="userEmail">${loginUser.userEmail}</div>
                                         </div>
                                     </div>
                                     <div class="ReservationPersonInfo-style-option">
@@ -220,14 +217,14 @@
                                     <div class="Name-style-container">
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">한글 이름</label>
-                                            <input class="css-1e7i9br" type="text" placeholder="홍길동"
+                                            <input class="css-1e7i9br" type="text" placeholder="${sessionScope.userName}"
                                                    value="${sessionScope.userName}">
                                         </div>
                                     </div>
                                     <div class="Email-style-container">
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">이메일 주소</label>
-                                            <input class="css-1e7i9br" type="email" placeholder="example@example.com"
+                                            <input class="css-1e7i9br" type="email" placeholder="${sessionScope.userName}"
                                                    value="${loginUser.userEmail}">
                                         </div>
                                     </div>
