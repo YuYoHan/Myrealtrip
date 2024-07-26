@@ -107,8 +107,12 @@
                                     </li>
                                 </ul>
                                 <div class="ProductInfoPrice-style-totalPriceWrapper">
+                                <div class="ProductInfoPrice-style-totalPriceText">총 인원수</div>
+                                <strong class="ProductInfoPrice-style-totalPriceNumber">${peopleCount} 명</strong>
+                                </div>
+                                <div class="ProductInfoPrice-style-totalPriceWrapper">
                                     <div class="ProductInfoPrice-style-totalPriceText">총 상품 금액</div>
-                                    <strong class="ProductInfoPrice-style-totalPriceNumber">${price}</strong>
+                                    <strong class="ProductInfoPrice-style-totalPriceNumber">${totalPrice} 원</strong>
                                 </div>
                             </div>
                             <hr class="ProductInfo-style-divider">
@@ -168,7 +172,7 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content" id="userName">${loginUser.userName}</div>
+                                            <div class="InfoField-style-content" id="userName">${userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
@@ -237,9 +241,9 @@
                             <div class="PaymentMethods-style-paymentRadiosWrapper">
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="TOSS" name="payment" type="radio" value="TOSS" class="css-8djd7q">
-										</span>
+                                        <span class="css-1u9dzhu">
+                                            <input id="TOSS" name="payment" type="radio" value="TOSS" class="css-8djd7q" checked>
+                                        </span>
                                         <label class="css-1jvr7pu" for="TOSS">
                                             토스
                                             <img src="${cp}/img/etc/toss.jpg">
@@ -249,9 +253,9 @@
                                 </div>
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="KAKAO" name="payment"  type="radio" value="KAKAO" class="css-8djd7q" checked>
-										</span>
+                                        <span class="css-1u9dzhu">
+                                            <input id="KAKAO" name="payment" type="radio" value="KAKAO" class="css-8djd7q">
+                                        </span>
                                         <label class="css-1jvr7pu" for="KAKAO">
                                             카카오페이
                                             <img src="${cp}/img/etc/kakaoPay.png">
@@ -277,4 +281,6 @@
 </body>
 
 <script src="../../js/payment.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 </html>

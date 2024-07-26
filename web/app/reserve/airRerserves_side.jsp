@@ -57,12 +57,14 @@
                 <div class="PaymentInfo-orderPrice">
                     <span class="PaymentInfo-orderPriceText">주문 금액</span>
                     <span class="PaymentInfo-orderPriceText">${price}</span>
+                    <span class="PaymentInfo-orderPriceText">인원수</span>
+                    <span class="PaymentInfo-orderPriceText">${peopleCount}</span>
                 </div>
             </div>
             <div class="PaymentInfo-totalPriceWrapper">
                 <span class="PaymentInfo-totalPriceText">총 결제 금액</span>
                 <span class="PaymentInfo-totalPriceText">
-                    <span class="PaymentInfo-totalPrice">${price}</span>
+                    <span class="PaymentInfo-totalPrice">${totalPrice}</span>
                 </span>
             </div>
         </div>

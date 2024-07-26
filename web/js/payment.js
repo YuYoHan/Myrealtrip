@@ -1,6 +1,7 @@
 $(document).ready(function() {
     // 라디오 버튼이 변경될 때마다 결제 버튼 상태 업데이트
     $("input[name='payment']").change(function() {
+        console.log('클릭되었습니다.')
         updatePaymentButtonState();
     });
 
@@ -10,29 +11,44 @@ $(document).ready(function() {
     });
 
     // 초기 로드 시 한 번 결제 버튼 상태 업데이트
-    updatePaymentButtonState();
+    function updatePaymentButtonState() {
+        const allRequiredChecked = $(".term-defaultCheckTerm:not(.c_h):checked").length === $(".term-defaultCheckTerm:not(.c_h)").length;
+        const paymentMethodSelected = $("input[name='payment']:checked").length > 0;
+        $("#paymentButton").prop("disabled", !(allRequiredChecked && paymentMethodSelected));
+    }
+
 
     // 결제 버튼 클릭 시 동작
     $("#paymentButton").click(function() {
         let getKakao = document.getElementById('KAKAO');
-        if (getKakao && getKakao.checked) {
-            let emailElement = document.getElementById('userEmail');
-            let nameElement = document.getElementById('userName');
-            let payElement = document.getElementById('payment');
+        console.log(getKakao.checked)
+        let toss = document.getElementById('TOSS');
+        console.log(toss.checked)
 
-            // 이메일 주소 가져오기
-            let email = emailElement.innerText || emailElement.textContent;
-            console.log("이메일 : " + email);
+        let emailElement = document.getElementById('userEmail');
+        let nameElement = document.getElementById('userName');
+        let payElement = document.getElementById('payment');
 
-            // 이름 가져오기
-            let name = nameElement.innerText || nameElement.textContent;
-            console.log("이름 : " + name);
+        // 이메일 주소 가져오기
+        let email = emailElement.innerText || emailElement.textContent;
+        console.log("이메일 : " + email);
 
-            // 결제 금액 가져오기 (숫자 부분만 추출)
-            let payText = payElement.innerText || payElement.textContent;
-            let price = parseInt(payText.replace(/[^0-9]/g, ''), 10);
-            console.log("가격 : " + price);
+        // 이름 가져오기
+        let name = nameElement.innerText || nameElement.textContent;
+        console.log("이름 : " + name);
 
+        // 결제 금액 가져오기 (숫자 부분만 추출)
+        let payText = payElement.innerText || payElement.textContent;
+        let price = parseInt(payText.replace(/[^0-9]/g, ''), 10);
+        console.log("가격 : " + price);
+
+        if(toss.checked) {
+            console.log('토스 페이')
+            tossPay(email, name, price);
+        }
+
+        if (getKakao.checked) {
+            console.log('카카오 페이')
             kakaoPay(email, name, price);
         }
     });
@@ -108,6 +124,8 @@ function imp() {
 */
 
 function tossPay(userEmail, userName, pay) {
+    alert('tossPay 시작.');
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1; // getMonth()는 0부터 11까지 반환하므로 1을 더해줌
@@ -132,10 +150,31 @@ function tossPay(userEmail, userName, pay) {
         function (response) {
             if (response.success) {
                 console.log(response);
-                alert("결제가 완료되었습니다.");
-                location.replace("/");
+                alert('결제가 완료되었습니다.');
+
+                // 결제 성공 후 리다이렉트할 URL
+                const params = {
+                    outAirline: document.getElementById('outAirline').value,
+                    outTime: document.getElementById('outTime').value,
+                    outArriveTime: document.getElementById('outArriveTime').value,
+                    inAirline: document.getElementById('inAirline').value,
+                    inTime: document.getElementById('inTime').value,
+                    inArriveTime: document.getElementById('inArriveTime').value,
+                    fromAirPort: document.getElementById('fromAirPort').value,
+                    toAirPort: document.getElementById('toAirPort').value,
+                    seat: document.getElementById('seat').value,
+                    price: document.getElementById('price').value,
+                    peopleCount: document.getElementById('peopleCount').value,
+                    depDate: document.getElementById('depDate').value,
+                    retDate: document.getElementById('retDate').value
+                };
+
+                const queryString = Object.entries(params)
+                    .map(([key, val]) => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`)
+                    .join('&');
+                window.location.href = `/pay/airPayment.pm?` + queryString;
             } else {
-                alert("결제에 실패하였습니다.");
+                alert("결제에 실패하였습니다. 에러: " + response.error_msg);
             }
         }
     );
