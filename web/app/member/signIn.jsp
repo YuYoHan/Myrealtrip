@@ -35,7 +35,7 @@
             </div>
             <div class="oauthList_container">
                 <div class="oauth_container">
-                    <div class="icon-wrapper" id="GoogleLoginBtn">
+                    <div class="icon-wrapper">
                         <img class="iconImg" src="<c:url value="/img/member/google_log.png"/>" alt="구글">
                         <img class="iconImgHover" src="<c:url value="/img/member/google_log_on.svg"/>" alt="구글">
                         <input type="hidden" value="구글">
@@ -80,39 +80,10 @@
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
 <!-- 구글 SDK 추가 -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="18601984993-624t084a7sc52aomfm1kfso276hbimg0.apps.googleusercontent.com"/>
-<script>startApp();</script>
-<script>
-    let googleUser = {};
-    let startApp = function() {
-        gapi.load('auth2', function(){
-            // Retrieve the singleton for the GoogleAuth library and set up the client.
-            auth2 = gapi.auth2.init({
-                client_id: '18601984993-624t084a7sc52aomfm1kfso276hbimg0.apps.googleusercontent.com.googleusercontent.com',
-                cookiepolicy: 'single_host_origin',
-                // Request scopes in addition to 'profile' and 'email'
-                //scope: 'additional_scope'
-            });
-            attachSignin(document.getElementById('GoogleLoginBtn'));
-        });
-    };
-
-    function attachSignin(element) {
-        console.log(element.id);
-        auth2.attachClickHandler(element, {},
-            function(googleUser) {
-                document.getElementById('name').innerText = "Signed in: " +
-                    googleUser.getBasicProfile().getName();
-            }, function(error) {
-                alert(JSON.stringify(error, undefined, 2));
-            });
-    }
-</script>
+<script>startApp()</script>
 
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>
 <script src="../../js/myInfo.js"></script>
-<script src="https://apis.google.com/js/api:client.js"></script>
-<script>startApp();</script>
 </html>

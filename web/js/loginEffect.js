@@ -131,9 +131,9 @@ function handleNaverLogin() {
     });
 }
 
-<!-- 구글 로그인-->
-let googleUser = {};
-let startApp = function() {
+<!-- 구글 로그인 -->
+var googleUser = {};
+var startApp = function() {
     gapi.load('auth2', function(){
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         auth2 = gapi.auth2.init({
@@ -142,7 +142,7 @@ let startApp = function() {
             // Request scopes in addition to 'profile' and 'email'
             //scope: 'additional_scope'
         });
-        attachSignin(document.getElementById('GoogleLoginBtn'));
+        attachSignin(document.getElementById('gBtn'));
     });
 };
 
@@ -156,3 +156,4 @@ function attachSignin(element) {
             alert(JSON.stringify(error, undefined, 2));
         });
 }
+<!-- 구글 로그아웃 -->
