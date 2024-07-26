@@ -17,5 +17,5 @@ public class AirplaneReservationsDTO {
     private int inAirplaneId;
     private int outAirplaneId;
     private int userId;
-
+    private int peopleCount;
 }

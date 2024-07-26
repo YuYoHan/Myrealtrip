@@ -116,12 +116,13 @@ public class PaymentDAO {
             rs.close();
 
             // Insert into airplane_reservations table
-            String sql1 = "INSERT INTO airplane_reservations (airplane_reservation_regTime, airplane_pay, in_airplane_id, out_airplane_id, user_id) VALUES (now(), ?, ?, ?, ?)";
+            String sql1 = "INSERT INTO airplane_reservations (airplane_reservation_regTime, airplane_pay, in_airplane_id, out_airplane_id, user_id,peopleCount) VALUES (now(), ?, ?, ?, ?,?)";
             pstmt1 = connection.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             pstmt1.setString(1, airplaneReservations.getAirplanePay());
             pstmt1.setInt(2, airplaneId1);
             pstmt1.setInt(3, airplaneId2);
             pstmt1.setInt(4, airplaneReservations.getUserId());
+            pstmt1.setInt(5, airplaneReservations.getPeopleCount());
             pstmt1.executeUpdate();
             rs = pstmt1.getGeneratedKeys();
             int airplaneReservationId = -1;
@@ -131,15 +132,14 @@ public class PaymentDAO {
             rs.close();
 
             // Insert into airPay table
-            String sql4 = "INSERT INTO airPay (dateFilter, airLine, airNum, departure, arrive, user_id, airplane_reservation_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql4 = "INSERT INTO airPay (dateFilter, airLine, airNum, departure, arrive, user_id, airplane_reservation_id) VALUES ( now(),?, ?, ?, ?, ?, ?)";
             pstmt4 = connection.prepareStatement(sql4);
-            pstmt4.setString(1, airPay.getDateFilter());
-            pstmt4.setString(2, airPay.getAirLine());
-            pstmt4.setString(3, airPay.getAirNum());
-            pstmt4.setString(4, airPay.getDeparture());
-            pstmt4.setString(5, airPay.getArrive());
-            pstmt4.setInt(6, airPay.getUserId());
-            pstmt4.setInt(7, airplaneReservationId);
+            pstmt4.setString(1, airPay.getAirLine());
+            pstmt4.setString(2, airPay.getAirNum());
+            pstmt4.setString(3, airPay.getDeparture());
+            pstmt4.setString(4, airPay.getArrive());
+            pstmt4.setInt(5, airPay.getUserId());
+            pstmt4.setInt(6, airplaneReservationId);
             pstmt4.executeUpdate();
 
             connection.commit(); // Commit transaction
