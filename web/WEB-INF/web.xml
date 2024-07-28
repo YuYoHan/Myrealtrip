@@ -82,4 +82,12 @@
         <servlet-name>InsuranceController</servlet-name>
         <url-pattern>*.ns</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>controller.search.SearchController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>*.sc</url-pattern>
+    </servlet-mapping>
 </web-app>
