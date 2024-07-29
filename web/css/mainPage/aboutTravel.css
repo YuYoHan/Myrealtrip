@@ -113,13 +113,18 @@
     width: 100%;
 }
 
+
 .cardTit {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-height: inherit;
+    -webkit-box-orient: vertical;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.4px;
+    line-height: 1.29;
+    text-align: left;
+    /* text-shadow: 0 1px 8px rgb(33 37 41 / 60%); */
+    vertical-align: middle;
+    color: var(--white);
 }
 
 .offerInfo {

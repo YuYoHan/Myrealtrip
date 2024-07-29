@@ -21,7 +21,7 @@ public class MainDAO {
 
     // travelCard 조회
     public static List<RePlaceDTO> placeList() {
-        String sql = "select place_image from recommendedPlace";
+        String sql = "select place_id,place_title,place_contents,place_image from recommendedPlace";
         List<RePlaceDTO> list = new ArrayList<>();
         try {
             connection = JDBCConfig.getConnection();
@@ -29,9 +29,9 @@ public class MainDAO {
             rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 RePlaceDTO rePlaceDTO = new RePlaceDTO();
-//                rePlaceDTO.setPlaceId(rs.getInt("place_id"));
-//                rePlaceDTO.setPlaceTitle(rs.getString("place_title"));
-//                rePlaceDTO.setPlaceContents(rs.getString("place_contents"));
+                rePlaceDTO.setPlaceId(rs.getInt("place_id"));
+                rePlaceDTO.setPlaceTitle(rs.getString("place_title"));
+                rePlaceDTO.setPlaceContents(rs.getString("place_contents"));
                 rePlaceDTO.setPlaceImage(rs.getString("place_image"));
                 list.add(rePlaceDTO);
             }
@@ -91,21 +91,23 @@ public class MainDAO {
         return list;
     }
 
-    public static List<MainDetailDTO> mainDetailList(){
-        String sql = "select mainDetailTitle, mainDetailPrice, mainDetailOption, contentImage, content from mainDetailDTO ";
-        List<MainDetailDTO> list = new ArrayList<>();
+    public static MainDetailDTO mainDetail(int placeId){
+        String sql = "select mainDetail_title, mainDetail_price, mainDetail_option, content_image, content " +
+                "from mainDetail where place_id =" + placeId;
+//        List<MainDetailDTO> list = new ArrayList<>();
+        MainDetailDTO mainDetailDTO = new MainDetailDTO();
         try {
             connection = JDBCConfig.getConnection();
             preparedStatement = connection.prepareStatement(sql);
 ;           rs = preparedStatement.executeQuery();
             while (rs.next()){
-                MainDetailDTO mainDetailDTO = new MainDetailDTO();
-                mainDetailDTO.setMainDetailTitle(rs.getString("mainDetailTitle"));
-                mainDetailDTO.setMainDetailPrice(rs.getString("mainDetailPrice"));
-                mainDetailDTO.setMainDetailOption(rs.getString("mainDetailOption"));
-                mainDetailDTO.setContentImage(rs.getString("contentImage"));
+//                MainDetailDTO mainDetailDTO = new MainDetailDTO();
+                mainDetailDTO.setMainDetailTitle(rs.getString("mainDetail_title"));
+                mainDetailDTO.setMainDetailPrice(rs.getString("mainDetail_price"));
+                mainDetailDTO.setMainDetailOption(rs.getString("mainDetail_option"));
+                mainDetailDTO.setContentImage(rs.getString("content_image"));
                 mainDetailDTO.setContent(rs.getString("content"));
-                list.add(mainDetailDTO);
+//                list.add(mainDetailDTO);
 
             }
 
@@ -119,7 +121,7 @@ public class MainDAO {
             }
 
         }
-        return list;
+        return mainDetailDTO;
     }
 
 

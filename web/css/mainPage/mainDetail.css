@@ -1,0 +1,113 @@
+@import url('../global/share.css');
+
+/* 전체 컨테이너 스타일 */
+.mainProduct {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 상세 정보 스타일 */
+.detail {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail.active.product-detail {
+    display: block;
+}
+
+/* 제목 스타일 */
+.detail h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 이미지 스타일 */
+.detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* 상품 정보 스타일 */
+.product-info {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* 상품 정보의 각 항목 스타일 */
+.product-info p {
+    margin-bottom: 10px;
+}
+
+/* 가격 정보 스타일 */
+.product-info p.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 20px;
+}
+
+.product-info p.original-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+/* 돌아가기 링크 스타일 */
+.detail a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.detail a:hover {
+    background-color: #0056b3;
+}
+
+/* 가이드 텍스트 스타일 */
+.guide-text {
+    font-size: 1.2rem;
+    line-height: 2.6;
+    margin-top: 20px;
+    white-space: pre-wrap; /* 개행 문자 유지 */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* 공통 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+h2.headline {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.headlineWrapper {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
