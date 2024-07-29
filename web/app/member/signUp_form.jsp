@@ -230,4 +230,5 @@
 <script src="../../js/sign_up_form.js"></script>
 <script src="../../js/user.js"></script>
 <script src="../../js/myInfo.js"></script>
+<script src="../../js/search.js"></script>
 </html>

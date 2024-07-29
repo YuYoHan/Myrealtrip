@@ -14,10 +14,12 @@
     </script>
 </head>
 <body>
-    <h2>해외여행보험</h2>
+<div id="insurance-Wrapper">
+    <h2 class="insurance-field">해외여행보험</h2>
     <hr>
-    <div>
+    <div class="insurance-field">
         <h3>해외여행보험 간편하게 준비하기!</h3>
+        <img src="/../../img/global/logo.png">
         <div>
             <div>
                 <h4>여행기간</h4>
@@ -110,5 +112,6 @@
         - 중요사항 안내 확인과 보험약관 내용을 확인했고 해외여행보험 가입에 동의합니다.
         <button>보험료 결제</button>
     </div>
+</div>
 </body>
 </html>

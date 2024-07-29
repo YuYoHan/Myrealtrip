@@ -1,5 +1,8 @@
-#phrase-Box {
-    padding : 50px 700px;
+/*insurance.jsp*/
+
+#phrase-Wrapper {
+    width: 300px;
+    margin: 50px auto;
 }
 
 #main-Phrase {
@@ -31,4 +34,16 @@
     border:none;
     border-radius: 10px;
     font-size: 1.1em;
+}
+
+
+/*insuranceForm.jsp*/
+
+#insurance-Wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.insurance-field {
+    margin: 30px;
 }

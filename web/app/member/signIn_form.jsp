@@ -75,5 +75,5 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src = "../../js/user.js"></script>
 <script src ="../../js/sign_in_form.js"></script>
-
+<script src="../../js/search.js"></script>
 </html>

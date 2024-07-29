@@ -62,6 +62,7 @@
 
             });
         }
+
     </script>
     <link rel="stylesheet" href="../../css/global/common.css">
     <link rel="stylesheet" href="../../css/global/header.css">
@@ -70,21 +71,22 @@
 </head>
 <body>
 <%@ include file="../global/header.jsp" %>
-    <div id="phrase-Box">
-        <div id="main-Phrase">여행자 보험으로,<br>걱정없이 편한 여행하세요</div>
-        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;휴대품 파손 보장</div>
-        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;수하물 지연 보장</div>
-        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;상해/질병의료비 보장</div>
-        <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;코로나 질병 관련 보장</div>
-        <div id="cpic-Wrapper">
-            <img src="../../img/insurance/carrier.svg" id="cpic">
-        </div>
-        <button id="phrase-btn" onclick="confirmInsurance()">5분만에 준비하기</button>
+<div id="phrase-Wrapper">
+    <div id="main-Phrase">여행자 보험으로,<br>걱정없이 편한 여행하세요</div>
+    <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;휴대품 파손 보장</div>
+    <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;수하물 지연 보장</div>
+    <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;상해/질병의료비 보장</div>
+    <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;코로나 질병 관련 보장</div>
+    <div id="cpic-Wrapper">
+        <img src="../../img/insurance/carrier.svg" id="cpic">
     </div>
-    <div class="default-components" id="footer-components">
-        <footer id="footer" class="footer-container">
-            <%@ include file="../../app/global/footer.jsp" %>
-        </footer>
-    </div>
+    <button id="phrase-btn" onclick="confirmInsurance()">5분만에 준비하기</button>
+</div>
+
+<div class="default-components" id="footer-components">
+    <footer id="footer" class="footer-container">
+        <%@ include file="../../app/global/footer.jsp" %>
+    </footer>
+</div>
 </body>
 </html>
