@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HotelSearchAction   implements Action {
+public class HotelSearchAction implements Action {
     @Override
     public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 

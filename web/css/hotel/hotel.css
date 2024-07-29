@@ -393,7 +393,7 @@ main {
 
 .PlaceInput-style-wrapper {
     width: 280px;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .PlaceInput-style-input {
@@ -452,6 +452,23 @@ main {
     background-color: var(--gray-60);
 }
 
+#div_day_selector {
+    display: inline-block;
+    min-width: 238px;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+    height: 48px;
+    font-size: 16px;
+    padding: 0px 14px 0px 14px;
+    width: 350px;
+    position: relative;
+    box-shadow: none;
+    margin-right: 10px;
+    background-color: var(--gray-60);
+}
+
 .input_text {
     background-color: var(--gray-60);
     border: 0;
@@ -459,6 +476,17 @@ main {
     line-height: 1.25;
     text-align: center;
     font-size: 16px;
+    width: 90%;
+    height: 100%;
+}
+
+#txt_depDt_view{
+    background-color: var(--gray-60);
+    border: 0;
+    color: var(--black);
+    line-height: 1.25;
+    text-align: center;
+    font-size: 15px;
     width: 90%;
     height: 100%;
 }
@@ -1128,4 +1156,60 @@ div#radio-list-sort > input{
     font-size: 20px;
     color: black;
     font-weight: bold;
+}
+
+/*modal*/
+.modal-content {
+    border-radius: 20px; /* Rounded corners for the modal */
+    border: 1px solid #ccc; /* Border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+.modal-header {
+    background-color: #f8f9fa; /* Light background color */
+    border-bottom: 1px solid #dee2e6; /* Border for header */
+    border-top-left-radius: 20px; /* Rounded top-left corner */
+    border-top-right-radius: 20px; /* Rounded top-right corner */
+}
+.modal-footer {
+    display: flex;
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Vertically center items */
+    border-top: 1px solid #dee2e6; /* Border for footer */
+    border-bottom-left-radius: 20px; /* Rounded bottom-left corner */
+    border-bottom-right-radius: 20px; /* Rounded bottom-right corner */
+}
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #0056b3; /* Hover effect for primary button */
+}
+.btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: #5a6268; /* Hover effect for secondary button */
+}
+.modal-today-close-label {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+    color: black; /* Text color */
+}
+.modal-today-close-label input {
+    margin-right: 10px; /* Space between radio button and text */
+}
+.modal-today-close-label:hover {
+    color: #0056b3; /* Hover effect for the label */
+}
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    min-height: calc(
+            100% - 1.75rem
+    ); /* Ensure modal stays within the viewport */
+    margin: 1.75rem auto; /* Center modal vertically */
 }
