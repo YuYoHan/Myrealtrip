@@ -42,12 +42,13 @@ values ('zxzz45@naver.com', '유요한', 'ADMIN');
 insert into admin(admin_email, admin_name, admin_role)
 values ('700eeu@gmail.com', '김예은', 'ADMIN');
 
-
 insert into admin(admin_email, admin_name, admin_role)
 values ('whdudgms123@naver.com', '조영흔', 'ADMIN');
 
 insert into admin(admin_email, admin_name, admin_role)
 values ('ghdtjrdud38@naver.com', '홍석영', 'ADMIN');
+
+insert into admin(admin_email, admin_name, admin_role)
 values ('dlwodnjs0128@naver.com', '이재원', 'ADMIN');
 
 select *
@@ -160,6 +161,7 @@ from mainBanner;
 drop table mainBanner;
 select * from air_notices ORDER BY notice_id DESC ;
 SELECT * FROM air_notices ORDER BY notice_id DESC LIMIT 7 OFFSET 2 ;
+
 # 여행지 소개
 # 메인 페이지에서도 보여주지만 항공권 banner에서도 보여줄 예정
 create table recommendedPlace
@@ -388,6 +390,7 @@ ALTER TABLE airplane_reservations
 ALTER TABLE airplane_reservations
     ADD COLUMN in_airplane_id bigint,
     ADD COLUMN out_airplane_id bigint;
+
 
 select * from airplanes;
 select * from operations;

@@ -70,7 +70,7 @@
 </head>
 <body>
 <%@ include file="../global/header.jsp" %>
-    <div id="phrase-Box">
+    <div id="phrase-Wrapper">
         <div id="main-Phrase">여행자 보험으로,<br>걱정없이 편한 여행하세요</div>
         <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;휴대품 파손 보장</div>
         <div class="sub-Phrase"><img src="../../img/insurance/check_circle.svg">&nbsp;&nbsp;수하물 지연 보장</div>
@@ -81,6 +81,7 @@
         </div>
         <button id="phrase-btn" onclick="confirmInsurance()">5분만에 준비하기</button>
     </div>
+
     <div class="default-components" id="footer-components">
         <footer id="footer" class="footer-container">
             <%@ include file="../../app/global/footer.jsp" %>
