@@ -24,13 +24,11 @@
             <c:forEach items="${replaceList}" var="replace" varStatus="status">
             <div class="col-md-3">
                 <div class="productCard">
-                    <img class="img-fluid productImage" src="${replace.placeImage}" alt="${replace.placeTitle}">
-                    <div class="productContent">
-                        <div class="productTitle">
-                            <span>${replace.placeTitle}</span>
-                        </div>
-                        <span class="productDescription">${replace.placeContents}</span>
-                    </div>
+
+                    <a href="${pageContext.request.contextPath}/app/mainPage/mainDetail.jsp?placeId=${replace.placeId}">
+                        <img class="img-fluid productImage" src="${replace.placeImage}" alt="${replace.placeTitle}">
+                    </a>
+
                 </div>
             </div>
             <!-- 4개씩 한 줄에 출력하기 위해서 row div를 닫고 새로 시작 -->

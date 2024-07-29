@@ -20,6 +20,7 @@
         <div class="insurance-field">
             <h3>해외여행보험 간편하게 준비하기!</h3>
             <img src="/../../img/global/logo.png">
+
             <div>
                 <div>
                     <h4>여행기간</h4>
@@ -113,5 +114,6 @@
             <button>보험료 결제</button>
         </div>
     </div>
+</div>
 </body>
 </html>

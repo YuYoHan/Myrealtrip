@@ -36,6 +36,14 @@ public class IndexController extends HttpServlet {
                 System.out.println("첫 페이지  : " + e);
             }
         }
+
+       /* if (command.equals("/app/mainPage/mainDetail")) {
+            try {
+                resp.sendRedirect("/app/mainPage/mainDetail.jsp");
+            } catch (Exception e) {
+                System.out.println("첫 페이지  : " + e);
+            }
+        }*/
         System.out.println("acto : " + acto);
 
         if (acto.getPath() != null) {
@@ -45,7 +53,7 @@ public class IndexController extends HttpServlet {
                 disp.forward(req, resp);
             } else {
                 // isRedirect = true면 호출
-                resp.sendRedirect(acto.getPath());
+                    resp.sendRedirect(acto.getPath());
             }
         }
     }

@@ -107,4 +107,5 @@
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>
 <script src="../../js/myInfo.js"></script>
+<script src="../../js/search.js"></script>
 </html>
