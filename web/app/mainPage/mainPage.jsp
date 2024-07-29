@@ -69,5 +69,6 @@
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/myInfo.js"></script>
+<script src="../../js/search.js"></script>
 </body>
 </html>
