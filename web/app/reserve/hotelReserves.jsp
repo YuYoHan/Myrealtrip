@@ -7,23 +7,26 @@
     <meta charset="UTF-8">
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
-    <link rel="stylesheet" href="${cp}/css/common.css">
-    <link rel="stylesheet" href="${cp}/css/reserve/reserves.css">
-    <link rel="stylesheet" href="${cp}/css/header_sub.css">
-    <link rel="stylesheet" href="${cp}/css/footer.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/reserve/reserves.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
     <title>마이리얼트립 :: 숙소 예약</title>
+    <!-- 포트원 결제 -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- iamport.payment.js -->
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 </head>
 <body>
 <!-- 해더 시작 -->
-<c:if test="${loginUser == null}">
-    <script>
-        alert("로그인 후 이용해 주세요!");
-        location.href = "${cp}/member/signIn.us";
-    </script>
-</c:if>
-<div style="position: relative" class="defult-com">
-    <%@include file="/app/global/header_sub.jsp" %>
-</div>
+<%--<c:if test="${loginUser == null}">--%>
+<%--    <script>--%>
+<%--        alert("로그인 후 이용해 주세요!");--%>
+<%--        location.href = "/member/signIn.us";--%>
+<%--    </script>--%>
+<%--</c:if>--%>
+    <%@include file="/app/global/header.jsp" %>
 <!-- 해더 끝 -->
 <div>
     <main class="Order-style-container">
@@ -47,7 +50,7 @@
                                     </div>
                                     <div class="ProductInfoSummary-style-textWrapper">
                                         <!-- 이전 페이지에서 클릭한 상품의 정보가 아래에 들어가야함 -->
-                                        <h3 class="ProductInfoSummary-style-title">${hotelname}</h3>
+                                        <h3 class="ProductInfoSummary-style-title">${hotelName}</h3>
                                         <div class="ProductInfoSummary-style-schedule">
                                             <time class="ProductInfoSummary-style-startDateTime">${startYear}년 ${startMonth}월 ${startDay}일
                                                 (${startweekhangle}) ~
@@ -126,16 +129,12 @@
                                     <div class="ReservationPersonInfo-style-summary">
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">예약자 이름</div>
-                                            <div class="InfoField-style-content">${loginUser.username}</div>
+                                            <div class="InfoField-style-content" id="userName">${sessionScope.userName}</div>
                                         </div>
                                         <div class="InfoField-style-field">
                                             <div class="InfoField-style-title">이메일 주소</div>
-                                            <div class="InfoField-style-content">${loginUser.useremail}</div>
+                                            <div class="InfoField-style-content" id="userEmail">${loginUser.userEmail}</div>
                                         </div>
-                                        <!-- <div class="InfoField-style-field">
-                                            <div class="InfoField-style-title">휴대전화 번호</div>
-                                            <div class="InfoField-style-content">010-8282-9090</div>
-                                        </div> -->
                                     </div>
                                     <div class="ReservationPersonInfo-style-option">
 										<span class="css-mkihkg">
@@ -218,15 +217,15 @@
                                     <div class="Name-style-container">
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">한글 이름</label>
-                                            <input class="css-1e7i9br" type="text" placeholder="홍길동"
-                                                   value="${loginUser.username}">
+                                            <input class="css-1e7i9br" type="text" placeholder="${sessionScope.userName}"
+                                                   value="${sessionScope.userName}">
                                         </div>
                                     </div>
                                     <div class="Email-style-container">
                                         <div class="css-1vqiqg7">
                                             <label class="css-e89lkq">이메일 주소</label>
-                                            <input class="css-1e7i9br" type="email" placeholder="example@example.com"
-                                                   value="${loginUser.useremail}">
+                                            <input class="css-1e7i9br" type="email" placeholder="${sessionScope.userName}"
+                                                   value="${loginUser.userEmail}">
                                         </div>
                                     </div>
                                 </div>
@@ -245,44 +244,26 @@
                             <div class="PaymentMethods-style-paymentRadiosWrapper">
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="CREDIT_CARD" type="radio" value="CREDIT_CARD" class="css-8djd7q">
-											<span class="css-mlq5g6"></span>
-										</span>
-                                        <label class="css-1jvr7pu" for="CREDIT_CARD">신용/체크카드</label>
-                                    </div>
-                                </div>
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="TOSS" type="radio" value="TOSS" class="css-8djd7q">
-										</span>
+                                                                <span class="css-1u9dzhu">
+                                                                    <input id="TOSS" name="payment" type="radio"
+                                                                           value="TOSS" class="css-8djd7q" checked>
+                                                                </span>
                                         <label class="css-1jvr7pu" for="TOSS">
                                             토스
-                                            <img src="${cp}/app/img/toss.jpg">
+                                            <img src="${cp}/img/etc/toss.jpg">
                                         </label>
                                         <div class="PaymentMethodRadioButton-style-badge">첫 결제 캐시백</div>
                                     </div>
                                 </div>
                                 <div class="PaymentMethodRadioButton-style-buttonWrapper">
                                     <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="NAVERPAY" type="radio" value="NAVERPAY" class="css-8djd7q">
-										</span>
-                                        <label class="css-1jvr7pu" for="NAVERPAY">
-                                            네이버페이
-                                            <img src="${cp}/img/etc/naverB.svg">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="PaymentMethodRadioButton-style-buttonWrapper">
-                                    <div class="css-1cweiyo">
-										<span class="css-1u9dzhu">
-											<input id="PAYCO" type="radio" value="PAYCO" class="css-8djd7q">
-										</span>
-                                        <label class="css-1jvr7pu" for="PAYCO">
-                                            페이코
-                                            <img src="${cp}/img/etc/payco.svg">
+                                                                <span class="css-1u9dzhu">
+                                                                    <input id="KAKAO" name="payment" type="radio"
+                                                                           value="KAKAO" class="css-8djd7q">
+                                                                </span>
+                                        <label class="css-1jvr7pu" for="KAKAO">
+                                            카카오페이
+                                            <img src="${cp}/img/etc/kakaoPay.png">
                                         </label>
                                     </div>
                                 </div>
@@ -301,6 +282,8 @@
     </footer>
 </div>
 </body>
-<script src="${cp}/js/myinfo.js"></script>
-
+<script src="../../js/myInfo.js"></script>
+<script src="../../js/payment.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 </html>

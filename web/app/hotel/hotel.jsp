@@ -20,6 +20,23 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- daterangepicker CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- jQuery UI JS -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- moment.js (daterangepicker 의존성) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- daterangepicker JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     #cityPopup {
@@ -48,8 +65,8 @@
                     </div>
                     <div class="SearchTermBox-style-inputArea">
                         <div class="PlaceInput-style-wrapper">
-                            <div class="PlaceInput-style-input city_selector">
-                                <input id="txt_arrCtyCode" class="css-3wnbe5 input_text" name="dep" placeholder="여행지 검색" type="text" readonly="readonly">
+                            <div class="PlaceInput-style-input city_selector" style="width: 260px">
+                                <input id="txt_arrCtyCode" class="css-3wnbe5 input_text" name="dep" placeholder="여행지 검색" type="text" readonly="readonly" style="width: 100%">
                             </div>
                         </div>
 
@@ -79,13 +96,13 @@
 
 <%--                        --%>
                         <div class="date_selector clearfix border_all ml8" id="div_day_selector" role="combobox"
-                             style="cursor: pointer;">
+                             style="cursor: pointer; width: 300px">
                             <input id="txt_depDt" class="input_text" type="hidden" title="가는날 선택" placeholder="가는날 선택"
                                    readonly="readonly" value="">
                             <input id="txt_depDt_view" class="input_text" type="text" title="가는날 선택"
-                                   placeholder="입실 날짜 선택  - 퇴실 날짜 선택" readonly="readonly" name=" dateFilter"
+                                   placeholder="입실 날짜 선택 - 퇴실 날짜 선택" readonly="readonly" name=" dateFilter"
                                    role="combobox" style="cursor: pointer;" value="">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxNlYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik02IDRMMTAgOC4wMDIgNi4wMDUgMTIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDggOCkiLz4KICAgIDwvZz4KPC9zdmc+Cg==">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxNlYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik02IDRMMTAgOC4wMDIgNi4wMDUgMTIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDggOCkiLz4KICAgIDwvZz4KPC9zdmc+Cg==" style="margin-left: 7px; margin-top: 15px;">
                         </div>
                         <div class="TravelerForm-style-container">
                             <div class="TravelerForm-style-dropdown">
@@ -176,7 +193,7 @@
 
                     <c:forEach items="${hotelbannerList}" var="ben">
                         <div class="image_container">
-                            <a class="" href="#">
+                            <a id="openModalLink" href="#" onclick="alertInfo()">
                                 <div class="image_content">
                                     <img class="hotel-banner-image" alt="호텔리스트" src="${ben.hotelImgURL}">
                                 </div>
@@ -196,9 +213,6 @@
                 </div>
             </div>
 
-            <%--                    <div>--%>
-            <%--                        <%@ include file="/app/hotel/hotel_swiper.jsp" %>--%>
-            <%--                    </div>--%>
         </section>
     </div>
 </main>
@@ -209,6 +223,10 @@
     </footer>
 </div>
 </body>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script>
     $(function () {
         // 날짜 선택기 초기화
@@ -281,10 +299,13 @@
 
             // const searchLocation = $('input.css-3wnbe5').val().trim();
             const searchLocation = document.getElementById('txt_arrCtyCode').value;
-            alert(searchLocation);
             // const searchLocation = '부산';
             const dateSelected = $('input[name=" dateFilter"]').val().trim();
             const totalCount = parseInt($('.count-total').text().trim(), 10);
+
+            alert(searchLocation);
+            alert(dateSelected);
+            alert(totalCount);
 
             // 입력값 검증
 
@@ -306,7 +327,10 @@
 
             // 폼 제출
             document.getElementById('frm').submit();
+            let a = '/hotel/hotelSearch.ht?city='+searchLocation+'&date='+dateSelected+'&count='+totalCount
 
+            alert(a);
+            window.location.href = a;
             return false; // 버튼의 기본 동작 방지
         };
 
@@ -315,6 +339,52 @@
             return dateSubmit();
         });
     });
+
+    function alertInfo(){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            //html 태그를 여기서도 쓸 수 있어요
+            html:`
+                <div>
+                    <div>
+                        <h5 class="modal-title">공지</h5>
+                    </div>
+                    <div>
+                        <c:forEach items="${hotelbannerList}" var="room">
+                            <div>
+                                <p>room</p>
+
+
+                            </div>
+                        </c:forEach>
+
+                        <div>
+                            <p style="margin-bottom: 0px;">요청사항</p>
+                            <textarea name="" id="option-others" cols="35" rows="5"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+            `,
+            showCancelButton: true,
+            confirmButtonText: "확인",
+            cancelButtonText: "취소",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = "/";
+            }
+        });
+    }
+
+
 
     $(document).ready(function() {
         if (localStorage.getItem('formSubmitted') === 'true') {

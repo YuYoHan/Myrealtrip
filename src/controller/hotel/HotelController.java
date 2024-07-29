@@ -1,6 +1,7 @@
 package controller.hotel;
 
 import action.hotel.HotelBannerAction;
+import action.hotel.HotelSearchAction;
 import config.action.ActionTo;
 
 import javax.servlet.RequestDispatcher;
@@ -29,6 +30,14 @@ public class HotelController extends HttpServlet {
                 try {
                     System.out.println("hotel.jsp");
                     acto = new HotelBannerAction().execute(req, resp);
+                } catch (Exception e) {
+                    System.out.println("호텔 배너 : " + e);
+                }
+                break;
+
+            case "/hotel/hotelSearch.ht":
+                try {
+                    acto = new HotelSearchAction().execute(req, resp);
                 } catch (Exception e) {
                     System.out.println("호텔 배너 : " + e);
                 }
