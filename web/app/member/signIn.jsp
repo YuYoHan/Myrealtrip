@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/member/sign.css">
     <link rel="stylesheet" href="../../css/global/footer.css">
+
 </head>
 <body>
 <!-- header시작 -->
@@ -100,7 +101,6 @@
     };
     startApp();
 </script>
-
 <script src="../../js/chatbot.js"></script>
 <script src="../../js/designForInput.js"></script>
 <script src="../../js/loginEffect.js"></script>
