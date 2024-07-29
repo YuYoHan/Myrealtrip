@@ -39,11 +39,67 @@
 
 /*insuranceForm.jsp*/
 
-#insurance-Wrapper {
+#ns-Wrapper {
     margin: 0 auto;
     width: 1000px;
+    position: relative;
 }
 
-.insurance-field {
-    margin: 30px;
+.ns-Flex {
+    display: flex;
+}
+
+.ns-Field {
+    margin: 40px 0;
+}
+
+#ns-Main {
+    width:600px;
+}
+
+#ns-Title {
+    font-size: 2em;
+}
+
+#ns-Logo {
+    margin-left: auto;
+    margin-top: 30px;
+    height: 45px;
+}
+
+.ns-Line {
+    background: #adb5bd;
+    height: 1px;
+    border: 0px;
+}
+
+.ns-Box {
+    border: solid 1px #adb5bd;
+    border-radius: 20px;
+    padding: 10px 40px 0 40px;
+}
+
+.ns-Info {
+    color: #666d75;
+
+}
+
+.option-Box {
+    border: solid 1px #adb5bd;
+    border-radius: 7px;
+    padding: 10px 0 40px 40px;
+}
+
+.item-Box {
+    margin: 50px 0;
+}
+
+#ns-Nav {
+    width:300px;
+    position: fixed;
+    top: 224px;
+    right: 450px;
+    border: solid 1px #adb5bd;
+    border-radius: 20px;
+    padding: 10px 40px 40px 40px;
 }
