@@ -8,21 +8,21 @@
     <title>마이리얼트립 :: 내 여행</title>
     <c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
     <link rel="shortcut icon" type="image/x-icon" href="${cp}/img/favicon.ico">
-    <link rel="stylesheet" href="${cp}/css/air/airlist.css">
-    <link rel="stylesheet" href="${cp}/css/common.css">
-    <link rel="stylesheet" href="${cp}/css/header_sub.css">
-    <link rel="stylesheet" href="${cp}/css/mytrip/mytrip.css">
-    <link rel="stylesheet" href="${cp}/css/footer.css">
+    <link rel="stylesheet" href="../../css/air/airlist.css">
+    <link rel="stylesheet" href="../../css/global/common.css">
+    <link rel="stylesheet" href="../../css/global/header.css">
+    <link rel="stylesheet" href="../../css/mytrip/mytrip.css">
+    <link rel="stylesheet" href="../../css/global/footer.css">
 </head>
 <body>
-<c:if test="${loginUser == null}">
-    <script>
-        alert("로그인 후 이용해 주세요!");
-        location.href = "${cp}/user/sign_in.us";
-    </script>
-</c:if>
+<%--<c:if test="${loginUser == null}">--%>
+<%--    <script>--%>
+<%--        alert("로그인 후 이용해 주세요!");--%>
+<%--        location.href = "${cp}/user/sign_in.us";--%>
+<%--    </script>--%>
+<%--</c:if>--%>
 <div style="position: relative" class="defult-com">
-    <%@include file="/app/global/header_sub.jsp" %>
+    <%@include file="/app/global/header.jsp" %>
 </div>
 <!-- 메인시작 -->
 <div id="ReservationHistoryList">

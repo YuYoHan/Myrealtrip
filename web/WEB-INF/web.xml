@@ -90,4 +90,12 @@
         <servlet-name>SearchController</servlet-name>
         <url-pattern>*.sc</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MyTripController</servlet-name>
+        <servlet-class>controller.mytrip.MyTripController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyTripController</servlet-name>
+        <url-pattern>*.mt</url-pattern>
+    </servlet-mapping>
 </web-app>
