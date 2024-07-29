@@ -14,7 +14,7 @@
                     <div class="searchImg">
                         <img src="<c:url value="/img/global/search.svg"/>" alt="search">
                     </div>
-                    <input id="searchInput" class="searchInput" type="text" placeholder="상품을 검색해보세요">
+                    <input id="searchInput" class="searchInput" type="text" placeholder="상품을 검색해보세요" onkeyup="enterkey()">
                 </div>
             </div>
             <!-- 로그인 정보 있을 경우  -->

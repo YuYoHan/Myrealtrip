@@ -1,0 +1,22 @@
+#search-keyword {
+    width: 100%;
+    height: 100px;
+    padding: 50px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#result-Wrapper {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#result-content {
+    width: 400px;
+    height: 400px;
+}
+
+#result-image {
+    height: 200px;
+}
+

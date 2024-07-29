@@ -281,10 +281,13 @@
 
             // const searchLocation = $('input.css-3wnbe5').val().trim();
             const searchLocation = document.getElementById('txt_arrCtyCode').value;
-            alert(searchLocation);
             // const searchLocation = '부산';
             const dateSelected = $('input[name=" dateFilter"]').val().trim();
             const totalCount = parseInt($('.count-total').text().trim(), 10);
+
+            alert(searchLocation);
+            alert(dateSelected);
+            alert(totalCount);
 
             // 입력값 검증
 
@@ -306,7 +309,10 @@
 
             // 폼 제출
             document.getElementById('frm').submit();
+            let a = '/hotel/hotelSearch.ht?city='+searchLocation+'&date='+dateSelected+'&count='+totalCount
 
+            alert(a);
+            window.location.href = a;
             return false; // 버튼의 기본 동작 방지
         };
 

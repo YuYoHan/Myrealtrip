@@ -2,7 +2,7 @@
 create database myRealTrip;
 use myRealTrip;
 
-
+select * from hotels;
 # 유저 테이블
 create table users
 (

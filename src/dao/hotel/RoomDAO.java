@@ -73,4 +73,40 @@ public class RoomDAO {
         }
         return room;
     }
+
+    public static List<RoomsDTO> hotelRoomList(String hotelCity) {
+        String sql = "SELECT * "
+                + "FROM rooms "
+                + "WHERE hotel_id IN ("
+                + "SELECT hotel_id "
+                + "FROM hotels "
+                + "WHERE hotel_city = ?)";
+
+        List<RoomsDTO> list = new ArrayList<RoomsDTO>();
+        try {
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,hotelCity);
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                RoomsDTO room  = RoomsDTO.builder()
+                        .roomId(rs.getInt("room_Id"))
+                        .roomStatus(rs.getString("room_status"))
+                        .roomCount(rs.getInt("room_count"))
+                        .optionOthers(rs.getString("option_others"))
+                        .hotelId(rs.getInt("hotel_id"))
+                        .build();
+                System.out.println(room);
+                list.add(room);
+            }
+        } catch (Exception e) {
+            System.out.println("룸 이미지 가져오는거 실패 : " + e.getMessage());
+            throw new HotelException(e.getMessage());
+        } finally {
+            JDBCConfig.close(rs, preparedStatement, connection);
+        }
+        return list;
+    }
+
 }
