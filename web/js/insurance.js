@@ -36,13 +36,87 @@ function guide(){
     });
 }
 
-function chageSelect(e){
+// 숫자를 1000 단위로 콤마를 넣어 형식화하는 함수
+function formatNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// 숫자 출력
+function chageSelect(e) {
+    // 선택된 옵션의 텍스트 가져오기
     const text = e.options[e.selectedIndex].text;
     document.getElementById('outputCnt').innerText = text;
 
     // 선택된 데이터 가져오기
     const value = e.value;
 
+    // 선택된 데이터 형식화
+    const formattedValue = formatNumber(value);
+
     // 데이터 출력
-    document.getElementById('outputAmt').innerText = value;
+    document.getElementById('outputAmt').innerText = formattedValue;
 }
+
+// 초기 로드 시 선택된 값 가져오기 및 형식화
+document.addEventListener('DOMContentLoaded', (event) => {
+    let selectElement = document.getElementById('ns-Count');
+    chageSelect(selectElement);
+});
+
+
+$(document).ready(function() {
+    // 라디오 버튼이 변경될 때마다 결제 버튼 상태 업데이트
+    $("input[name='payment']").change(function() {
+        console.log('클릭되었습니다.')
+        updateButtonState();
+    });
+
+    // 체크박스가 변경될 때마다 결제 버튼 상태 업데이트
+    $(".term-defaultCheckTerm").change(function() {
+        updateButtonState();
+    });
+
+    // 초기 로드 시 한 번 결제 버튼 상태 업데이트
+    function updateButtonState() {
+        const allRequiredChecked = $(".term-defaultCheckTerm:not(.c_h):checked").length === $(".term-defaultCheckTerm:not(.c_h)").length;
+        const paymentMethodSelected = $("input[name='payment']:checked").length > 0;
+        $("#paymentButton").prop("disabled", !(allRequiredChecked && paymentMethodSelected));
+    }
+
+
+    // 결제 버튼 클릭 시 동작
+    $("#paymentNSButton").click(function() {
+        let getKakao = document.getElementById('KAKAO');
+        console.log(getKakao.checked)
+        let toss = document.getElementById('TOSS');
+        console.log(toss.checked)
+
+        let emailElement = document.getElementById('userEmail');
+        let nameElement = document.getElementById('userName');
+        let payElement = document.getElementById('payment');
+
+        // 이메일 주소 가져오기
+        let email = emailElement.innerText || emailElement.textContent;
+        console.log("이메일 : " + email);
+
+        // 이름 가져오기
+        let name = nameElement.innerText || nameElement.textContent;
+        console.log("이름 : " + name);
+
+        // 결제 금액 가져오기 (숫자 부분만 추출)
+        let payText = payElement.innerText || payElement.textContent;
+        let selectElement = document.getElementById('ns-Count');
+        let price = selectElement.value;
+        console.log("가격 : " + price);
+
+        if(toss.checked) {
+            console.log('토스 페이')
+            tossPay(email, name, price);
+        }
+
+        if (getKakao.checked) {
+            console.log('카카오 페이')
+            kakaoPay(email, name, price);
+        }
+    });
+});

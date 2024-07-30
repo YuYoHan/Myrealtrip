@@ -6,6 +6,7 @@
         document.getElementsByClassName('currentDate').value = new Date().toISOString().substring(0, 10);
     </script>
     <link rel="stylesheet" href="../../css/insurance/insurance.css">
+    <link rel="stylesheet" href="../../css/reserve/reserves.css">
 </head>
 <body>
 <div id="ns-Wrapper">
@@ -93,15 +94,15 @@
             <div class="item-Box">
                 <h3>보험 가입 인원</h3>
                 <select id="ns-Count" onchange="chageSelect(this)">
-                    <option value="10,000">1</option>
-                    <option value="20,000">2</option>
-                    <option value="30,000">3</option>
-                    <option value="40,000">4</option>
-                    <option value="50,000">5</option>
-                    <option value="60,000">6</option>
-                    <option value="70,000">7</option>
-                    <option value="80,000">8</option>
-                    <option value="90,000">9</option>
+                    <option value="10000">1</option>
+                    <option value="20000">2</option>
+                    <option value="30000">3</option>
+                    <option value="40000">4</option>
+                    <option value="50000">5</option>
+                    <option value="60000">6</option>
+                    <option value="70000">7</option>
+                    <option value="80000">8</option>
+                    <option value="90000">9</option>
                 </select>
             </div>
             <div class="item-Box">
@@ -146,14 +147,50 @@
         </div>
         <input type="checkbox"><span class="check-Info">보험료 납입 및 가입설계 내역에 대한 동의</span>
         <p class="check-Info" id="info-Other"><br>- 중요사항 안내 확인과 보험약관 내용을 확인했고<br>&nbsp&nbsp해외여행보험 가입에 동의합니다.</p><br><br>
-        <div id="logo-Wrapper">
-            <img id="kakao-Img" src="../../img/etc/kakaoPay.png">
-            <img id="toss-Img" src="../../img/etc/toss.jpg">
+        <div class="PaymentMethods-style-paymentRadiosWrapper">
+            <div class="PaymentMethodRadioButton-style-buttonWrapper">
+                <div class="css-1cweiyo">
+                                        <span class="css-1u9dzhu">
+                                            <input id="TOSS" name="payment" type="radio" value="TOSS" class="css-8djd7q" checked>
+                                        </span>
+                    <label class="css-1jvr7pu" for="TOSS">
+                        토스
+                        <img src="${cp}/img/etc/toss.jpg">
+                    </label>
+                    <div class="PaymentMethodRadioButton-style-badge">첫 결제 캐시백</div>
+                </div>
+            </div>
+            <div class="PaymentMethodRadioButton-style-buttonWrapper">
+                <div class="css-1cweiyo">
+                                        <span class="css-1u9dzhu">
+                                            <input id="KAKAO" name="payment" type="radio" value="KAKAO" class="css-8djd7q">
+                                        </span>
+                    <label class="css-1jvr7pu" for="KAKAO">
+                        카카오페이
+                        <img src="${cp}/img/etc/kakaoPay.png">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="PurchaseButton-buttonWrapper">
+        <span role="button" class="css-w0pi5v">
+            <button type="button" class="PurchaseButton-button css-jgs6n" id="paymentNSButton">
+                <span class="css-1s4v6ia" id="payment">${totalPrice} 결제하기</span>
+            </button>
+        </span>
         </div>
     </div>
 </div>
 </div>
 </body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
 <script src="../../js/insurance.js"></script>
+<script src="../../js/payment.js"></script>
+
 </html>
