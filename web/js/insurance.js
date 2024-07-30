@@ -35,3 +35,14 @@ function guide(){
 
     });
 }
+
+function chageSelect(e){
+    const text = e.options[e.selectedIndex].text;
+    document.getElementById('outputCnt').innerText = text;
+
+    // 선택된 데이터 가져오기
+    const value = e.value;
+
+    // 데이터 출력
+    document.getElementById('outputAmt').innerText = value;
+}

@@ -125,3 +125,39 @@
     border-radius: 20px;
     padding: 10px 40px 40px 40px;
 }
+
+.ns-ComboResult {
+    font-size: 1.2em;
+}
+
+.summary-Wrapper {
+    margin: 10px 10px;
+}
+
+.summary-Wrapper > button {
+    border: none;
+    width: 135px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.output-Wrqpper {
+    float: right;
+    font-weight: bold;
+}
+
+#Amt-Wrapper {
+    float: right;
+    font-weight: bold;
+    color: #1583db;
+}
+
+#kakao-Button {
+    width: 100%;
+    background: #ffd74e;
+}
+
+#toss-Button {
+    width: 100%;
+    background: #0064FF;
+}
