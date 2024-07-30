@@ -93,15 +93,15 @@
             <div class="item-Box">
                 <h3>보험 가입 인원</h3>
                 <select id="ns-Count" onchange="chageSelect(this)">
-                    <option value="10000">1</option>
-                    <option value="20000">2</option>
-                    <option value="30000">3</option>
-                    <option value="40000">4</option>
-                    <option value="50000">5</option>
-                    <option value="60000">6</option>
-                    <option value="70000">7</option>
-                    <option value="80000">8</option>
-                    <option value="90000">9</option>
+                    <option value="10,000">1</option>
+                    <option value="20,000">2</option>
+                    <option value="30,000">3</option>
+                    <option value="40,000">4</option>
+                    <option value="50,000">5</option>
+                    <option value="60,000">6</option>
+                    <option value="70,000">7</option>
+                    <option value="80,000">8</option>
+                    <option value="90,000">9</option>
                 </select>
             </div>
             <div class="item-Box">
@@ -147,8 +147,8 @@
         <input type="checkbox"><span class="check-Info">보험료 납입 및 가입설계 내역에 대한 동의</span>
         <p class="check-Info" id="info-Other"><br>- 중요사항 안내 확인과 보험약관 내용을 확인했고<br>&nbsp&nbsp해외여행보험 가입에 동의합니다.</p><br><br>
         <div id="logo-Wrapper">
-            <img id="kakao-Img" src="../../img/insurance/kakao_Logo.png">
-            <img id="toss-Img" src="../../img/insurance/toss_Logo.png">
+            <img id="kakao-Img" src="../../img/etc/kakaoPay.png">
+            <img id="toss-Img" src="../../img/etc/toss.jpg">
         </div>
     </div>
 </div>
