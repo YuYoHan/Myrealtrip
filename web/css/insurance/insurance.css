@@ -131,7 +131,21 @@
 }
 
 .summary-Wrapper {
-    margin: 10px 10px;
+    margin: 30px 10px;
+}
+
+.summary-Wrapper > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.check-Info {
+    font-size: 0.8em;
+    margin: auto 0;
+}
+
+#info-Other {
+    color: #666d75;
 }
 
 .summary-Wrapper > button {
@@ -142,22 +156,24 @@
 }
 
 .output-Wrqpper {
-    float: right;
     font-weight: bold;
 }
 
 #Amt-Wrapper {
-    float: right;
     font-weight: bold;
     color: #1583db;
 }
 
-#kakao-Button {
-    width: 100%;
-    background: #ffd74e;
+#logo-Wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
-#toss-Button {
-    width: 100%;
-    background: #0064FF;
+#kakao-Img{
+    height:40px;
+    margin: auto 0;
+}
+
+#toss-Img {
+    width: 140px;
 }

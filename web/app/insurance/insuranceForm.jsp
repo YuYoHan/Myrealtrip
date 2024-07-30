@@ -144,11 +144,12 @@
             <button onclick="guide()">중요사항 안내 확인</button>
             <button onclick="window.open('https://www.axa.co.kr/AsianPlatformInternet/doc/internet/jweb/AXA_OTPA_group4_provision2307.pdf')">약관 상세 확인</button>
         </div>
-        <input type="checkbox"><span>보험료 납입 및 가입설계 내역에 대한 동의</span>
-        <p>- 중요사항 안내 확인과 보험약관 내용을 확인했고 해외여행보험 가입에 동의합니다.</p>
-        <button id="kakao-Button">카카오 결제</button>
-        <button id="toss-Button">토스 결제</button>
-
+        <input type="checkbox"><span class="check-Info">보험료 납입 및 가입설계 내역에 대한 동의</span>
+        <p class="check-Info" id="info-Other"><br>- 중요사항 안내 확인과 보험약관 내용을 확인했고<br>&nbsp&nbsp해외여행보험 가입에 동의합니다.</p><br><br>
+        <div id="logo-Wrapper">
+            <img id="kakao-Img" src="../../img/insurance/kakao_Logo.png">
+            <img id="toss-Img" src="../../img/insurance/toss_Logo.png">
+        </div>
     </div>
 </div>
 </div>
