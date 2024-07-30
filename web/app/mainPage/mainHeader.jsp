@@ -23,20 +23,19 @@
                     <!-- 슬라이드 내용 -->
                     <c:forEach items="${cardList}" var="card">
                         <div class="swiper-slide image-slide">
-                            <a href="#"><img class="headerImage" src="${card.travelImage}" alt="이미지"></a>
+                            <a href="/mainPage/mainDetail.mi?cardTitle=${card.title}">
+                                <img class="headerImage" src="${card.travelImage}" alt="이미지">
+                            </a>
                             <div class="cardEffect"></div>
                             <div class="cardContent">
                                 <div class="cardTitle">
                                     <span class="cardTit">${card.title}</span>
                                 </div>
-
-<%--                                <span class="cardDescribe">${card.contents}여러개의 여행 상품</span>--%>
-                                <a class="cardBtn" href="#">둘러보기</a>
+                                <a class="cardBtn" href="/app/mainPage/cardDetail.jsp?cardTitle=${card.title}">둘러보기</a>
                             </div>
                         </div>
                     </c:forEach>
                 </div>
-
 
                 <button class="main-button-prev mainHeaderBtn">
                     <img src="<c:url value='/img/mainPage/arrow_prev.svg'/>" alt="arrow">

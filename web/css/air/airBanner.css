@@ -18,12 +18,12 @@
     list-style: none;
     padding: 0;
     z-index: 1;
-    height: 128px;
+    /*height: 128px;*/
 }
 
 .swiper-wrapper {
     width: 1060px;
-    margin: -20px -20px 0 0;
+    margin: 0px -0px 0 0;
 }
 
 .sub_image_container {
@@ -44,7 +44,7 @@
 
 .swiper-wrapper {
     width: 500px;
-    height: 200px;
+    /*height: 200px;*/
 }
 
 .swiper-container .swiper-notification {
@@ -72,10 +72,10 @@
 }
 
 .mainBannerItem {
-    background-size: cover;
-    border-radius: 2px;
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
-    height: 128px;
+    flex: 1 0 25%; /* 한 줄에 4개 아이템을 보이도록 설정 */
+    max-width: 25%;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .recent_slide .swiper-slide {
@@ -208,7 +208,7 @@
 
 .swiper-container, .swiper, .best-swiper {
     width: 100%;
-    height: 148px;
+    /*height: 148px;*/
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -262,11 +262,12 @@
 
 .swiper-wrapper {
     width: 520px;
-    height: 128px;
+    /*height: 128px;*/
 }
 
 .image_container {
     background-position: 50%;
+    padding-bottom: 75%;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
@@ -278,9 +279,14 @@
 
 .bannerImage {
     width: 100%;
-    height: 128px;
+    height: 100%;
+    object-fit: cover;
+    position: absolute; /* 부모 요소 내에 위치 고정 */
+    top: 0;
+    left: 0;
     border-radius: 4px;
 }
+
 
 .mianBanner_wrapper {
     overflow: visible;
@@ -320,7 +326,7 @@
     -moz-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
-    bottom: 32px;
+    bottom: -15px;
     width: auto;
     padding: 7px 12px;
     background-color: #fff;

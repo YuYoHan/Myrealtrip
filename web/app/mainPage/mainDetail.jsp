@@ -6,22 +6,15 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 
 <%
+    int a = Integer.parseInt(request.getParameter("placeId"));
     // 모든 상품 목록을 조회
-    List<MainDetailDTO> detailList = MainDAO.mainDetailList();
-    request.setAttribute("detailList", detailList);
+    MainDetailDTO detail = MainDAO.mainDetail(a);
+    request.setAttribute("detail", detail);
 
     // 상세 정보를 표시할 상품 ID를 URL 파라미터로 받음
     String idParam = request.getParameter("id");
-    MainDetailDTO detail = null;
-    if (idParam != null) {
-        int id = Integer.parseInt(idParam);
-        for (MainDetailDTO item : detailList) {
-            if (item.getMainDetailId() == id) {
-                detail = item;
-                break;
-            }
-        }
-    }
+
+
 %>
 
 <!DOCTYPE html>
@@ -42,12 +35,16 @@
     <section class="mainProduct">
         <div class="detail ${detail != null ? 'active product-detail' : ''}">
             <c:if test="${detail != null}">
-                <h1>${detail.mainDetailTitle}</h1>
-                <img src="${detail.contentImage}" alt="${detail.mainDetailTitle}">
+                <h1>${detail.mainDetailTitle}</h1><br>
                 <div class="product-info">
+                    <p> o ${detail.mainDetailPrice}</p>
+                    <p> o ${detail.mainDetailOption}</p>
+                </div>
+
+                <img src="${detail.contentImage}" alt="${detail.mainDetailTitle}">
+                <div class="guide-text">
                     <p>${detail.content}</p>
-                    <p>Price: ${detail.mainDetailPrice}</p>
-                    <p>Options: ${detail.mainDetailOption}</p>
+
                 </div>
                 <a href="${cp}/rePlace.jsp">목록으로 돌아가기</a>
             </c:if>
