@@ -89,6 +89,7 @@
     height: 45px;
     border-radius: 10px;
     border: solid 1px #adb5bd;
+    
 }
 
 .insured-Box {
@@ -124,4 +125,56 @@
     border: solid 1px #adb5bd;
     border-radius: 20px;
     padding: 10px 40px 40px 40px;
+}
+
+.ns-ComboResult {
+    font-size: 1.2em;
+}
+
+.summary-Wrapper {
+    margin: 30px 10px;
+}
+
+.summary-Wrapper > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.check-Info {
+    font-size: 0.8em;
+    margin: auto 0;
+}
+
+#info-Other {
+    color: #666d75;
+}
+
+.summary-Wrapper > button {
+    border: none;
+    width: 135px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.output-Wrqpper {
+    font-weight: bold;
+}
+
+#Amt-Wrapper {
+    font-weight: bold;
+    color: #1583db;
+}
+
+#logo-Wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+#kakao-Img{
+    margin: auto 0;
+}
+
+#toss-Img {
+    height: 35px;
+    margin: auto 0;
 }
