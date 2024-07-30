@@ -2,10 +2,7 @@ package dao.mainPage;
 
 
 import config.jdbc.JDBCConfig;
-import dto.mainPage.MainBannerDTO;
-import dto.mainPage.MainDetailDTO;
-import dto.mainPage.RePlaceDTO;
-import dto.mainPage.TravelCardDTO;
+import dto.mainPage.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -122,6 +119,34 @@ public class MainDAO {
 
         }
         return mainDetailDTO;
+    }
+
+    public static CardDetailDTO cardDetail(String cardTitle) {
+        String sql = "SELECT cardTitle, cardImage1, cardImage2, cardImage3, cardImage4 " +
+                "FROM cardDetail WHERE cardTitle = ?";
+        CardDetailDTO cardDetailDTO = new CardDetailDTO();
+        try {
+            connection = JDBCConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, cardTitle);
+            rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                cardDetailDTO.setCardTitle(rs.getString("cardTitle"));
+                cardDetailDTO.setCardImage1(rs.getString("cardImage1"));
+                cardDetailDTO.setCardImage2(rs.getString("cardImage2"));
+                cardDetailDTO.setCardImage3(rs.getString("cardImage3"));
+                cardDetailDTO.setCardImage4(rs.getString("cardImage4"));
+            }
+        } catch (Exception e) {
+            System.out.println("에러발생:" + e.getMessage());
+        } finally {
+            try {
+                JDBCConfig.close(rs, preparedStatement, connection);
+            } catch (Exception e) {
+                System.out.println("에러발생:" + e.getMessage());
+            }
+        }
+        return cardDetailDTO;
     }
 
 

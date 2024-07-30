@@ -37,10 +37,11 @@
 /* 상품 정보 스타일 */
 .product-info {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 3.6;
     color: #666;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
 }
 
 /* 상품 정보의 각 항목 스타일 */
